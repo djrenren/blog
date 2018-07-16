@@ -1,0 +1,25 @@
+@import "variables";
+
+@mixin shadow-text($bg) {
+    display: inline-block;
+    background-color: $bg;
+    color: transparent;
+    text-shadow: 0px 0px 3px rgba(255,255,255,0.3);
+    display: inline-block;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.shadow {
+    box-shadow: 0 0 .5em #AAA;
+}
+
+.round {
+    border-radius: 5px;
+    padding: $padding;
+}
+
+.center-col {
+    max-width: 800px;
+    margin: 0 auto;
+}

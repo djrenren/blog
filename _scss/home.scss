@@ -1,0 +1,64 @@
+@import "components.scss";
+@import "header.scss";
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Source Serif Pro", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-size: 18px;
+    position: relative;
+    background: #FCFCFC;
+    line-height: 1.5;
+}
+
+
+code {
+    font-family: "Source Code Pro", monospace;
+}
+
+input {
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .25rem;
+    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.hero-image {
+    width: 100%;
+    height: 30vh;
+    min-height: 200px;
+    max-height: 250px;
+    background: red;
+}
+
+.head-text {
+    @include shadow-text($title-color);
+}
+
+.entry {
+    display: block;
+    padding: $wide-padding;
+    font-feature-settings: "liga";
+    height: 300px;
+    text-decoration: none;
+    color: inherit;
+    .title {
+        border-bottom: .1rem solid transparent;
+    }
+    .title:hover {
+        border-bottom-color: $title-color;
+    }
+
+}
+
+.centered {
+    position: relative;
+    margin: 0 auto;
+}
