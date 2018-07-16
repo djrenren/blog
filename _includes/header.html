@@ -1,22 +1,22 @@
-<div class="center-col header">
+<div class="center-col padded header">
+    <input type="text" class="disabled" id="search-input" placeholder="Search..."/>
     <a class="logo">
         <div class="logo-text head-text">SFNP</div><div class="logo-subtext head-text">
             <span>storming, forming, norming, performing</span></div>
     </a>
-    <div class="search">
-        {% octicon search class:"icon" aria-label:hi %}
-        <input type="text" id="search-input" placeholder="Search..."/>
-        <div id="results-container"></div>
+    <div id="results-container">
+        <div id="results"></div>
     </div>
-</div>
-
+    {% octicon search height:32 class:"search-icon" %}
 <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
 </script>
 <script>
     var sjs = SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results-container'),
+        resultsContainer: document.getElementById('results'),
         json: '/search.json'
     });
-    console.log(sjs);
+    document.getElementById('search-input').classList.remove('disabled');
+
 </script>
+</div>

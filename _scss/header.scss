@@ -1,26 +1,35 @@
 @import "variables";
 $header-height: 60px;
+$search-width: 2rem;
 
 .header {
     width: 100%;
-    padding: 0 1rem;
     margin-top: 1rem;
     margin-bottom: 0;
+    padding: 0 1rem;
     height: $header-height;
-    & > * {
-        line-height: $header-height;
+    white-space: nowrap;
+    position: relative;
+    box-sizing: border-box;
+    background: inherit;
+    opacity: .5;
+    transition: opacity .25s;
+    &:hover, &:focus-within {
+        opacity: 1;
     }
 }
 
 .logo {
     display: inline-block;
-    color: black;
-    line-height: default;
+    white-space: nowrap;
+    color: $black;
+    line-height: $header-height;
+    opacity: 1;
+    height: 100%;
     .logo-text {
     vertical-align: top;
         display: inline-block;
-        border-right: 2px solid #ff82f6;
-        height: 100%;
+        border-right: 2px solid $accent;
         line-height: $header-height;
         font-size: 1.5rem;
         padding-right: .75rem;
@@ -28,63 +37,100 @@ $header-height: 60px;
     .logo-subtext {
         line-height: $header-height;
         padding-left: .75rem;
-        height: 100%;
         white-space: nowrap;
         display: inline-block;
-        max-width: 0;
+        max-width: 100%;
         overflow: hidden;
-        transition: max-width .7s;
+        transition: max-width .25s;
     }
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    padding: 0 .5rem;
     font-weight: 900;
     height: 100%;
     transform: none;
     &:hover {
         .logo-subtext {
-            max-width: 100%;
         }
     }
 }
 
-.search {
-    height: 100%;
+#search-input {
+    font-size: 1.25rem;
+    z-index: -1;
+    white-space: nowrap;
     float: right;
+    height: $header-height;
+    width: $search-width;
+    padding: 0 1rem;
+    transition: width .25s;
+    border: 1px solid transparent;
     position: relative;
-    .icon {
-        fill: gray;
-        * {
-            line-height: $header-height;
-        }
-        position: absolute;
-        top: .1rem;
-        right: .5rem;
-        z-index: -1;
-        height: 100%;
-        width: 1.25rem;
+    z-index: 1;
+    opacity: 0;
+    cursor: pointer;
+    &:focus {
+        cursor: auto;
+        border: 2px solid $accent;
+        width: 100%;
+        opacity: 1;
     }
-    #results-container {
-        border: 1px solid black;
-        display: none;
-        background: white;
+}
+
+#results-container {
+    opacity: 0;
+    width: $search-width;
+    position: absolute;
+    right: 0;
+    top: $header-height;
+    padding-left: inherit;
+    padding-right: inherit;
+    transition: width .25s;
+    #search-input:focus ~ & {
+        opacity: 1;
+        height: auto;
+        display: block;
+        width: 100%;
+        overflow: auto;
     }
 
-    #search-input {
-        background: transparent;
-        width: 1rem;
-        font-size: inherit;
-        transition: all .25s;
-        border: 0;
-        &:focus {
-            background: white;
-            border: 1px solid gray;
-            opacity: 1;
-            width: 30rem;
-            max-width: 100%;
-            & + #results-container {
-                display: block;
+    background: inherit;
+
+}
+
+#results {
+    margin-top: 1rem;
+    border: 1px solid $black;
+    width: 100%;
+    li {
+        list-style: none;
+        a {
+            display: block;
+            font-family: $sans-serif;
+            font-weight: bold;
+            padding: 1rem;
+            color: inherit;
+            text-decoration: none;
+            &:hover{
+                background-color: darken($page-bg, 10%);
             }
         }
-        padding: .25rem 1.75rem .25rem .5rem;
+        border-bottom: 1px solid lighten($title-color, 10%);
+        &:last-of-type {
+            border-bottom: none;
+        }
+    }
+}
+
+.octicon.search-icon {
+    position: absolute;
+    right: .2rem;
+    width: $search-width + 1rem;
+    padding-right: inherit;
+    height: 100% !important;
+}
+
+#search-input.disabled {
+    display: none;
+    & ~ .search-icon {
+        display: none;
     }
 }

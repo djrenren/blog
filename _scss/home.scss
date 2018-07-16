@@ -9,25 +9,49 @@ html, body {
     padding: 0;
     width: 100%;
     height: 100%;
-    font-family: "Source Serif Pro", "Palatino Linotype", "Book Antiqua", Palatino, serif;
+    font-family: $sans-serif;
     font-size: 18px;
     position: relative;
-    background: #FCFCFC;
-    line-height: 1.5;
+    background: $page-bg;
+    line-height: 2;
+    color: $black;
+}
+div.highlight {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 0 1em;
 }
 
+.octicon {
+    height: 1em;
+    position: relative;
+    top: .1em;
+}
 
+p {
+    font-family: $serif;
+}
 code {
     font-family: "Source Code Pro", monospace;
+    :not(pre) > & {
+        background: darken($page-bg, 5%);
+        color: black;
+        padding: .2em .2em;
+        border-radius: .2em;
+    }
 }
 
 input {
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: $sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-    margin-bottom: .25rem;
+    margin-bottom: 0;
     font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+p {
+    margin-top: .25em;
 }
 
 .hero-image {
@@ -39,26 +63,53 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .head-text {
+    color: $title-color;
+    text-decoration: none;
+}
+
+.shadow-text {
     @include shadow-text($title-color);
+
+}
+
+a {
+    color: darken(desaturate($accent, 10%), 20%);
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
 }
 
 .entry {
     display: block;
-    padding: $wide-padding;
     font-feature-settings: "liga";
-    height: 300px;
     text-decoration: none;
     color: inherit;
+    margin-top: 3em;
     .title {
         border-bottom: .1rem solid transparent;
+        a {
+            color: inherit;
+        }
     }
-    .title:hover {
-        border-bottom-color: $title-color;
+    p {
+        margin-bottom: .2rem;
     }
-
 }
 
 .centered {
     position: relative;
     margin: 0 auto;
+}
+
+.padded {
+    padding: $wide-padding;
+}
+
+.extras {
+    font-size: .7rem;
+    color: lighten($black, 60%);
+    .octicon {
+        fill: lighten($black, 60%);
+    }
 }
