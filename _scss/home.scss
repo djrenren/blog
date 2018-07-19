@@ -48,9 +48,6 @@ div.highlight, code.highlighter-rouge {
 
 p {
     font-family: $serif;
-    & + p {
-        margin-bottom: 3rem;
-    }
 }
 code {
     font-family: "Source Code Pro", monospace;
