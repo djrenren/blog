@@ -1,10 +1,10 @@
 @import "variables";
-$header-height: 60px;
+$header-height: 45px;
 $search-width: 2rem;
 
 .header {
     width: 100%;
-    margin-top: 1rem;
+    margin-top: .5rem;
     margin-bottom: 0;
     padding: 0 1rem;
     height: $header-height;
@@ -25,21 +25,18 @@ $search-width: 2rem;
     color: $black;
     line-height: $header-height;
     opacity: 1;
-    height: 100%;
     .logo-text {
     vertical-align: top;
         display: inline-block;
         border-right: 2px solid $accent;
-        line-height: $header-height;
         font-size: 1.5rem;
         padding-right: .75rem;
     }
     .logo-subtext {
-        line-height: $header-height;
         padding-left: .75rem;
         white-space: nowrap;
         display: inline-block;
-        max-width: 100%;
+        max-width: 0;
         overflow: hidden;
         transition: max-width .25s;
     }
@@ -49,12 +46,13 @@ $search-width: 2rem;
     transform: none;
     &:hover {
         .logo-subtext {
+            max-width: 100%;
         }
     }
 }
 
 #search-input {
-    font-size: 1.25rem;
+    font-size: 1rem;
     z-index: -1;
     white-space: nowrap;
     float: right;
@@ -97,9 +95,12 @@ $search-width: 2rem;
 }
 
 #results {
-    margin-top: 1rem;
+    border-top: none;
     border: 1px solid $black;
     width: 100%;
+    &:empty {
+        border-color: transparent;
+    }
     li {
         list-style: none;
         a {
@@ -126,6 +127,7 @@ $search-width: 2rem;
     width: $search-width + 1rem;
     padding-right: inherit;
     height: 100% !important;
+    padding-left: .5rem;
 }
 
 #search-input.disabled {
