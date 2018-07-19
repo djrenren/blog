@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700|Source+Serif+Pro:400,700" rel="stylesheet"> 
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
@@ -149,7 +149,7 @@ For example, a test can be annotated with <code class="highlighter-rouge">#[shou
 </code></pre></div></div>
 
 <p>This means our tests are more than just simple functions, they have configuration information as well. <code class="highlighter-rouge">test</code> encodes this configuration
-data into a struct called <code class="highlighter-rouge">TestDesc</code><a href="https://doc.rust-lang.org/test/struct.TestDesc.html">TestDesc</a>. For each test function in a crate, <code class="highlighter-rouge">libsyntax</code> will parse its attributes and generate a <code class="highlighter-rouge">TestDesc</code> instance.
+data into a struct called <a href="https://doc.rust-lang.org/test/struct.TestDesc.html"><code class="highlighter-rouge">TestDesc</code></a>. For each test function in a crate, <code class="highlighter-rouge">libsyntax</code> will parse its attributes and generate a <code class="highlighter-rouge">TestDesc</code> instance.
 It then combines the <code class="highlighter-rouge">TestDesc</code> and test function into the predictably named <code class="highlighter-rouge">TestDescAndFn</code> struct, that <code class="highlighter-rouge">test_static_main</code> operates on.
 For a given test, the generated <code class="highlighter-rouge">TestDescAndFn</code> instance looks like so:</p>
 
