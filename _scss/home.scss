@@ -64,6 +64,7 @@ code {
 }
 
 div.main {
+    padding-top: 1rem;
     padding-bottom: 5rem;
 }
 
@@ -112,9 +113,6 @@ a, a > code {
     &:not(:first-child) {
         margin-top: 3em;
     }
-    &:first-child {
-        margin-top: 1em;
-    }
     .title {
         border-bottom: .1rem solid transparent;
         a {
@@ -122,7 +120,6 @@ a, a > code {
         }
     }
     p {
-        margin-top: 0rem;
         margin-bottom: .2rem;
     }
 }
