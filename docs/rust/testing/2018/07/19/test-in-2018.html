@@ -48,7 +48,7 @@ All you have to do is mark a function as a test and include some asserts like so
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
 <span class="k">fn</span> <span class="nf">my_test</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -58,12 +58,12 @@ method of testing allows tests to live alongside code in an organic way. You
 can even put tests inside private modules:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">my_priv_mod</span> <span class="p">{</span>
-    <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
+  <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
 
-    <span class="nd">#[test]</span>
-    <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
-    <span class="p">}</span>
+  <span class="nd">#[test]</span>
+  <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 <p>Private items can thus be easily tested without worrying about how to expose
@@ -84,15 +84,15 @@ exposing them to the main function, without breaking any existing code. To that 
 This expansion translates the above example into:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">my_priv_mod</span> <span class="p">{</span>
-    <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
+  <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
 
-    <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
-    <span class="p">}</span>
+  <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
+  <span class="p">}</span>
 
-    <span class="k">pub</span> <span class="k">mod</span> <span class="n">__test_reexports</span> <span class="p">{</span>
-        <span class="k">pub</span> <span class="k">use</span> <span class="nn">super</span><span class="p">::</span><span class="n">test_priv_func</span><span class="p">;</span>
-    <span class="p">}</span>
+  <span class="k">pub</span> <span class="k">mod</span> <span class="n">__test_reexports</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">use</span> <span class="nn">super</span><span class="p">::</span><span class="n">test_priv_func</span><span class="p">;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -121,13 +121,13 @@ hygiene.</p>
 <code class="highlighter-rouge">libsyntax</code> generates a module like so:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">mod</span> <span class="n">__test</span> <span class="p">{</span>
-    <span class="k">extern</span> <span class="n">crate</span> <span class="n">test</span><span class="p">;</span>
-    <span class="k">const</span> <span class="n">TESTS</span><span class="p">:</span> <span class="o">&amp;</span><span class="nv">'static</span> <span class="p">[</span><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">[</span><span class="cm">/*...*/</span><span class="p">];</span>
+  <span class="k">extern</span> <span class="n">crate</span> <span class="n">test</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">TESTS</span><span class="p">:</span> <span class="o">&amp;</span><span class="nv">'static</span> <span class="p">[</span><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">[</span><span class="cm">/*...*/</span><span class="p">];</span>
 
-    <span class="nd">#[main]</span>
-    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">test_static_main</span><span class="p">(</span><span class="n">TESTS</span><span class="p">);</span>
-    <span class="p">}</span>
+  <span class="nd">#[main]</span>
+  <span class="k">pub</span> <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">test_static_main</span><span class="p">(</span><span class="n">TESTS</span><span class="p">);</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -144,7 +144,7 @@ For example, a test can be annotated with <code class="highlighter-rouge">#[shou
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
 <span class="nd">#[should_panic]</span>
 <span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nd">panic!</span><span class="p">(</span><span class="s">"intentional"</span><span class="p">);</span>
+  <span class="nd">panic!</span><span class="p">(</span><span class="s">"intentional"</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -154,14 +154,14 @@ It then combines the <code class="highlighter-rouge">TestDesc</code> and test fu
 For a given test, the generated <code class="highlighter-rouge">TestDescAndFn</code> instance looks like so:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">{</span>
-    <span class="n">desc</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDesc</span><span class="p">{</span>
-        <span class="n">name</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestName</span><span class="p">(</span><span class="s">"foo"</span><span class="p">),</span>
-        <span class="n">ignore</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
-        <span class="n">should_panic</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nn">ShouldPanic</span><span class="p">::</span><span class="n">Yes</span><span class="p">,</span>
-        <span class="n">allow_fail</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
-    <span class="p">},</span>
-    <span class="n">testfn</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestFn</span><span class="p">(||</span>
-        <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">assert_test_result</span><span class="p">(::</span><span class="nn">crate</span><span class="p">::</span><span class="nn">__test_reexports</span><span class="p">::</span><span class="nf">foo</span><span class="p">())),</span>
+  <span class="n">desc</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDesc</span><span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestName</span><span class="p">(</span><span class="s">"foo"</span><span class="p">),</span>
+    <span class="n">ignore</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+    <span class="n">should_panic</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nn">ShouldPanic</span><span class="p">::</span><span class="n">Yes</span><span class="p">,</span>
+    <span class="n">allow_fail</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="n">testfn</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestFn</span><span class="p">(||</span>
+    <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">assert_test_result</span><span class="p">(::</span><span class="nn">crate</span><span class="p">::</span><span class="nn">__test_reexports</span><span class="p">::</span><span class="nf">foo</span><span class="p">())),</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
