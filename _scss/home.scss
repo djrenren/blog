@@ -105,6 +105,10 @@ a, a > code {
     }
 }
 
+p:first-of-type {
+    margin-top: .5rem;
+}
+
 .entry {
     display: block;
     font-feature-settings: "liga";
