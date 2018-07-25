@@ -5,8 +5,10 @@ title: "SFNP: a blog"
 
 {% for post in site.posts %}
 <div class="entry" href="#">
-    <h1 class="title head-text"><a href="{{post.url}}">{{ post.title }}</a></h1>
-    {{ post.excerpt }}
+    <h1 class="title head-text"><a class="title-link" href="{{post.url}}">{{ post.title }}</a></h1>
+    <div class="excerpt">
+     {{ post.excerpt }}
+    </div>
     <div class="extras">
         {% octicon calendar %}
         {{ post.date | date_to_long_string }}

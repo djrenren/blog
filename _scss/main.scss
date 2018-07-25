@@ -1,0 +1,116 @@
+@import "components.scss";
+@import "header.scss";
+@import "syntax_theme.scss";
+
+* {
+    box-sizing: border-box;
+}
+
+textarea, select, input, button { outline: none; }
+
+html {
+    font-size: 18px;
+    font-family: $font-family-base;
+    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+}
+
+p {
+    font-family: $font-family-body;
+    line-height: 1.5;
+}
+
+a {
+    color: $accent;
+    text-decoration: none;
+    & * {
+        color: $accent !important;
+    }
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+code, pre {
+    font-family: $font-family-monospace !important;
+}
+
+p code, pre {
+    font-size: .9rem;
+}
+
+p > code {
+    background: #fafafa;
+    border: 1px solid $gray;
+    border-radius: $round;
+    margin: 0 .1rem;
+    padding: 0 .3rem .1rem .3rem;
+}
+p {
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+}
+
+pre {
+    line-height: 1.5;
+}
+
+:not(pre) > code {
+    // color: $accent;
+}
+
+div.highlight {
+    padding: .75rem 0;
+    border-radius: $round;
+    & > pre {
+        display: inline-block;
+        margin: 0 1rem;
+        margin-right: 1rem;
+    }
+    border: 1px solid $gray;
+    overflow-x: scroll;
+}
+
+
+
+a.title-link {
+    color: $title-color;
+    text-decoration: none;
+    transition: color .25s;
+    &:hover {
+        color: $accent;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: .25em;
+    font-weight: 700;
+}
+
+h1 {
+    margin-bottom: .75em;
+    font-weight: 800;
+}
+
+.extras {
+    margin: 0;
+    padding: 0;
+    color: $dark-gray;
+    fill: $dark-gray;
+    font-size: .75rem;
+    .octicon {
+        height: .6rem;
+        position: relative;
+        top: .07rem;
+        display: inline;
+    }
+}
+
+.excerpt *:last-child {
+    margin-bottom: 0;
+}
+.excerpt {
+    margin-bottom: .5rem;
+}

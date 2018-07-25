@@ -5,14 +5,13 @@ $search-width: 2rem;
 .header {
     width: 100%;
     margin-top: .5rem;
-    margin-bottom: 0;
-    padding: 0 1rem;
+    margin-bottom: 2rem;
     height: $header-height;
     white-space: nowrap;
     position: relative;
     box-sizing: border-box;
-    background: inherit;
-    opacity: .5;
+    background: $page-bg;
+    opacity: 1;
     transition: opacity .25s;
     &:hover, &:focus-within {
         opacity: 1;
@@ -20,31 +19,19 @@ $search-width: 2rem;
 }
 
 .logo {
+    color: $dark-gray;
+    text-decoration: none;
+    font-size: 1.5rem;
     display: inline-block;
     white-space: nowrap;
-    color: $black;
     line-height: $header-height;
     opacity: 1;
-    .logo-text {
-    vertical-align: top;
-        display: inline-block;
-        border-right: 2px solid $accent;
-        font-size: 1.5rem;
-        padding-right: .75rem;
-    }
-    .logo-subtext {
-        padding-left: .75rem;
-        white-space: nowrap;
-        display: inline-block;
-        max-width: 0;
-        overflow: hidden;
-        transition: max-width .25s;
-    }
-    font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 900;
     height: 100%;
-    transform: none;
+    transition: color .25s;
     &:hover {
+        color: $accent;
+        text-decoration: none;
         .logo-subtext {
             max-width: 100%;
         }
@@ -105,7 +92,6 @@ $search-width: 2rem;
         list-style: none;
         a {
             display: block;
-            font-family: $sans-serif;
             font-weight: bold;
             padding: 1rem;
             color: inherit;
@@ -123,11 +109,15 @@ $search-width: 2rem;
 
 .octicon.search-icon {
     position: absolute;
-    right: .2rem;
-    width: $search-width + 1rem;
-    padding-right: inherit;
+    right: 2.5rem;
+    width: $search-width + 1.5rem;
     height: 100% !important;
-    padding-left: .5rem;
+    padding-left: inherit;
+    fill: $dark-gray;
+    transition: fill .25s;
+    #search-input:hover ~ & {
+        fill: $accent;
+    }
 }
 
 #search-input.disabled {

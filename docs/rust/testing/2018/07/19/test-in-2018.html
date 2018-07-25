@@ -5,18 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700|Source+Serif+Pro:400,700" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Proxima+Nova:400,700" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="/assets/css/syntax-default.css" />
     <title>#[test] in 2018</title>
     
 </head>
 <body>
-    <div class="center-col padded header">
+    <div class="padded header">
     <input type="text" class="disabled" id="search-input" placeholder="Search..."/>
     <a class="logo" href="/">
-        <div class="logo-text shadow-text">SFNP</div><div class="logo-subtext shadow-text">
-            <span>storming, forming, norming, performing</span></div>
+        djrenren
     </a>
     <div id="results-container">
         <div id="results"></div>
@@ -37,7 +36,9 @@
 
 
     <div class="center-col padded main">
-    <h1>#[test] in 2018</h1>
+    <h1><a class="title-link" href="/rust/testing/2018/07/19/test-in-2018.html">
+    #[test] in 2018
+</h1></a>
 <p>Lately, I’ve been working implementing the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a> for Rust.
 While exploring the compiler codebase, I’ve learned about the internals of testing in Rust
 and figured it would be interesting to share.</p>
@@ -96,11 +97,21 @@ This expansion translates the above example into:</p>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>Now, our test can be accessed as
-<code class="highlighter-rouge">my_priv_mod::__test_reexports::test_priv_func</code>. For deeper module
+<p>Now, our test can be accessed as:</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">my_priv_mod::__test_reexports::test_priv_func</code></p>
+</blockquote>
+
+<p>For deeper module
 structures, <code class="highlighter-rouge">__test_reexports</code> will reexport modules that contain tests, so a
-test at <code class="highlighter-rouge">a::b::my_test</code> becomes
-<code class="highlighter-rouge">a::__test_reexports::b::__test_reexports::my_test</code>. While this process seems
+test at <code class="highlighter-rouge">a::b::my_test</code> becomes:</p>
+
+<blockquote>
+  <p><code class="highlighter-rouge">a::__test_reexports::b::__test_reexports::my_test</code></p>
+</blockquote>
+
+<p>While this process seems
 pretty safe, what happens if there is an existing <code class="highlighter-rouge">__test_reexports</code> module?
 The answer: nothing.</p>
 
