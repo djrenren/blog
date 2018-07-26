@@ -109,8 +109,8 @@ $search-width: 2rem;
 
 .octicon.search-icon {
     position: absolute;
-    right: 2.5rem;
-    width: $search-width + 1.5rem;
+    right: 1.5rem;
+    width: $search-width + .5rem;
     height: 100% !important;
     padding-left: inherit;
     fill: $dark-gray;
