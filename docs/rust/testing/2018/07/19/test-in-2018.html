@@ -27,7 +27,8 @@
     var sjs = SimpleJekyllSearch({
         searchInput: document.getElementById('search-input'),
         resultsContainer: document.getElementById('results'),
-        json: '/search.json'
+        json: '/search.json',
+        noResultsText: '<li><a>No Results Found</a></li>'
     });
     document.getElementById('search-input').classList.remove('disabled');
 
