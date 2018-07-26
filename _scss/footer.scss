@@ -1,7 +1,8 @@
-$footer-height: 3rem;
+$footer-height: 2rem;
 $footer-padding: 1rem;
 body {
     padding-bottom: $footer-height + ($footer-padding * 2);
+    -webkit-text-size-adjust: 100%;
 }
 
 .footer {
@@ -15,26 +16,22 @@ body {
 
 .licensing {
     display: inline-block;
-    text-align: left;
-    height: 1.25rem;
-    line-height: 1.25rem;
-    fill: $gray;
+    text-align: center;
+    fill: lighten($gray, 5%);
     color: $gray;
+    line-height: 1rem;
     transition: .25s;
-    &:hover {
+    &:hover, &:active {
         color: $accent;
         text-decoration: none;
         fill: $accent;
     }
     svg {
         float: left;
-        width: 1.25rem;
-        height: 1.25rem;
+        width: 1rem;
+        height: 1rem;
         display: inline-block;
-        margin-right: .5rem;
-        &:first-child {
-            margin-right: .25rem;
-        }
+        margin-right: .25rem;
     }
 }
 
