@@ -1,5 +1,6 @@
 @import "components.scss";
 @import "header.scss";
+@import "footer.scss";
 @import "syntax_theme.scss";
 
 * {
@@ -13,6 +14,15 @@ html {
     font-family: $font-family-base;
     -webkit-font-smoothing: antialiased;
     -webkit-font-smoothing: subpixel-antialiased;
+    height: 100%;
+}
+
+body {
+    padding-top: .5rem;
+    margin: 0;
+    position: relative;
+    height: auto;
+    min-height: 100%;
 }
 
 p {

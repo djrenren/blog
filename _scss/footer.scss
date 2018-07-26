@@ -1,0 +1,43 @@
+$footer-height: 3rem;
+$footer-padding: 1rem;
+body {
+    padding-bottom: $footer-height + ($footer-padding * 2);
+}
+
+.footer {
+    height: $footer-height;
+    position: absolute;
+    bottom: $footer-padding;
+    width: 100%;
+    color: $dark-gray;
+    text-align: center;
+}
+
+.licensing {
+    display: inline-block;
+    text-align: left;
+    height: 1.25rem;
+    line-height: 1.25rem;
+    fill: $gray;
+    color: $gray;
+    transition: .25s;
+    &:hover {
+        color: $accent;
+        text-decoration: none;
+        fill: $accent;
+    }
+    svg {
+        float: left;
+        width: 1.25rem;
+        height: 1.25rem;
+        display: inline-block;
+        margin-right: .5rem;
+        &:first-child {
+            margin-right: .25rem;
+        }
+    }
+}
+
+.footer-contents {
+    padding-top: $footer-padding;
+}
