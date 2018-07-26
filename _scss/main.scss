@@ -100,10 +100,13 @@ h1 {
     color: $dark-gray;
     fill: $dark-gray;
     font-size: .75rem;
+    .octicon:not(:first-child) {
+        margin-left: .5rem;
+    }
     .octicon {
+        display: inline-block;
         height: .6rem;
-        position: relative;
-        top: .07rem;
+        line-height: .6rem;
         display: inline;
     }
 }

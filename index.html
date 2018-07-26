@@ -11,9 +11,9 @@ title: "SFNP: a blog"
     </div>
     <div class="extras">
         {% octicon calendar %}
-        {{ post.date | date_to_long_string }}
+        <span>{{ post.date | date_to_long_string }}</span>
         {% octicon clock %}
-        {{ post.content | reading_time_as_i }}
+        <span>{{ post.content | reading_time_as_i }}</span>
     </div>
 </div>
 {% endfor %}
