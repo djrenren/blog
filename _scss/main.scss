@@ -104,14 +104,16 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
     margin-top: 1.5em;
 }
-hr {
-    opacity: .3;
-}
-
 h1 {
     margin-bottom: .75em;
     font-weight: 800;
 }
+
+
+hr {
+    opacity: .3;
+}
+
 
 .extras {
     margin: 0;
@@ -141,6 +143,7 @@ li {
 .excerpt *:last-child {
     margin-bottom: 0;
 }
+
 .excerpt {
     margin-bottom: .5rem;
 }

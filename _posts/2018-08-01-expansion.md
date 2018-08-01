@@ -15,8 +15,8 @@ When `rustc` encounters a `#[test]` attribute it will do one of two things:
  - In `debug` or `release` mode, the annotated item is removed
  - In `test` mode, the item is made public so it can be called by the test runner
 
-This is typically safe because the `#[test]` functions cannot be directly referenced
-in regular code because it won't compile in any mode where the function is removed.
+This is typically safe because direct references to `#[test]`
+will cause errors in any mode where the function is removed.
 
 Enter glob imports. Statements like `use my_mod::*` allow us to import an
 entire namespace into another without naming the specific items. We now have
@@ -40,7 +40,7 @@ fn caller() {
 }
 ```
 
-When compiled normally, `use B::*` does nothing and the assert inside caller will
+When compiled normally, `use B::*` does nothing and the assert inside `caller` will
 always pass. When compiled for test, however, `B::foo` will be marked as public,
 which will cause `use B::*` to [shadow][shadow] the `foo` we got from `A::foo`.
 Our assert now fails saying that 6 does not equal 0. This means `caller` behaves
@@ -65,7 +65,7 @@ to call another. While I think this is a terrible thing to allow, we do and
 so must continue to allow it. We then need to add the old name back into the
 namespace. Just add a `use [gensymed] as foo` to add foo back to our namespace.
 
-### The Nitty Gritty
+**The Nitty Gritty:**
 While the theory behind this fix is sound, simply implementing it didn't work
 the way I'd expected. I first attempted to implement the change inside
 [`libsyntax`][libsyntax]'s `TestHarnessGenerator`, but this resulted in

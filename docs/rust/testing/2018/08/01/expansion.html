@@ -41,8 +41,8 @@ Rust</a>. What follows is a chronicle of that journey.</p>
   <li>In <code class="highlighter-rouge">test</code> mode, the item is made public so it can be called by the test runner</li>
 </ul>
 
-<p>This is typically safe because the <code class="highlighter-rouge">#[test]</code> functions cannot be directly referenced
-in regular code because it won’t compile in any mode where the function is removed.</p>
+<p>This is typically safe because direct references to <code class="highlighter-rouge">#[test]</code>
+will cause errors in any mode where the function is removed.</p>
 
 <p>Enter glob imports. Statements like <code class="highlighter-rouge">use my_mod::*</code> allow us to import an
 entire namespace into another without naming the specific items. We now have
@@ -65,7 +65,7 @@ the requisite pieces to construct the bug:</p>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>When compiled normally, <code class="highlighter-rouge">use B::*</code> does nothing and the assert inside caller will
+<p>When compiled normally, <code class="highlighter-rouge">use B::*</code> does nothing and the assert inside <code class="highlighter-rouge">caller</code> will
 always pass. When compiled for test, however, <code class="highlighter-rouge">B::foo</code> will be marked as public,
 which will cause <code class="highlighter-rouge">use B::*</code> to <a href="https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html">shadow</a> the <code class="highlighter-rouge">foo</code> we got from <code class="highlighter-rouge">A::foo</code>.
 Our assert now fails saying that 6 does not equal 0. This means <code class="highlighter-rouge">caller</code> behaves
@@ -90,8 +90,8 @@ to call another. While I think this is a terrible thing to allow, we do and
 so must continue to allow it. We then need to add the old name back into the
 namespace. Just add a <code class="highlighter-rouge">use [gensymed] as foo</code> to add foo back to our namespace.</p>
 
-<h3 id="the-nitty-gritty">The Nitty Gritty</h3>
-<p>While the theory behind this fix is sound, simply implementing it didn’t work
+<p><strong>The Nitty Gritty:</strong>
+While the theory behind this fix is sound, simply implementing it didn’t work
 the way I’d expected. I first attempted to implement the change inside
 <a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="highlighter-rouge">libsyntax</code></a>’s <code class="highlighter-rouge">TestHarnessGenerator</code>, but this resulted in
 strange errors about not being able to find imports despite the AST and HIR

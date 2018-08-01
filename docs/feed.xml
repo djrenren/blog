@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-01T15:35:25-07:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T04:00:00-07:00</published><updated>2018-08-01T04:00:00-07:00</updated><id>/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="/rust/testing/2018/08/01/expansion.html">&lt;p&gt;I recently set out to fix &lt;a href=&quot;https://github.com/rust-lang/rust/issues/52557&quot;&gt;a bug&lt;/a&gt; in &lt;a href=&quot;/rust/testing/2018/07/19/test-in-2018.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; expansion in
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-01T16:10:47-07:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T04:00:00-07:00</published><updated>2018-08-01T04:00:00-07:00</updated><id>/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="/rust/testing/2018/08/01/expansion.html">&lt;p&gt;I recently set out to fix &lt;a href=&quot;https://github.com/rust-lang/rust/issues/52557&quot;&gt;a bug&lt;/a&gt; in &lt;a href=&quot;/rust/testing/2018/07/19/test-in-2018.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; expansion in
 Rust&lt;/a&gt;. What follows is a chronicle of that journey.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-bug&quot;&gt;The Bug&lt;/h2&gt;
@@ -10,8 +10,8 @@ Rust&lt;/a&gt;. What follows is a chronicle of that journey.&lt;/p&gt;
   &lt;li&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; mode, the item is made public so it can be called by the test runner&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;This is typically safe because the &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; functions cannot be directly referenced
-in regular code because it won’t compile in any mode where the function is removed.&lt;/p&gt;
+&lt;p&gt;This is typically safe because direct references to &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt;
+will cause errors in any mode where the function is removed.&lt;/p&gt;
 
 &lt;p&gt;Enter glob imports. Statements like &lt;code class=&quot;highlighter-rouge&quot;&gt;use my_mod::*&lt;/code&gt; allow us to import an
 entire namespace into another without naming the specific items. We now have
@@ -34,7 +34,7 @@ the requisite pieces to construct the bug:&lt;/p&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-&lt;p&gt;When compiled normally, &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; does nothing and the assert inside caller will
+&lt;p&gt;When compiled normally, &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; does nothing and the assert inside &lt;code class=&quot;highlighter-rouge&quot;&gt;caller&lt;/code&gt; will
 always pass. When compiled for test, however, &lt;code class=&quot;highlighter-rouge&quot;&gt;B::foo&lt;/code&gt; will be marked as public,
 which will cause &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; to &lt;a href=&quot;https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html&quot;&gt;shadow&lt;/a&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;foo&lt;/code&gt; we got from &lt;code class=&quot;highlighter-rouge&quot;&gt;A::foo&lt;/code&gt;.
 Our assert now fails saying that 6 does not equal 0. This means &lt;code class=&quot;highlighter-rouge&quot;&gt;caller&lt;/code&gt; behaves
@@ -59,8 +59,8 @@ to call another. While I think this is a terrible thing to allow, we do and
 so must continue to allow it. We then need to add the old name back into the
 namespace. Just add a &lt;code class=&quot;highlighter-rouge&quot;&gt;use [gensymed] as foo&lt;/code&gt; to add foo back to our namespace.&lt;/p&gt;
 
-&lt;h3 id=&quot;the-nitty-gritty&quot;&gt;The Nitty Gritty&lt;/h3&gt;
-&lt;p&gt;While the theory behind this fix is sound, simply implementing it didn’t work
+&lt;p&gt;&lt;strong&gt;The Nitty Gritty:&lt;/strong&gt;
+While the theory behind this fix is sound, simply implementing it didn’t work
 the way I’d expected. I first attempted to implement the change inside
 &lt;a href=&quot;https://github.com/rust-lang/rust/tree/master/src/libsyntax&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt;&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;TestHarnessGenerator&lt;/code&gt;, but this resulted in
 strange errors about not being able to find imports despite the AST and HIR
