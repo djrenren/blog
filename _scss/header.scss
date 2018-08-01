@@ -106,16 +106,18 @@ $search-width: 2rem;
     }
 }
 
-.octicon.search-icon {
+.search-icon {
+    line-height: $header-height;
     position: absolute;
+    font-size: 1.5em;
     right: 1.5rem;
     width: $search-width + .5rem;
     height: 100% !important;
     padding-left: inherit;
-    fill: $dark-gray;
-    transition: fill .25s;
+    color: $dark-gray;
+    transition: color .25s;
     #search-input:hover ~ & {
-        fill: $accent;
+        color: $accent;
     }
 }
 

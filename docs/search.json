@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "Baby Steps: Fixing Test Scoping",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/rust/testing/2018/08/01/expansion.html",
+      "date"     : "2018-08-01 04:00:00 -0700"
+    } ,
+  
+    {
       "title"    : "#[test] in 2018",
       "category" : "",
       "tags"     : "",

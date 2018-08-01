@@ -1,4 +1,92 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-07-27T09:06:40-07:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">#[test] in 2018</title><link href="/rust/testing/2018/07/19/test-in-2018.html" rel="alternate" type="text/html" title="#[test] in 2018" /><published>2018-07-19T16:11:01-07:00</published><updated>2018-07-19T16:11:01-07:00</updated><id>/rust/testing/2018/07/19/test-in-2018</id><content type="html" xml:base="/rust/testing/2018/07/19/test-in-2018.html">&lt;p&gt;Lately, I’ve been working implementing the &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt; for Rust.
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" /><updated>2018-08-01T15:35:25-07:00</updated><id>/</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T04:00:00-07:00</published><updated>2018-08-01T04:00:00-07:00</updated><id>/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="/rust/testing/2018/08/01/expansion.html">&lt;p&gt;I recently set out to fix &lt;a href=&quot;https://github.com/rust-lang/rust/issues/52557&quot;&gt;a bug&lt;/a&gt; in &lt;a href=&quot;/rust/testing/2018/07/19/test-in-2018.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; expansion in
+Rust&lt;/a&gt;. What follows is a chronicle of that journey.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-bug&quot;&gt;The Bug&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;When &lt;code class=&quot;highlighter-rouge&quot;&gt;rustc&lt;/code&gt; encounters a &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; attribute it will do one of two things:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;debug&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;release&lt;/code&gt; mode, the annotated item is removed&lt;/li&gt;
+  &lt;li&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; mode, the item is made public so it can be called by the test runner&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This is typically safe because the &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; functions cannot be directly referenced
+in regular code because it won’t compile in any mode where the function is removed.&lt;/p&gt;
+
+&lt;p&gt;Enter glob imports. Statements like &lt;code class=&quot;highlighter-rouge&quot;&gt;use my_mod::*&lt;/code&gt; allow us to import an
+entire namespace into another without naming the specific items. We now have
+the requisite pieces to construct the bug:&lt;/p&gt;
+
+&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i32&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i32&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;caller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nd&quot;&gt;assert_eq!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When compiled normally, &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; does nothing and the assert inside caller will
+always pass. When compiled for test, however, &lt;code class=&quot;highlighter-rouge&quot;&gt;B::foo&lt;/code&gt; will be marked as public,
+which will cause &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; to &lt;a href=&quot;https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html&quot;&gt;shadow&lt;/a&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;foo&lt;/code&gt; we got from &lt;code class=&quot;highlighter-rouge&quot;&gt;A::foo&lt;/code&gt;.
+Our assert now fails saying that 6 does not equal 0. This means &lt;code class=&quot;highlighter-rouge&quot;&gt;caller&lt;/code&gt; behaves
+differently in test builds which is undesirable. Worse still, it happens due to
+an implementation detail in the compiler that authors should never worry about.&lt;/p&gt;
+
+&lt;h2 id=&quot;the-fix&quot;&gt;The Fix&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;The Constraint:&lt;/strong&gt;
+Test functions must be made public but they must also not pollute other namespaces.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt;
+Give test functions a name that can never exist in user code.&lt;/p&gt;
+
+&lt;p&gt;Rust has an internal mechanism called &lt;code class=&quot;highlighter-rouge&quot;&gt;gensym&lt;/code&gt; that allows the creation of
+guaranteed unique names. If we rename test functions with a gensym’d name,
+then it’s okay for them to pollute namespaces because it’s impossible to
+reference them.&lt;/p&gt;
+
+&lt;p&gt;Just renaming isn’t enough though, because rust currently allows one test
+to call another. While I think this is a terrible thing to allow, we do and
+so must continue to allow it. We then need to add the old name back into the
+namespace. Just add a &lt;code class=&quot;highlighter-rouge&quot;&gt;use [gensymed] as foo&lt;/code&gt; to add foo back to our namespace.&lt;/p&gt;
+
+&lt;h3 id=&quot;the-nitty-gritty&quot;&gt;The Nitty Gritty&lt;/h3&gt;
+&lt;p&gt;While the theory behind this fix is sound, simply implementing it didn’t work
+the way I’d expected. I first attempted to implement the change inside
+&lt;a href=&quot;https://github.com/rust-lang/rust/tree/master/src/libsyntax&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt;&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;TestHarnessGenerator&lt;/code&gt;, but this resulted in
+strange errors about not being able to find imports despite the AST and HIR
+being correct. While it seems obvious now, it took me a week to figure out
+this was because harness generation runs midway through name resolution.&lt;/p&gt;
+
+&lt;p&gt;As a reminder, name resolution is the process by which the compiler realizes
+that the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; at one location, is talking about the same variable as
+an &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; somewhere else in the code.&lt;/p&gt;
+
+&lt;p&gt;A good chunk of name resolution occurs during macro expansion in
+&lt;a href=&quot;https://github.com/rust-lang/rust/blob/8eb4941e30d2a40bc03840dd0d99beb5aaf8159d/src/libsyntax/ext/expand.rs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax/ext/expand.rs&lt;/code&gt;&lt;/a&gt;. In fact, this was already where tests
+were being made &lt;code class=&quot;highlighter-rouge&quot;&gt;pub&lt;/code&gt;. What I had originally discounted as a design mistake,
+was actually crucial to correct operation. With a quick reimplementation
+everything worked great. I realized I’d forgotten to account for the unused
+variable lints, but that was a quick fix.&lt;/p&gt;
+
+&lt;p&gt;You can see the result in &lt;a href=&quot;https://github.com/rust-lang/rust/pull/52890&quot;&gt;this pull request&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;afterword-why-write-about-this&quot;&gt;Afterword: Why Write About This&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;Honestly, very few people will get much out of this post, but being
+lost in a complex open-source project can be disheartening at the very
+least. By discussing these esoteric bits, I hope I can help someone who gets stuck
+in similar bits of code in the future, or maybe just assure them that it’s common
+to feel lost. As always, feel free to reach out if you have questions.&lt;/p&gt;</content><author><name></name></author><summary type="html">I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.</summary></entry><entry><title type="html">#[test] in 2018</title><link href="/rust/testing/2018/07/19/test-in-2018.html" rel="alternate" type="text/html" title="#[test] in 2018" /><published>2018-07-19T16:11:01-07:00</published><updated>2018-07-19T16:11:01-07:00</updated><id>/rust/testing/2018/07/19/test-in-2018</id><content type="html" xml:base="/rust/testing/2018/07/19/test-in-2018.html">&lt;p&gt;Lately, I’ve been working implementing the &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt; for Rust.
 While exploring the compiler codebase, I’ve learned about the internals of testing in Rust
 and figured it would be interesting to share.&lt;/p&gt;
 

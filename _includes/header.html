@@ -6,17 +6,5 @@
     <div id="results-container">
         <div id="results"></div>
     </div>
-    {% octicon search height:32 class:"search-icon" %}
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
-</script>
-<script>
-    var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results'),
-        json: '/search.json',
-        noResultsText: '<li><a>No Results Found</a></li>'
-    });
-    document.getElementById('search-input').classList.remove('disabled');
-
-</script>
+    <i class="fas fa-search search-icon"></i>
 </div>

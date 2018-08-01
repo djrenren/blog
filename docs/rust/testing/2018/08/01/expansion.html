@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+    <title>Baby Steps: Fixing Test Scoping</title>
+    
+</head>
+<body>
+    <div class="padded header">
+    <input type="text" class="disabled" id="search-input" placeholder="Search..."/>
+    <a class="logo" href="/">
+        djrenren
+    </a>
+    <div id="results-container">
+        <div id="results"></div>
+    </div>
+    <i class="fas fa-search search-icon"></i>
+</div>
+
+
+    <div class="center-col padded main">
+    <h1><a class="title-link" href="/rust/testing/2018/08/01/expansion.html">
+    Baby Steps: Fixing Test Scoping
+</h1></a>
+<p>I recently set out to fix <a href="https://github.com/rust-lang/rust/issues/52557">a bug</a> in <a href="/rust/testing/2018/07/19/test-in-2018.html"><code class="highlighter-rouge">#[test]</code> expansion in
+Rust</a>. What follows is a chronicle of that journey.</p>
+
+<h2 id="the-bug">The Bug</h2>
+<hr />
+<p>When <code class="highlighter-rouge">rustc</code> encounters a <code class="highlighter-rouge">#[test]</code> attribute it will do one of two things:</p>
+
+<ul>
+  <li>In <code class="highlighter-rouge">debug</code> or <code class="highlighter-rouge">release</code> mode, the annotated item is removed</li>
+  <li>In <code class="highlighter-rouge">test</code> mode, the item is made public so it can be called by the test runner</li>
+</ul>
+
+<p>This is typically safe because the <code class="highlighter-rouge">#[test]</code> functions cannot be directly referenced
+in regular code because it won’t compile in any mode where the function is removed.</p>
+
+<p>Enter glob imports. Statements like <code class="highlighter-rouge">use my_mod::*</code> allow us to import an
+entire namespace into another without naming the specific items. We now have
+the requisite pieces to construct the bug:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">mod</span> <span class="n">B</span> <span class="p">{</span>
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span> <span class="mi">6</span> <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">use</span> <span class="nn">A</span><span class="p">::</span><span class="n">foo</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">B</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="k">fn</span> <span class="nf">caller</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="nf">foo</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>When compiled normally, <code class="highlighter-rouge">use B::*</code> does nothing and the assert inside caller will
+always pass. When compiled for test, however, <code class="highlighter-rouge">B::foo</code> will be marked as public,
+which will cause <code class="highlighter-rouge">use B::*</code> to <a href="https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html">shadow</a> the <code class="highlighter-rouge">foo</code> we got from <code class="highlighter-rouge">A::foo</code>.
+Our assert now fails saying that 6 does not equal 0. This means <code class="highlighter-rouge">caller</code> behaves
+differently in test builds which is undesirable. Worse still, it happens due to
+an implementation detail in the compiler that authors should never worry about.</p>
+
+<h2 id="the-fix">The Fix</h2>
+<hr />
+<p><strong>The Constraint:</strong>
+Test functions must be made public but they must also not pollute other namespaces.</p>
+
+<p><strong>The Solution:</strong>
+Give test functions a name that can never exist in user code.</p>
+
+<p>Rust has an internal mechanism called <code class="highlighter-rouge">gensym</code> that allows the creation of
+guaranteed unique names. If we rename test functions with a gensym’d name,
+then it’s okay for them to pollute namespaces because it’s impossible to
+reference them.</p>
+
+<p>Just renaming isn’t enough though, because rust currently allows one test
+to call another. While I think this is a terrible thing to allow, we do and
+so must continue to allow it. We then need to add the old name back into the
+namespace. Just add a <code class="highlighter-rouge">use [gensymed] as foo</code> to add foo back to our namespace.</p>
+
+<h3 id="the-nitty-gritty">The Nitty Gritty</h3>
+<p>While the theory behind this fix is sound, simply implementing it didn’t work
+the way I’d expected. I first attempted to implement the change inside
+<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="highlighter-rouge">libsyntax</code></a>’s <code class="highlighter-rouge">TestHarnessGenerator</code>, but this resulted in
+strange errors about not being able to find imports despite the AST and HIR
+being correct. While it seems obvious now, it took me a week to figure out
+this was because harness generation runs midway through name resolution.</p>
+
+<p>As a reminder, name resolution is the process by which the compiler realizes
+that the variable <code class="highlighter-rouge">x</code> at one location, is talking about the same variable as
+an <code class="highlighter-rouge">x</code> somewhere else in the code.</p>
+
+<p>A good chunk of name resolution occurs during macro expansion in
+<a href="https://github.com/rust-lang/rust/blob/8eb4941e30d2a40bc03840dd0d99beb5aaf8159d/src/libsyntax/ext/expand.rs"><code class="highlighter-rouge">libsyntax/ext/expand.rs</code></a>. In fact, this was already where tests
+were being made <code class="highlighter-rouge">pub</code>. What I had originally discounted as a design mistake,
+was actually crucial to correct operation. With a quick reimplementation
+everything worked great. I realized I’d forgotten to account for the unused
+variable lints, but that was a quick fix.</p>
+
+<p>You can see the result in <a href="https://github.com/rust-lang/rust/pull/52890">this pull request</a>.</p>
+
+<h2 id="afterword-why-write-about-this">Afterword: Why Write About This</h2>
+<hr />
+<p>Honestly, very few people will get much out of this post, but being
+lost in a complex open-source project can be disheartening at the very
+least. By discussing these esoteric bits, I hope I can help someone who gets stuck
+in similar bits of code in the future, or maybe just assure them that it’s common
+to feel lost. As always, feel free to reach out if you have questions.</p>
+
+
+    </div>
+    <div class="footer extras">
+    <div class="footer-contents center-col">
+        <div class="social">
+            <a href="https://twitter.com/thedjrenren"><i class="fab fa-twitter"></i></a>
+            <a href="https://https://discordapp.com/invite/aVESxV8"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/djrenren/"><i class="fab fa-github"></i></a>
+        </div>
+        <a class="licensing" href="https://creativecommons.org/licenses/by/4.0/">
+            
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64" xml:space="preserve">
+<g>
+	<circle fill="#FFFFFF" cx="37.785" cy="28.501" r="28.836"/>
+	<path d="M37.441-3.5c8.951,0,16.572,3.125,22.857,9.372c3.008,3.009,5.295,6.448,6.857,10.314
+		c1.561,3.867,2.344,7.971,2.344,12.314c0,4.381-0.773,8.486-2.314,12.313c-1.543,3.828-3.82,7.21-6.828,10.143
+		c-3.123,3.085-6.666,5.448-10.629,7.086c-3.961,1.638-8.057,2.457-12.285,2.457s-8.276-0.808-12.143-2.429
+		c-3.866-1.618-7.333-3.961-10.4-7.027c-3.067-3.066-5.4-6.524-7-10.372S5.5,32.767,5.5,28.5c0-4.229,0.809-8.295,2.428-12.2
+		c1.619-3.905,3.972-7.4,7.057-10.486C21.08-0.394,28.565-3.5,37.441-3.5z M37.557,2.272c-7.314,0-13.467,2.553-18.458,7.657
+		c-2.515,2.553-4.448,5.419-5.8,8.6c-1.354,3.181-2.029,6.505-2.029,9.972c0,3.429,0.675,6.734,2.029,9.913
+		c1.353,3.183,3.285,6.021,5.8,8.516c2.514,2.496,5.351,4.399,8.515,5.715c3.161,1.314,6.476,1.971,9.943,1.971
+		c3.428,0,6.75-0.665,9.973-1.999c3.219-1.335,6.121-3.257,8.713-5.771c4.99-4.876,7.484-10.99,7.484-18.344
+		c0-3.543-0.648-6.895-1.943-10.057c-1.293-3.162-3.18-5.98-5.654-8.458C50.984,4.844,44.795,2.272,37.557,2.272z M37.156,23.187
+		l-4.287,2.229c-0.458-0.951-1.019-1.619-1.685-2c-0.667-0.38-1.286-0.571-1.858-0.571c-2.856,0-4.286,1.885-4.286,5.657
+		c0,1.714,0.362,3.084,1.085,4.113c0.724,1.029,1.791,1.544,3.201,1.544c1.867,0,3.181-0.915,3.944-2.743l3.942,2
+		c-0.838,1.563-2,2.791-3.486,3.686c-1.484,0.896-3.123,1.343-4.914,1.343c-2.857,0-5.163-0.875-6.915-2.629
+		c-1.752-1.752-2.628-4.19-2.628-7.313c0-3.048,0.886-5.466,2.657-7.257c1.771-1.79,4.009-2.686,6.715-2.686
+		C32.604,18.558,35.441,20.101,37.156,23.187z M55.613,23.187l-4.229,2.229c-0.457-0.951-1.02-1.619-1.686-2
+		c-0.668-0.38-1.307-0.571-1.914-0.571c-2.857,0-4.287,1.885-4.287,5.657c0,1.714,0.363,3.084,1.086,4.113
+		c0.723,1.029,1.789,1.544,3.201,1.544c1.865,0,3.18-0.915,3.941-2.743l4,2c-0.875,1.563-2.057,2.791-3.541,3.686
+		c-1.486,0.896-3.105,1.343-4.857,1.343c-2.896,0-5.209-0.875-6.941-2.629c-1.736-1.752-2.602-4.19-2.602-7.313
+		c0-3.048,0.885-5.466,2.658-7.257c1.77-1.79,4.008-2.686,6.713-2.686C51.117,18.558,53.938,20.101,55.613,23.187z"/>
+</g>
+</svg>
+
+            <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64" xml:space="preserve">
+<g>
+	<circle fill="#FFFFFF" cx="37.637" cy="28.806" r="28.276"/>
+	<g>
+		<path d="M37.443-3.5c8.988,0,16.57,3.085,22.742,9.257C66.393,11.967,69.5,19.548,69.5,28.5c0,8.991-3.049,16.476-9.145,22.456
+			C53.879,57.319,46.242,60.5,37.443,60.5c-8.649,0-16.153-3.144-22.514-9.43C8.644,44.784,5.5,37.262,5.5,28.5
+			c0-8.761,3.144-16.342,9.429-22.742C21.101-0.415,28.604-3.5,37.443-3.5z M37.557,2.272c-7.276,0-13.428,2.553-18.457,7.657
+			c-5.22,5.334-7.829,11.525-7.829,18.572c0,7.086,2.59,13.22,7.77,18.398c5.181,5.182,11.352,7.771,18.514,7.771
+			c7.123,0,13.334-2.607,18.629-7.828c5.029-4.838,7.543-10.952,7.543-18.343c0-7.276-2.553-13.465-7.656-18.571
+			C50.967,4.824,44.795,2.272,37.557,2.272z M46.129,20.557v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557
+			c0-0.572,0.2-1.057,0.599-1.457c0.401-0.399,0.887-0.6,1.457-0.6h13.144c0.533,0,1.01,0.2,1.428,0.6
+			C45.918,19.5,46.129,19.986,46.129,20.557z M33.042,12.329c0-3.008,1.485-4.514,4.458-4.514s4.457,1.504,4.457,4.514
+			c0,2.971-1.486,4.457-4.457,4.457S33.042,15.3,33.042,12.329z"/>
+	</g>
+</g>
+</svg>
+
+            Creative Commons Attribution 4.0
+        </a>
+    </div>
+</div>
+
+    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
+    </script>
+    <script>
+        var sjs = SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results'),
+            json: '/search.json',
+            noResultsText: '<li><a>No Results Found</a></li>'
+        });
+        document.getElementById('search-input').classList.remove('disabled');
+
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-44215792-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-44215792-1');
+    </script>
+</body>
+</html>

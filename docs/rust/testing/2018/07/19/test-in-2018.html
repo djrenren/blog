@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
     <title>#[test] in 2018</title>
@@ -20,19 +21,7 @@
     <div id="results-container">
         <div id="results"></div>
     </div>
-    <svg height="32" class="octicon octicon-search search-icon" viewBox="0 0 16 16" version="1.1" width="32" aria-hidden="true"><path fill-rule="evenodd" d="M15.7 13.3l-3.81-3.83A5.93 5.93 0 0 0 13 6c0-3.31-2.69-6-6-6S1 2.69 1 6s2.69 6 6 6c1.3 0 2.48-.41 3.47-1.11l3.83 3.81c.19.2.45.3.7.3.25 0 .52-.09.7-.3a.996.996 0 0 0 0-1.41v.01zM7 10.7c-2.59 0-4.7-2.11-4.7-4.7 0-2.59 2.11-4.7 4.7-4.7 2.59 0 4.7 2.11 4.7 4.7 0 2.59-2.11 4.7-4.7 4.7z"/></svg>
-<script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
-</script>
-<script>
-    var sjs = SimpleJekyllSearch({
-        searchInput: document.getElementById('search-input'),
-        resultsContainer: document.getElementById('results'),
-        json: '/search.json',
-        noResultsText: '<li><a>No Results Found</a></li>'
-    });
-    document.getElementById('search-input').classList.remove('disabled');
-
-</script>
+    <i class="fas fa-search search-icon"></i>
 </div>
 
 
@@ -196,6 +185,11 @@ On nightly rust, there’s an unstable flag called <code class="highlighter-roug
     </div>
     <div class="footer extras">
     <div class="footer-contents center-col">
+        <div class="social">
+            <a href="https://twitter.com/thedjrenren"><i class="fab fa-twitter"></i></a>
+            <a href="https://https://discordapp.com/invite/aVESxV8"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/djrenren/"><i class="fab fa-github"></i></a>
+        </div>
         <a class="licensing" href="https://creativecommons.org/licenses/by/4.0/">
             
 <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
@@ -246,6 +240,18 @@ On nightly rust, there’s an unstable flag called <code class="highlighter-roug
     </div>
 </div>
 
+    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
+    </script>
+    <script>
+        var sjs = SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results'),
+            json: '/search.json',
+            noResultsText: '<li><a>No Results Found</a></li>'
+        });
+        document.getElementById('search-input').classList.remove('disabled');
+
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-44215792-1"></script>
     <script>

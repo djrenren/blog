@@ -13,7 +13,6 @@ html {
     font-size: 16px;
     font-family: $font-family-base;
     -webkit-font-smoothing: antialiased;
-    -webkit-font-smoothing: subpixel-antialiased;
     height: 100%;
 }
 
@@ -33,9 +32,7 @@ p {
 a {
     color: $accent;
     text-decoration: none;
-    & * {
-        color: $accent !important;
-    }
+    transition: text-decoration .25s;
     &:hover {
         text-decoration: underline;
     }
@@ -49,7 +46,7 @@ p code, pre {
     font-size: .9rem;
 }
 
-p > code {
+p > code, li > code {
     background: #fafafa;
     border: 1px solid $gray;
     border-radius: $round;
@@ -71,6 +68,10 @@ pre {
     // color: $accent;
 }
 
+.entry {
+    margin-bottom: 4rem;
+}
+
 div.highlight {
     padding: .75rem 0;
     border-radius: $round;
@@ -81,6 +82,10 @@ div.highlight {
     }
     border: 1px solid $gray;
     overflow-x: scroll;
+}
+
+div.highlighter-rouge {
+    padding-bottom: 1rem;
 }
 
 
@@ -97,6 +102,10 @@ a.title-link {
 h1, h2, h3, h4, h5, h6 {
     margin-bottom: .25em;
     font-weight: 700;
+    margin-top: 1.5em;
+}
+hr {
+    opacity: .3;
 }
 
 h1 {
@@ -110,15 +119,23 @@ h1 {
     color: $dark-gray;
     fill: $dark-gray;
     font-size: .75rem;
-    .octicon:not(:first-child) {
+    i:not(:first-child) {
         margin-left: .5rem;
     }
-    .octicon {
-        display: inline-block;
-        height: .6rem;
-        line-height: .6rem;
-        display: inline;
-    }
+}
+
+// yes this is important.
+i.fa-calendar-alt {
+    position: relative;
+    bottom: 1px;
+}
+ul {
+    margin-top: .1rem;
+    padding-left: 2rem;
+}
+
+li {
+    line-height: 1.5;
 }
 
 .excerpt *:last-child {

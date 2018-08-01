@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "SFNP: a blog"
+title: "djrenren: a blog"
 ---
 
 {% for post in site.posts %}
@@ -10,10 +10,10 @@ title: "SFNP: a blog"
      {{ post.excerpt }}
     </div>
     <div class="extras">
-        {% octicon calendar %}
-        <span>{{ post.date | date_to_long_string }}</span>
-        {% octicon clock %}
-        <span>{{ post.content | reading_time_as_i }}</span>
+        <i class="far fa-calendar-alt"></i>
+        {{ post.date | date_to_long_string }}
+        <i class="far fa-clock"></i>
+        {{ post.content | reading_time_as_i }}
     </div>
 </div>
 {% endfor %}

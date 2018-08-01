@@ -1,7 +1,7 @@
-$footer-height: 2rem;
+$footer-height: 6rem;
 $footer-padding: 1rem;
 body {
-    padding-bottom: $footer-height + ($footer-padding * 2);
+    padding-bottom: $footer-height + ($footer-padding);
     -webkit-text-size-adjust: 100%;
 }
 
@@ -10,14 +10,27 @@ body {
     position: absolute;
     bottom: $footer-padding;
     width: 100%;
-    color: $dark-gray;
+    color: $gray;
     text-align: center;
+}
+
+.social {
+    font-size: 2rem;
+    padding-bottom: 1rem;
+    a {
+        transition: color .25s;
+        color: $gray;
+        margin: 0 .75rem;
+        &:hover {
+            color: $accent;
+        }
+    }
 }
 
 .licensing {
     display: inline-block;
     text-align: center;
-    fill: lighten($gray, 5%);
+    fill: $gray;
     color: $gray;
     line-height: 1rem;
     transition: .25s;
