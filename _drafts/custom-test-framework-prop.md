@@ -33,7 +33,7 @@ fn foo() {
 }
 ```
 
-## Framework Agnostic `#[test_case]`
+### Framework Agnostic `#[test_case]`
 --------------------------------------
 `#[test_case]` is simply a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
 
@@ -54,7 +54,7 @@ In order to avoid doing potentially expensive macro expansions in non-test build
 
 We can provide this in an external support library.
 
-## `#![test_runner]` Crate Attribute
+### `#![test_runner]` Crate Attribute
 --------------------------------------
 The goal of the `test_runner` attribute is allow test frameworks to be written as simple functions.
 
@@ -75,10 +75,127 @@ test-producing attributes and various test runners. Furthermore, we will need
 to stabilize the [`TestDescAndFn`][testdaf] struct from `libtest` so that the trait can
 be implemented for it, so custom test runners can run existing tests.
 
-## Concerns
------------
- - Does this design meet the needs of [`wasm_bindgen`][wasmb] and similar?
- - Is test trait alignment reasonable?
+## Examples
+-------------
+
+### The Test Runner Author
+--------------------------
+Suppose I want to be able to query and execute tests from within my IDE.
+The editor has a standard API for test executables to adhere to, so I author
+a test runner that adheres to that specification, starting with a new crate:
+
+```bash
+$ cargo new --lib editor_runner
+```
+
+I then add the community-defined `Testable` trait to my `Cargo.toml` like so:
+
+```toml
+[dependencies]
+testable = "0.4"
+```
+
+Now it's time to write my runner:
+
+```rust
+pub fn runner(tests: &[Box<dyn test::Testable]) -> impl Termination {
+    // parse args...
+    // communicate through stdio
+    // exit code
+}
+```
+
+If anyone wants to use this test runner they simply add a Cargo
+`dev-dependency` for the runner and add the following to their lib.rs:
+
+```rust
+#![test_runner(editor_runner::runner)]
+```
+
+### The Test Format Author
+---------------------------
+Many crates such as [`criterion`][criterion] and [`quickcheck`][quickcheck] offer
+new ways to declare tests. Currently criterion relies on a custom test runner that the
+user must insert. This would no longer be required. I'd simply have to pick a type that
+captures the appropriate information:
+
+```rust
+struct QuickcheckTest<A> {
+    name: String,
+    fn: Fn(&mut Criterion) -> ()
+}
+```
+
+and implement the `Testable` trait:
+
+```rust
+impl testable::Testable for CriterionTest {
+    fn run(/*...*/){ /*...*/ }
+    fn name(&self) -> String {
+        self.name
+     }
+}
+```
+
+Lastly, to make things nice for my users, I'd want to create a macro that turns:
+
+```rust
+#[criterion]
+fn foo(&mut Criterion) {
+    /* ... */
+}
+```
+
+into:
+
+```rust
+#[test_case]
+const foo: CriterionTest = CriterionTest {
+    name: "foo",
+    fn: |&mut Criterion| { /*...*/ }
+}
+```
+
+This allows people to use a given declaration format without necessarily being tied
+to a given runner. Sometimes, however, we want specialized features in the runner
+which are coupled to the declaration. This leads us to our third example:
+
+### The Framework Author
+-------------------------
+Framework authors seek to extend the very idea of what it means to be a test. These
+will require cooperation between the runner and the declaration format, but we can
+still provide modularity and compatibility.
+
+Imagine I want to write a test framework that supports nested test suites.
+This model is actually compatible with existing simple tests that may already
+exist in the project so we declare an extension of `Testable` for our
+framework:
+
+```rust
+trait TestSuite: Testable {
+    fn children(&self) -> Iterator<Item=TestSuite> {
+        iter::empty()
+    }
+
+    fn run_suite(&self) -> impl Termination {
+        self.run()
+    }
+}
+```
+
+Now, the test runner I write will accept `&[Box<dyn TestSuite>]` instead of
+`&[Box<dyn Testable>]`. All that's left is to decide of the form the struct and macro
+I wish to expose to my users. This structure would also allow people to write their own
+`TestSuite` constructing macros and to produce alternate runners for `TestSuite`'s.
+
+## Open Questions
+------------------
+While the proposal seems strong to me, there are still questions that need answering:
+ - Does this meet the needs of [`wasm-bindgen`][wasmb] and similar?
+ - What needs to be in the `Testable` trait?
+ - How will `cargo bench` work when test runners can change?
+ - What have I missed?
+
 
 [wasmb]: https://github.com/rustwasm/wasm-bindgen
 [testdaf]: https://doc.rust-lang.org/test/struct.TestDescAndFn.html
