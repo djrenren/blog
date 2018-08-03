@@ -66,7 +66,7 @@ The goal of the `test_runner` attribute is allow test frameworks to be written a
 
 **Rationale:**
 As a crate attribute, declaration in-file and through command line is already understood. The parameter is a function to make runner implementation simple.
-We only allow test runner because it will have mediate things like command line arguments.
+We only allow one test runner because it will have to mediate things like command line arguments.
 
 **Required Support Work:**
 Test runners will need to have a baseline trait that determines the minimal
