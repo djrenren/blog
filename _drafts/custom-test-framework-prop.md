@@ -37,8 +37,8 @@ fn foo() {
 --------------------------------------
 `#[test_case]` is simply a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
 
-**Semantics:** 
- - Annotated items will be excluded in test configurations
+**Semantics:**
+ - Annotated items will be excluded in non-test configurations
  - Annotated items will be passed as an array to the test runner
  - Annotated items must be a nameable `const`, `static`, or `fn`.
 
