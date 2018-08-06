@@ -60,7 +60,7 @@ We can provide this in an external support library.
 The goal of the `test_runner` attribute is allow test frameworks to be written as simple functions.
 
 *Semantics:*
- - If the attribute is not provided [`libtest::test_static_main`][libtest_main] is assumed.
+ - If the attribute is not provided [`libtest::test_main_static`][libtest_main] is assumed.
  - Exactly 1 parameter is required
  - Provided parameter must be a path to a function
  - Type of the function must be `Fn(&[&mut T]) -> impl Termination` for some `T` which is the test type

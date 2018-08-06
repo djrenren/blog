@@ -88,7 +88,7 @@ In order to avoid doing potentially expensive macro expansions in non-test build
 
 <p><em>Semantics:</em></p>
 <ul>
-  <li>If the attribute is not provided <a href="https://doc.rust-lang.org/test/fn.test_main_static.html"><code class="highlighter-rouge">libtest::test_static_main</code></a> is assumed.</li>
+  <li>If the attribute is not provided <a href="https://doc.rust-lang.org/test/fn.test_main_static.html"><code class="highlighter-rouge">libtest::test_main_static</code></a> is assumed.</li>
   <li>Exactly 1 parameter is required</li>
   <li>Provided parameter must be a path to a function</li>
   <li>Type of the function must be <code class="highlighter-rouge">Fn(&amp;[&amp;mut T]) -&gt; impl Termination</code> for some <code class="highlighter-rouge">T</code> which is the test type</li>
