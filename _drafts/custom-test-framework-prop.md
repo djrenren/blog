@@ -62,11 +62,15 @@ The goal of the `test_runner` attribute is allow test frameworks to be written a
  - If the attribute is not provided [`libtest::test_static_main`][libtest_main] is assumed.
  - Exactly 1 parameter is required
  - Provided parameter must be a path to a function
- - Type of the function must be `Fn(&[T]) -> impl Termination` for some `T` which is the test type
+ - Type of the function must be `Fn(&[&mut T]) -> impl Termination` for some `T` which is the test type
 
 **Rationale:**
-As a crate attribute, declaration in-file and through command line is already understood. The parameter is a function to make runner implementation simple.
-We only allow one test runner because it will have to mediate things like command line arguments.
+As a crate attribute, declaration in-file and through command line is already
+understood. The parameter is a function to make runner implementation simple.
+Passing tests as an `&mut T` to allow for the use of trait objects. We don't
+pass `Box` values so that testing is possible on systems without dynamic
+allocation. We only allow one test runner because it will have to mediate
+things like command line arguments.
 
 **Required Support Work:**
 Test runners will need to have a baseline trait that determines the minimal
@@ -120,7 +124,7 @@ user must insert. This would no longer be required. I'd simply have to pick a ty
 captures the appropriate information:
 
 ```rust
-struct QuickcheckTest<A> {
+struct CriterionTest<A> {
     name: String,
     fn: Fn(&mut Criterion) -> ()
 }
@@ -183,8 +187,8 @@ trait TestSuite: Testable {
 }
 ```
 
-Now, the test runner I write will accept `&[Box<dyn TestSuite>]` instead of
-`&[Box<dyn Testable>]`. All that's left is to decide of the form the struct and macro
+Now, the test runner I write will accept `&[&mut dyn TestSuite]` instead of
+`&[&mut dyn Testable]`. All that's left is to decide the form of the struct and macro
 I wish to expose to my users. This structure would also allow people to write their own
 `TestSuite` constructing macros and to produce alternate runners for `TestSuite`'s.
 
@@ -196,7 +200,8 @@ While the proposal seems strong to me, there are still questions that need answe
  - How will `cargo bench` work when test runners can change?
  - What have I missed?
 
-
+[criterion]: https://github.com/japaric/criterion.rs
+[quickcheck]: https://github.com/BurntSushi/quickcheck
 [wasmb]: https://github.com/rustwasm/wasm-bindgen
 [testdaf]: https://doc.rust-lang.org/test/struct.TestDescAndFn.html
 [libtest_main]: https://doc.rust-lang.org/test/fn.test_main_static.html
