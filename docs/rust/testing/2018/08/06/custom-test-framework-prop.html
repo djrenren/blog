@@ -39,7 +39,7 @@ fulfillment of the RFC with rationale.</p>
 <p>Two small additions are enough to allow for the creation of powerful test frameworks:</p>
 
 <ul>
-  <li>Agnostic <code class="highlighter-rouge">#[test_case]</code> macro for test aggregation</li>
+  <li>Framework-agnostic <code class="highlighter-rouge">#[test_case]</code> macro for test aggregation</li>
   <li>Add a crate attribute to define a test runner function</li>
 </ul>
 
@@ -59,7 +59,7 @@ fulfillment of the RFC with rationale.</p>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<h3 id="framework-agnostic-test_case">Framework Agnostic <code class="highlighter-rouge">#[test_case]</code></h3>
+<h3 id="framework-agnostic-test_case">Framework-Agnostic <code class="highlighter-rouge">#[test_case]</code></h3>
 <hr />
 <p><code class="highlighter-rouge">#[test_case]</code> is simply a marker to the compiler to aggregate the item beneath it and pass it to the test runner.</p>
 

@@ -14,7 +14,7 @@ fulfillment of the RFC with rationale.
 ------------
 Two small additions are enough to allow for the creation of powerful test frameworks:
 
- - Agnostic `#[test_case]` macro for test aggregation
+ - Framework-agnostic `#[test_case]` macro for test aggregation
  - Add a crate attribute to define a test runner function
 
 This allows us to write code like so:
@@ -34,7 +34,7 @@ fn foo() {
 }
 ```
 
-### Framework Agnostic `#[test_case]`
+### Framework-Agnostic `#[test_case]`
 --------------------------------------
 `#[test_case]` is simply a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
 
