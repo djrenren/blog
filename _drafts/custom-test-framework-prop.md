@@ -200,6 +200,11 @@ While the proposal seems strong to me, there are still questions that need answe
  - How will `cargo bench` work when test runners can change?
  - What have I missed?
 
+If you're interested in playing around with the proposal, I've implemented it at
+[djrenren/rust][github], and built some examples at [djrenren/rust-test-frameworks][frameworks].
+
+[frameworks]: https://github.com/djrenren/rust-test-frameworks
+[github]: https://github.com/djrenren/rust/tree/custom-test-frameworks
 [criterion]: https://github.com/japaric/criterion.rs
 [quickcheck]: https://github.com/BurntSushi/quickcheck
 [wasmb]: https://github.com/rustwasm/wasm-bindgen
