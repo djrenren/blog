@@ -45,7 +45,7 @@ fulfillment of the RFC with rationale.</p>
 
 <p>This allows us to write code like so:</p>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="o">!</span><span class="p">[</span><span class="nf">test_runner</span><span class="p">(</span><span class="nn">tap</span><span class="p">::</span><span class="n">runner</span><span class="p">)]</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#![test_runner(tap::runner)]</span>
 <span class="k">use</span> <span class="nn">quickcheck</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 
 <span class="nd">#[quickcheck]</span>
@@ -139,7 +139,7 @@ a test runner that adheres to that specification, starting with a new crate:</p>
 <p>If anyone wants to use this test runner they simply add a Cargo
 <code class="highlighter-rouge">dev-dependency</code> for the runner and add the following to their lib.rs:</p>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="o">!</span><span class="p">[</span><span class="nf">test_runner</span><span class="p">(</span><span class="nn">editor_runner</span><span class="p">::</span><span class="n">runner</span><span class="p">)]</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#![test_runner(editor_runner::runner)]</span>
 </code></pre></div></div>
 
 <h3 id="the-test-format-author">The Test Format Author</h3>
