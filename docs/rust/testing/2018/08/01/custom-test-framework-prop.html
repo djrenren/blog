@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
+    <title>Proposal: Rust Custom Test Frameworks</title>
+    
+</head>
+<body>
+    <div class="padded header">
+    <input type="text" class="disabled" id="search-input" placeholder="Search..."/>
+    <a class="logo" href="/">
+        djrenren
+    </a>
+    <div id="results-container">
+        <div id="results"></div>
+    </div>
+    <i class="fas fa-search search-icon"></i>
+</div>
+
+
+    <div class="center-col padded main">
+    <h1><a class="title-link" href="/rust/testing/2018/08/01/custom-test-framework-prop.html">
+    Proposal: Rust Custom Test Frameworks
+</h1></a>
+<p>The Rust community recently approved a <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a>
+which lays out a series of goals and possible directions of exploration for
+implementing custom test frameworks. In this post, I present my own proposed
+fulfillment of the RFC with rationale.</p>
+
+<h2 id="summary">Summary</h2>
+<hr />
+<p>Two small additions are enough to allow for the creation of powerful test frameworks:</p>
+
+<ul>
+  <li>Agnostic <code class="highlighter-rouge">#[test_case]</code> macro for test aggregation</li>
+  <li>Add a crate attribute to define a test runner function</li>
+</ul>
+
+<p>This allows us to write code like so:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="o">!</span><span class="p">[</span><span class="nf">test_runner</span><span class="p">(</span><span class="nn">tap</span><span class="p">::</span><span class="n">runner</span><span class="p">)]</span>
+<span class="k">use</span> <span class="nn">quickcheck</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
+
+<span class="nd">#[quickcheck]</span>
+<span class="k">fn</span> <span class="nf">identity</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">a</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">a</span>
+<span class="p">}</span>
+
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="k">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="framework-agnostic-test_case">Framework Agnostic <code class="highlighter-rouge">#[test_case]</code></h3>
+<hr />
+<p><code class="highlighter-rouge">#[test_case]</code> is simply a marker to the compiler to aggregate the item beneath it and pass it to the test runner.</p>
+
+<p><strong>Semantics:</strong></p>
+<ul>
+  <li>Annotated items will be excluded in non-test configurations</li>
+  <li>Annotated items will be passed as an array to the test runner</li>
+  <li>Annotated items must be a nameable <code class="highlighter-rouge">const</code>, <code class="highlighter-rouge">static</code>, or <code class="highlighter-rouge">fn</code>.</li>
+</ul>
+
+<p><strong>Rationale:</strong>
+<code class="highlighter-rouge">#[test]</code> has special smarts for working with <code class="highlighter-rouge">libtest</code> that we want to continue to work, but also
+be avoidable. If people want to provide syntactic sugar for declaring tests they can do so with their
+own proc_macro attribute.</p>
+
+<p><strong>Required Support Work:</strong>
+In order to avoid doing potentially expensive macro expansions in non-test builds, each third-party test macro needs to be two layers deep. The first step, would simply expand like so:</p>
+
+<p><code class="highlighter-rouge">#[quickcheck]</code> → <code class="highlighter-rouge">#[cfg(test)] #[quickcheck_inner]</code></p>
+
+<p>We can provide this in an external support library.</p>
+
+<h3 id="test_runner-crate-attribute"><code class="highlighter-rouge">#![test_runner]</code> Crate Attribute</h3>
+<hr />
+<p>The goal of the <code class="highlighter-rouge">test_runner</code> attribute is allow test frameworks to be written as simple functions.</p>
+
+<p><em>Semantics:</em></p>
+<ul>
+  <li>If the attribute is not provided <a href="https://doc.rust-lang.org/test/fn.test_main_static.html"><code class="highlighter-rouge">libtest::test_static_main</code></a> is assumed.</li>
+  <li>Exactly 1 parameter is required</li>
+  <li>Provided parameter must be a path to a function</li>
+  <li>Type of the function must be <code class="highlighter-rouge">Fn(&amp;[&amp;mut T]) -&gt; impl Termination</code> for some <code class="highlighter-rouge">T</code> which is the test type</li>
+</ul>
+
+<p><strong>Rationale:</strong>
+As a crate attribute, declaration in-file and through command line is already
+understood. The parameter is a function to make runner implementation simple.
+Passing tests as an <code class="highlighter-rouge">&amp;mut T</code> to allow for the use of trait objects. We don’t
+pass <code class="highlighter-rouge">Box</code> values so that testing is possible on systems without dynamic
+allocation. We only allow one test runner because it will have to mediate
+things like command line arguments.</p>
+
+<p><strong>Required Support Work:</strong>
+Test runners will need to have a baseline trait that determines the minimal
+interface of a test. This will serve as the compatiblity layer between
+test-producing attributes and various test runners. Furthermore, we will need
+to stabilize the <a href="https://doc.rust-lang.org/test/struct.TestDescAndFn.html"><code class="highlighter-rouge">TestDescAndFn</code></a> struct from <code class="highlighter-rouge">libtest</code> so that the trait can
+be implemented for it, so custom test runners can run existing tests.</p>
+
+<h2 id="examples">Examples</h2>
+<hr />
+
+<h3 id="the-test-runner-author">The Test Runner Author</h3>
+<hr />
+<p>Suppose I want to be able to query and execute tests from within my IDE.
+The editor has a standard API for test executables to adhere to, so I author
+a test runner that adheres to that specification, starting with a new crate:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo new <span class="nt">--lib</span> editor_runner
+</code></pre></div></div>
+
+<p>I then add the community-defined <code class="highlighter-rouge">Testable</code> trait to my <code class="highlighter-rouge">Cargo.toml</code> like so:</p>
+
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[dependencies]</span>
+<span class="py">testable</span> <span class="p">=</span> <span class="s">"0.4"</span>
+</code></pre></div></div>
+
+<p>Now it’s time to write my runner:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">runner</span><span class="p">(</span><span class="n">tests</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="nb">Box</span><span class="o">&lt;</span><span class="n">dyn</span> <span class="nn">test</span><span class="p">::</span><span class="n">Testable</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="k">impl</span> <span class="n">Termination</span> <span class="p">{</span>
+    <span class="c">// parse args...</span>
+    <span class="c">// communicate through stdio</span>
+    <span class="c">// exit code</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>If anyone wants to use this test runner they simply add a Cargo
+<code class="highlighter-rouge">dev-dependency</code> for the runner and add the following to their lib.rs:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">#</span><span class="o">!</span><span class="p">[</span><span class="nf">test_runner</span><span class="p">(</span><span class="nn">editor_runner</span><span class="p">::</span><span class="n">runner</span><span class="p">)]</span>
+</code></pre></div></div>
+
+<h3 id="the-test-format-author">The Test Format Author</h3>
+<hr />
+<p>Many crates such as <a href="https://github.com/japaric/criterion.rs"><code class="highlighter-rouge">criterion</code></a> and <a href="https://github.com/BurntSushi/quickcheck"><code class="highlighter-rouge">quickcheck</code></a> offer
+new ways to declare tests. Currently criterion relies on a custom test runner that the
+user must insert. This would no longer be required. I’d simply have to pick a type that
+captures the appropriate information:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">CriterionTest</span><span class="o">&lt;</span><span class="n">A</span><span class="o">&gt;</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+    <span class="k">fn</span><span class="p">:</span> <span class="nf">Fn</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">Criterion</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="p">()</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>and implement the <code class="highlighter-rouge">Testable</code> trait:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">impl</span> <span class="nn">testable</span><span class="p">::</span><span class="n">Testable</span> <span class="k">for</span> <span class="n">CriterionTest</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">run</span><span class="p">(</span><span class="cm">/*...*/</span><span class="p">){</span> <span class="cm">/*...*/</span> <span class="p">}</span>
+    <span class="k">fn</span> <span class="nf">name</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.name</span>
+     <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Lastly, to make things nice for my users, I’d want to create a macro that turns:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[criterion]</span>
+<span class="k">fn</span> <span class="nf">foo</span><span class="p">(</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">Criterion</span><span class="p">)</span> <span class="p">{</span>
+    <span class="cm">/* ... */</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>into:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test_case]</span>
+<span class="k">const</span> <span class="n">foo</span><span class="p">:</span> <span class="n">CriterionTest</span> <span class="o">=</span> <span class="n">CriterionTest</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="s">"foo"</span><span class="p">,</span>
+    <span class="k">fn</span><span class="p">:</span> <span class="p">|</span><span class="o">&amp;</span><span class="k">mut</span> <span class="n">Criterion</span><span class="p">|</span> <span class="p">{</span> <span class="cm">/*...*/</span> <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>This allows people to use a given declaration format without necessarily being tied
+to a given runner. Sometimes, however, we want specialized features in the runner
+which are coupled to the declaration. This leads us to our third example:</p>
+
+<h3 id="the-framework-author">The Framework Author</h3>
+<hr />
+<p>Framework authors seek to extend the very idea of what it means to be a test. These
+will require cooperation between the runner and the declaration format, but we can
+still provide modularity and compatibility.</p>
+
+<p>Imagine I want to write a test framework that supports nested test suites.
+This model is actually compatible with existing simple tests that may already
+exist in the project so we declare an extension of <code class="highlighter-rouge">Testable</code> for our
+framework:</p>
+
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="n">TestSuite</span><span class="p">:</span> <span class="n">Testable</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">children</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="n">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">=</span><span class="n">TestSuite</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nn">iter</span><span class="p">::</span><span class="nf">empty</span><span class="p">()</span>
+    <span class="p">}</span>
+
+    <span class="k">fn</span> <span class="nf">run_suite</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">impl</span> <span class="n">Termination</span> <span class="p">{</span>
+        <span class="k">self</span><span class="nf">.run</span><span class="p">()</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>Now, the test runner I write will accept <code class="highlighter-rouge">&amp;[&amp;mut dyn TestSuite]</code> instead of
+<code class="highlighter-rouge">&amp;[&amp;mut dyn Testable]</code>. All that’s left is to decide the form of the struct and macro
+I wish to expose to my users. This structure would also allow people to write their own
+<code class="highlighter-rouge">TestSuite</code> constructing macros and to produce alternate runners for <code class="highlighter-rouge">TestSuite</code>’s.</p>
+
+<h2 id="open-questions">Open Questions</h2>
+<hr />
+<p>While the proposal seems strong to me, there are still questions that need answering:</p>
+<ul>
+  <li>Does this meet the needs of <a href="https://github.com/rustwasm/wasm-bindgen"><code class="highlighter-rouge">wasm-bindgen</code></a> and similar?</li>
+  <li>What needs to be in the <code class="highlighter-rouge">Testable</code> trait?</li>
+  <li>How will <code class="highlighter-rouge">cargo bench</code> work when test runners can change?</li>
+  <li>What have I missed?</li>
+</ul>
+
+<p>If you’re interested in playing around with the proposal, I’ve implemented it at
+<a href="https://github.com/djrenren/rust/tree/custom-test-frameworks">djrenren/rust</a>, and built some examples at <a href="https://github.com/djrenren/rust-test-frameworks">djrenren/rust-test-frameworks</a>.</p>
+
+
+    </div>
+    <div class="footer extras">
+    <div class="footer-contents center-col">
+        <div class="social">
+            <a href="https://twitter.com/thedjrenren"><i class="fab fa-twitter"></i></a>
+            <a href="https://https://discordapp.com/invite/aVESxV8"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/djrenren/"><i class="fab fa-github"></i></a>
+        </div>
+        <a class="licensing" href="https://creativecommons.org/licenses/by/4.0/">
+            
+<svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64" xml:space="preserve">
+<g>
+	<circle fill="#FFFFFF" cx="37.785" cy="28.501" r="28.836"/>
+	<path d="M37.441-3.5c8.951,0,16.572,3.125,22.857,9.372c3.008,3.009,5.295,6.448,6.857,10.314
+		c1.561,3.867,2.344,7.971,2.344,12.314c0,4.381-0.773,8.486-2.314,12.313c-1.543,3.828-3.82,7.21-6.828,10.143
+		c-3.123,3.085-6.666,5.448-10.629,7.086c-3.961,1.638-8.057,2.457-12.285,2.457s-8.276-0.808-12.143-2.429
+		c-3.866-1.618-7.333-3.961-10.4-7.027c-3.067-3.066-5.4-6.524-7-10.372S5.5,32.767,5.5,28.5c0-4.229,0.809-8.295,2.428-12.2
+		c1.619-3.905,3.972-7.4,7.057-10.486C21.08-0.394,28.565-3.5,37.441-3.5z M37.557,2.272c-7.314,0-13.467,2.553-18.458,7.657
+		c-2.515,2.553-4.448,5.419-5.8,8.6c-1.354,3.181-2.029,6.505-2.029,9.972c0,3.429,0.675,6.734,2.029,9.913
+		c1.353,3.183,3.285,6.021,5.8,8.516c2.514,2.496,5.351,4.399,8.515,5.715c3.161,1.314,6.476,1.971,9.943,1.971
+		c3.428,0,6.75-0.665,9.973-1.999c3.219-1.335,6.121-3.257,8.713-5.771c4.99-4.876,7.484-10.99,7.484-18.344
+		c0-3.543-0.648-6.895-1.943-10.057c-1.293-3.162-3.18-5.98-5.654-8.458C50.984,4.844,44.795,2.272,37.557,2.272z M37.156,23.187
+		l-4.287,2.229c-0.458-0.951-1.019-1.619-1.685-2c-0.667-0.38-1.286-0.571-1.858-0.571c-2.856,0-4.286,1.885-4.286,5.657
+		c0,1.714,0.362,3.084,1.085,4.113c0.724,1.029,1.791,1.544,3.201,1.544c1.867,0,3.181-0.915,3.944-2.743l3.942,2
+		c-0.838,1.563-2,2.791-3.486,3.686c-1.484,0.896-3.123,1.343-4.914,1.343c-2.857,0-5.163-0.875-6.915-2.629
+		c-1.752-1.752-2.628-4.19-2.628-7.313c0-3.048,0.886-5.466,2.657-7.257c1.771-1.79,4.009-2.686,6.715-2.686
+		C32.604,18.558,35.441,20.101,37.156,23.187z M55.613,23.187l-4.229,2.229c-0.457-0.951-1.02-1.619-1.686-2
+		c-0.668-0.38-1.307-0.571-1.914-0.571c-2.857,0-4.287,1.885-4.287,5.657c0,1.714,0.363,3.084,1.086,4.113
+		c0.723,1.029,1.789,1.544,3.201,1.544c1.865,0,3.18-0.915,3.941-2.743l4,2c-0.875,1.563-2.057,2.791-3.541,3.686
+		c-1.486,0.896-3.105,1.343-4.857,1.343c-2.896,0-5.209-0.875-6.941-2.629c-1.736-1.752-2.602-4.19-2.602-7.313
+		c0-3.048,0.885-5.466,2.658-7.257c1.77-1.79,4.008-2.686,6.713-2.686C51.117,18.558,53.938,20.101,55.613,23.187z"/>
+</g>
+</svg>
+
+            <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	viewBox="5.5 -3.5 64 64" enable-background="new 5.5 -3.5 64 64" xml:space="preserve">
+<g>
+	<circle fill="#FFFFFF" cx="37.637" cy="28.806" r="28.276"/>
+	<g>
+		<path d="M37.443-3.5c8.988,0,16.57,3.085,22.742,9.257C66.393,11.967,69.5,19.548,69.5,28.5c0,8.991-3.049,16.476-9.145,22.456
+			C53.879,57.319,46.242,60.5,37.443,60.5c-8.649,0-16.153-3.144-22.514-9.43C8.644,44.784,5.5,37.262,5.5,28.5
+			c0-8.761,3.144-16.342,9.429-22.742C21.101-0.415,28.604-3.5,37.443-3.5z M37.557,2.272c-7.276,0-13.428,2.553-18.457,7.657
+			c-5.22,5.334-7.829,11.525-7.829,18.572c0,7.086,2.59,13.22,7.77,18.398c5.181,5.182,11.352,7.771,18.514,7.771
+			c7.123,0,13.334-2.607,18.629-7.828c5.029-4.838,7.543-10.952,7.543-18.343c0-7.276-2.553-13.465-7.656-18.571
+			C50.967,4.824,44.795,2.272,37.557,2.272z M46.129,20.557v13.085h-3.656v15.542h-9.944V33.643h-3.656V20.557
+			c0-0.572,0.2-1.057,0.599-1.457c0.401-0.399,0.887-0.6,1.457-0.6h13.144c0.533,0,1.01,0.2,1.428,0.6
+			C45.918,19.5,46.129,19.986,46.129,20.557z M33.042,12.329c0-3.008,1.485-4.514,4.458-4.514s4.457,1.504,4.457,4.514
+			c0,2.971-1.486,4.457-4.457,4.457S33.042,15.3,33.042,12.329z"/>
+	</g>
+</g>
+</svg>
+
+            Creative Commons Attribution 4.0
+        </a>
+    </div>
+</div>
+
+    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
+    </script>
+    <script>
+        var sjs = SimpleJekyllSearch({
+            searchInput: document.getElementById('search-input'),
+            resultsContainer: document.getElementById('results'),
+            json: '/search.json',
+            noResultsText: '<li><a>No Results Found</a></li>'
+        });
+        document.getElementById('search-input').classList.remove('disabled');
+
+    </script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-44215792-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-44215792-1');
+    </script>
+</body>
+</html>
