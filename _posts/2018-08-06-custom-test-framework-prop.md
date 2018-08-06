@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Proposal: Rust Custom Test Frameworks"
-date:   2018-08-01 01:00:00 -0700
+date:   2018-08-06 01:00:00 -0700
 categories: rust testing
 ---
 
