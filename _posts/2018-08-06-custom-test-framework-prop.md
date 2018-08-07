@@ -11,6 +11,7 @@ implementing custom test frameworks. In this post, I present my own proposed
 fulfillment of the RFC with rationale.
 
 ## Background
+--------------------
 
 Today in Rust, anyone can write a test using the `#[test]` macro:
 
