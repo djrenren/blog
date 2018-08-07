@@ -10,9 +10,27 @@ which lays out a series of goals and possible directions of exploration for
 implementing custom test frameworks. In this post, I present my own proposed
 fulfillment of the RFC with rationale.
 
+## Background
+
+Today in Rust, anyone can write a test using the `#[test]` macro:
+
+```rust
+#[test]
+fn my_test() {
+    assert_eq!(2 + 2, 4);
+}
+```
+
+This is incredibly ergonomic, but offers little control to people writing tests.
+Every `#[test]` function must be a function of type `Fn() -> ()` and will be run using the
+default `libtest` test runner. If a test author needs more than the `libtest` runner
+can provide, then they can no longer use the `#[test]` macro. This proposal seeks
+to offer the ergonomic power of `#[test]` while providing the flexibility required to
+define and mix custom test formats and test runners.
+
 ## Summary
 ------------
-Two small additions are enough to allow for the creation of powerful test frameworks:
+Two small additions are enough to enable the creation of powerful test frameworks:
 
  - Framework-agnostic `#[test_case]` macro for test aggregation
  - Add a crate attribute to define a test runner function
@@ -21,6 +39,7 @@ This allows us to write code like so:
 
 ```rust
 #![test_runner(tap::runner)]
+
 use quickcheck::*;
 
 #[quickcheck]
@@ -34,13 +53,15 @@ fn foo() {
 }
 ```
 
+This code contains two tests, written in two different formats, being executed by a third library.
+
 ### Framework-Agnostic `#[test_case]`
 --------------------------------------
-`#[test_case]` is simply a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
+`#[test_case]` is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
 
 **Semantics:**
- - Annotated items will be excluded in non-test configurations
- - Annotated items will be passed as an array to the test runner
+ - The compiler will exclude annotated items will in non-test configurations
+ - The compiler will pass all annotated items as a slice to the test runner
  - Annotated items must be a nameable `const`, `static`, or `fn`.
 
 **Rationale:**
@@ -49,7 +70,7 @@ be avoidable. If people want to provide syntactic sugar for declaring tests they
 own proc_macro attribute.
 
 **Required Support Work:**
-In order to avoid doing potentially expensive macro expansions in non-test builds, each third-party test macro needs to be two layers deep. The first step, would simply expand like so:
+In order to avoid doing potentially expensive macro expansions in non-test builds, each third-party test macro needs to be two layers deep. The first step, would expand like so:
 
 `#[quickcheck]` → `#[cfg(test)] #[quickcheck_inner]`
 
@@ -57,13 +78,12 @@ We can provide this in an external support library.
 
 ### `#![test_runner]` Crate Attribute
 --------------------------------------
-The goal of the `test_runner` attribute is allow test frameworks to be written as simple functions.
+The goal of the `test_runner` attribute is to allow test frameworks to be written as simple functions.
 
-*Semantics:*
+**Semantics:**
  - If the attribute is not provided [`libtest::test_main_static`][libtest_main] is assumed.
- - Exactly 1 parameter is required
- - Provided parameter must be a path to a function
- - Type of the function must be `Fn(&[&mut T]) -> impl Termination` for some `T` which is the test type
+ - The attribute requires exactly 1 parameter, which is the path to the runner function.
+ - The type of the function must be `Fn(&[&mut Foo]) -> impl Termination` for some `Foo` which is the test type
 
 **Rationale:**
 As a crate attribute, declaration in-file and through command line is already
@@ -85,32 +105,33 @@ be implemented for it, so custom test runners can run existing tests.
 
 ### The Test Runner Author
 --------------------------
-Suppose I want to be able to query and execute tests from within my IDE.
-The editor has a standard API for test executables to adhere to, so I author
+Suppose a test author wants to be able to query and execute tests from within an IDE.
+The editor has a standard API for test executables to adhere to, so they author
 a test runner that adheres to that specification, starting with a new crate:
 
 ```bash
 $ cargo new --lib editor_runner
 ```
 
-I then add the community-defined `Testable` trait to my `Cargo.toml` like so:
+They then add the community-defined `Testable` trait to their `Cargo.toml` like so:
 
 ```toml
-[dependencies]
+[dev-dependencies]
 testable = "0.4"
 ```
 
-Now it's time to write my runner:
+Now it's time to write the runner:
 
 ```rust
-pub fn runner(tests: &[Box<dyn test::Testable]) -> impl Termination {
+pub fn runner(tests: &[&dyn testable::Testable]) -> impl Termination {
     // parse args...
+    // run tests
     // communicate through stdio
     // exit code
 }
 ```
 
-If anyone wants to use this test runner they simply add a Cargo
+To use this test runner they add a Cargo
 `dev-dependency` for the runner and add the following to their lib.rs:
 
 ```rust
@@ -120,34 +141,57 @@ If anyone wants to use this test runner they simply add a Cargo
 ### The Test Format Author
 ---------------------------
 Many crates such as [`criterion`][criterion] and [`quickcheck`][quickcheck] offer
-new ways to declare tests. Currently criterion relies on a custom test runner that the
-user must insert. This would no longer be required. I'd simply have to pick a type that
-captures the appropriate information:
+new ways to declare tests. I call these *test formats*. Typically, these are proc_macro
+attributes that allow for a different declaration syntax than `#[test]`. Some, like
+`quickcheck` can just wrap `#[test]`, but this can get messy the more removed your
+test format is from a simple function. Consider writing a test format for testing an
+HTTP server:
 
 ```rust
-struct CriterionTest<A> {
-    name: String,
-    fn: Fn(&mut Criterion) -> ()
+#[http_test]
+const TEST_INDEX: HttpTest = HttpTest {
+    request: HttpRequest {
+        url: "/",
+        method: "GET"
+    },
+    response: HttpResponse {
+        body: Some("Hello World")
+    }
 }
 ```
 
-and implement the `Testable` trait:
+This test would perform the request and compare the response objects.
+To enable this the format author first declares their struct type:
 
 ```rust
-impl testable::Testable for CriterionTest {
-    fn run(/*...*/){ /*...*/ }
+struct HttpTest {
+    request: HttpRequest,
+    response: HttpResponse,
+    name: &'static str
+}
+```
+
+then implements the `Testable` trait:
+
+```rust
+impl testable::Testable for HttpTest {
+    fn run(&self) -> () {
+        // Make request
+        // Assert equality on response fields
+    }
     fn name(&self) -> String {
         self.name
-     }
+    }
 }
 ```
 
-Lastly, to make things nice for my users, I'd want to create a macro that turns:
+Lastly, to make things nice for their users, they create a macro that automatically
+records the test name by turning:
 
 ```rust
-#[criterion]
-fn foo(&mut Criterion) {
-    /* ... */
+#[http_test]
+const TEST_INDEX: HttpTest = HttpTest {
+    //...
 }
 ```
 
@@ -155,20 +199,20 @@ into:
 
 ```rust
 #[test_case]
-const foo: CriterionTest = CriterionTest {
-    name: "foo",
-    fn: |&mut Criterion| { /*...*/ }
+const TEST_INDEX: HttpTest = HttpTest {
+    name: concat!(module_path!(), "TEST_INDEX")
+    //...
 }
 ```
 
-This allows people to use a given declaration format without necessarily being tied
-to a given runner. Sometimes, however, we want specialized features in the runner
+Because `HttpTest` implements `Testable` it can be used with any test runner that
+accepts `Testable`'s. Sometimes, however, we want specialized features in the runner
 which are coupled to the declaration. This leads us to our third example:
 
 ### The Framework Author
 -------------------------
 Framework authors seek to extend the very idea of what it means to be a test. These
-will require cooperation between the runner and the declaration format, but we can
+will require cooperation between the runner and the declaration format but can
 still provide modularity and compatibility.
 
 Imagine I want to write a test framework that supports nested test suites.
@@ -178,20 +222,40 @@ framework:
 
 ```rust
 trait TestSuite: Testable {
-    fn children(&self) -> Iterator<Item=TestSuite> {
-        iter::empty()
+    fn children(&self) -> impl Iterator<Item=TestSuite> {
+        iter::empty() // A regular test has no children
     }
+}
 
-    fn run_suite(&self) -> impl Termination {
-        self.run()
-    }
+impl<T> TestSuite for T where T: Testable {}
+```
+
+Now, the test runner I write will accept `&[&dyn TestSuite]` instead of
+`&[&dyn Testable]`, but all `Testable`'s will continue to work. All that's
+left is to decide the form of the struct and macro I wish to expose to my
+users. It could be something like this:
+
+```rust
+#[test_suite]
+mod my_suite {
+    #[suite_member]
+    fn foo() {}
+
+    #[suite_member]
+    fn bar() {}
 }
 ```
 
-Now, the test runner I write will accept `&[&mut dyn TestSuite]` instead of
-`&[&mut dyn Testable]`. All that's left is to decide the form of the struct and macro
-I wish to expose to my users. This structure would also allow people to write their own
-`TestSuite` constructing macros and to produce alternate runners for `TestSuite`'s.
+Because everything is still behind a trait, this approach would allow
+people to write their own `TestSuite` constructing macros and to produce
+alternate runners for `TestSuite`'s.
+
+## Useful Properties
+-----------------------
+This proposal has some implicit properties that are worth calling out:
+ - `cargo test` works out of the box
+ - `#[test]` continues to work alongside new tests
+ - Test frameworks are just regular libraries
 
 ## Open Questions
 ------------------
