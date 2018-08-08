@@ -23,7 +23,7 @@ fn my_test() {
 ```
 
 This is incredibly ergonomic, but offers little control to people writing tests.
-Every `#[test]` function must be a function of type `Fn() -> ()` and will be run using the
+Every `#[test]` function must be a function of type `Fn() -> impl Termination` and will be run using the
 default `libtest` test runner. If a test author needs more than the `libtest` runner
 can provide, then they can no longer use the `#[test]` macro. This proposal seeks
 to offer the ergonomic power of `#[test]` while providing the flexibility required to

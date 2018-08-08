@@ -6,3 +6,17 @@ layout: default
     {{page.title}}
 </h1></a>
 {{content}}
+<div class="relative-nav">
+    <a class="nav-link gray-link" href="{{page.previous.url}}">
+    {% if page.previous.url %}
+        <i class="fas fa-angle-left"></i>
+        <span class="nav-title">{{page.previous.title}}</span>
+    {% endif %}
+    </a>
+    <a class="nav-link gray-link" href="{{page.next.url}}">
+    {% if page.next.url %}
+        <span class="nav-title">{{page.next.title}}</span>
+        <i class="fas fa-angle-right"></i>
+    {% endif %}
+    </a>
+</div>

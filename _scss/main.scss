@@ -24,6 +24,28 @@ body {
     min-height: 100%;
 }
 
+.gray-link {
+    fill: $dark-gray;
+    color: $dark-gray;
+    transition: .25s;
+    i {
+        transition: .25s;
+        color: $gray;
+    }
+    &:hover, &:active {
+        color: $accent;
+        text-decoration: none;
+        fill: $accent;
+
+        i {
+            transition: .25s;
+            color: $accent;
+            text-decoration: none;
+            fill: $accent;
+        }
+    }
+}
+
 p {
     font-family: $font-family-body;
     line-height: 1.5;
@@ -146,4 +168,29 @@ li {
 
 .excerpt {
     margin-bottom: .5rem;
+}
+
+.relative-nav {
+    display: flex;
+    justify-content: space-between;
+    a.nav-link {
+        display: flex;
+        align-items: center;
+        .fas {
+            font-size: 2.5rem;
+            display: inline-block;
+        }
+        span.nav-title {
+            margin: 0 .5rem;
+            position: relative;
+            bottom: 1px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        max-width: 50%;
+
+    }
+    padding-top: 1rem;
+    padding-bottom: 1rem;
 }

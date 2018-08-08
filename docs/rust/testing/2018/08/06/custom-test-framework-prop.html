@@ -46,7 +46,7 @@ fulfillment of the RFC with rationale.</p>
 </code></pre></div></div>
 
 <p>This is incredibly ergonomic, but offers little control to people writing tests.
-Every <code class="highlighter-rouge">#[test]</code> function must be a function of type <code class="highlighter-rouge">Fn() -&gt; ()</code> and will be run using the
+Every <code class="highlighter-rouge">#[test]</code> function must be a function of type <code class="highlighter-rouge">Fn() -&gt; impl Termination</code> and will be run using the
 default <code class="highlighter-rouge">libtest</code> test runner. If a test author needs more than the <code class="highlighter-rouge">libtest</code> runner
 can provide, then they can no longer use the <code class="highlighter-rouge">#[test]</code> macro. This proposal seeks
 to offer the ergonomic power of <code class="highlighter-rouge">#[test]</code> while providing the flexibility required to
@@ -291,6 +291,17 @@ alternate runners for <code class="highlighter-rouge">TestSuite</code>’s.</p>
 <a href="https://github.com/djrenren/rust/tree/custom-test-frameworks">djrenren/rust</a>, and built some examples at <a href="https://github.com/djrenren/rust-test-frameworks">djrenren/rust-test-frameworks</a>.</p>
 
 
+<div class="relative-nav">
+    <a class="nav-link gray-link" href="/rust/testing/2018/08/01/expansion.html">
+    
+        <i class="fas fa-angle-left"></i>
+        <span class="nav-title">Baby Steps: Fixing Test Scoping</span>
+    
+    </a>
+    <a class="nav-link gray-link" href="">
+    
+    </a>
+</div>
     </div>
     <div class="footer extras">
     <div class="footer-contents center-col">
