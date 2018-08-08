@@ -61,7 +61,7 @@ This code contains two tests, written in two different formats, being executed b
 `#[test_case]` is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
 
 **Semantics:**
- - The compiler will exclude annotated items will in non-test configurations
+ - The compiler will exclude annotated items in non-test configurations
  - The compiler will pass all annotated items as a slice to the test runner
  - Annotated items must be a nameable `const`, `static`, or `fn`.
 
