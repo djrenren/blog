@@ -78,6 +78,7 @@ DEPENDENCIES
   jekyll (~> 3.8.3)
   jekyll-compose
   jekyll-feed (~> 0.6)
+  jekyll-seo-tag
   jekyll-time-to-read
   minima (~> 2.0)
   rouge!

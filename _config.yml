@@ -30,6 +30,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-time-to-read
+  - jekyll-seo-tag
 
 sass:
   sass_dir: _scss
