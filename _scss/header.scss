@@ -4,17 +4,20 @@ $search-width: 2rem;
 
 .header {
     width: 100%;
-    margin-bottom: 2rem;
+    //margin-bottom: 2rem;
     height: $header-height;
     white-space: nowrap;
     position: relative;
     box-sizing: border-box;
     background: $page-bg;
-    opacity: 1;
+    opacity: .6;
     transition: opacity .25s;
     &:hover, &:focus-within {
         opacity: 1;
     }
+}
+.about {
+    transform: scale(.9);
 }
 
 .logo {

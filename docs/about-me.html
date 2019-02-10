@@ -9,7 +9,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
-    <title>djrenren: a blog</title>
+    <title>John Renner</title>
+    
+    
+    <link rel="stylesheet" href="/assets/css/about-me.css" media="screen" type="text/css">
+    
     
     
     
@@ -29,57 +33,172 @@
 
     <div class="center-col padded main">
         
-<div class="entry" href="#">
-    <h1 class="title head-text"><a class="title-link" href="/rust/testing/2018/08/06/custom-test-framework-prop.html">Proposal: Rust Custom Test Frameworks</a></h1>
-    <div class="excerpt">
-     <p>The Rust community recently approved a <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a>
-which lays out a series of goals and possible directions of exploration for
-implementing custom test frameworks. In this post, I present my own proposed
-fulfillment of the RFC with rationale.</p>
-
-
+<section class="chunk about-header">
+    <div class="container">
+        
+        <div class="content">
+            
+    <img class="photo" src="/assets/img/me.jpg" />
+    <div class="info">
+        <h1 class="name">
+            John Renner
+        </h1>
+        <p class="contact">
+            <a href="mailto:john@jrenner.net" class="subtle"><i class="fa fa-envelope"></i> &nbsp;john@jrenner.net</a> &middot;
+            <a href="//github.com/djrenren" class="subtle"><i class="fab fa-github"></i> djrenren</a>
+        </p>
     </div>
-    <div class="extras">
-        <i class="far fa-calendar-alt"></i>
-        06 August 2018
-        <i class="far fa-clock"></i>
-        8 minutes
+
+        </div>
+    </div>
+</section>
+
+<h2>About Me</h2>
+<p>
+    I'm a graduate currently pursuing my PhD in Computer Science at UCSD.
+    Much of my work has been focused on programming languages.
+    If for any reason you'd like to connect with me, please reach out to me via email.
+</p>
+
+<section>
+    <h2>Education</h2>
+    <br />
+    <div class="education">
+    <div class="school">
+        <div class="info">
+            <img src="/assets/img/ucsdlogo.png" />
+            <div class="description">
+                PhD Student
+            </div>
+        </div>
+        <div class="dates">
+            2017-Now
+        </div>
+    </div>
+    <div class="school">
+        <div class="info">
+            <img src="/assets/img/ritlogo.png" />
+            <div class="description">
+                B.S. Software Engineering
+            </div>
+        </div>
+        <div class="dates">
+            2017-Now
+        </div>
+    </div>
+    </div>
+</section>
+
+<section>
+<h2>Projects &amp; Work</h2>
+<br />
+<div class="work">
+    <div class="work-item">
+        <img src="/assets/img/vscode.png" />
+        <div class="description">
+        <h3><a href="https://github.com/google/kythe/tree/master/kythe/go/languageserver">
+            Kythe Language Server
+        </a></h3>
+        <p>
+          Implemented a Language Server capable of providing local cross-references and type information supplied by Kythe’s static index.
+          My work was incorporated into the default workstation config at Google.
+        </p>
+        </div>
+    </div>
+    <div class="work-item">
+        <img src="/assets/img/rustlogo.svg" />
+        <div class="description">
+        <h3><a href="https://github.com/google/kythe/tree/master/kythe/rust">
+            Rust Indexer for Kythe
+        </a></h3>
+        <p>
+            Designed and built a tool for indexing cross-references in Rust code using the Kythe knowledge graph protocols,
+            enabling definition lookups and codesearch.
+        </p>
+        </div>
+    </div>
+    <div class="work-item">
+        <img src="/assets/img/fb.png" />
+        <div class="description">
+        <h3>
+            Facebook Cache Monitoring
+        </h3>
+        <p>
+            Created a service for determining and alerting on realtime cache consistency for Facebook’s whole memcache and TAO
+            deployment.
+        </p>
+        </div>
     </div>
 </div>
+</section>
 
-<div class="entry" href="#">
-    <h1 class="title head-text"><a class="title-link" href="/rust/testing/2018/08/01/expansion.html">Baby Steps: Fixing Test Scoping</a></h1>
-    <div class="excerpt">
-     <p>I recently set out to fix <a href="https://github.com/rust-lang/rust/issues/52557">a bug</a> in <a href="/rust/testing/2018/07/19/test-in-2018.html"><code class="highlighter-rouge">#[test]</code> expansion in
-Rust</a>. What follows is a chronicle of that journey.</p>
-
-
+<section>
+    <h2>Publications</h2>
+    <div class="publications"><div class="publication">
+    <div class="info">
+        <a href="https://github.com/djrenren/blog/releases/download/papers/ct-wasm-popl-2019.pdf"><h3>CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem</h3></a>
+        <div class="authors">Conrad Watt, John Renner, Natalie Popescu, Sunjay Cauligi, Deian Stefan</div>
     </div>
-    <div class="extras">
-        <i class="far fa-calendar-alt"></i>
-        01 August 2018
-        <i class="far fa-clock"></i>
-        3 minutes
+    <div class="conference">POPL '19</div>
+    
+    <div class="bibtex">
+        <form>
+            <input type="checkbox" id="bibtex-2" />
+            <label class="expander" for="bibtex-2">
+                <i class="fas fa-caret-right"></i>
+                Bibtex
+            </label>
+            <div class="content">
+
+            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{watt:2019:ct-wasm,
+  author    = {Conrad Watt and John Renner and Natalie Popescu and Sunjay Cauligi and Deian Stefan},
+  title     = {{CT-Wasm}: Type-Driven Secure Cryptography for the Web Ecosystem},
+  booktitle = {ACM SIGPLAN Symposium on Principles of Programming Languages (POPL)},
+  month     = {January},
+  year      = {2019},
+  publisher = {ACM}
+}
+</code></pre></div></div>
+
+            </div>
+
+        </form>
     </div>
+    
+</div><div class="publication">
+    <div class="info">
+        <a href="https://github.com/djrenren/blog/releases/download/papers/ct-wasm-prisc-2018.pdf"><h3>Constant-time WebAssembly</h3></a>
+        <div class="authors">John Renner, Sunjay Cauligi, Deian Stefan</div>
+    </div>
+    <div class="conference">PriSC '18</div>
+    
+    <div class="bibtex">
+        <form>
+            <input type="checkbox" id="bibtex-1" />
+            <label class="expander" for="bibtex-1">
+                <i class="fas fa-caret-right"></i>
+                Bibtex
+            </label>
+            <div class="content">
+
+            <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@inproceedings{renner:2018:ct-wasm,
+    author    = {John Renner and Sunjay Cauligi and Deian Stefan},
+    title     = {Constant-Time {WebAssembly}},
+    booktitle = {Principles of Secure Compilation (PriSC)},
+    month     = {January},
+    year      = {2018},
+}
+</code></pre></div></div>
+
+            </div>
+
+        </form>
+    </div>
+    
 </div>
 
-<div class="entry" href="#">
-    <h1 class="title head-text"><a class="title-link" href="/rust/testing/2018/07/19/test-in-2018.html">#[test] in 2018</a></h1>
-    <div class="excerpt">
-     <p>Lately, I’ve been working implementing the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a> for Rust.
-While exploring the compiler codebase, I’ve learned about the internals of testing in Rust
-and figured it would be interesting to share.</p>
-
-
     </div>
-    <div class="extras">
-        <i class="far fa-calendar-alt"></i>
-        19 July 2018
-        <i class="far fa-clock"></i>
-        6 minutes
-    </div>
-</div>
-
+</section>
 
     </div>
 

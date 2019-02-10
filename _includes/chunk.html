@@ -1,0 +1,11 @@
+<section class="chunk {{ include.class }}">
+    <div class="container">
+        {% if include.title %}
+        <h2>{{ include.title }}</h2>
+        <hr>
+        {% endif %}
+        <div class="content">
+            {{ include.content }}
+        </div>
+    </div>
+</section>

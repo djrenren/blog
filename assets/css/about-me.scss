@@ -1,0 +1,200 @@
+---
+---
+@import "variables.scss";
+
+.education {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -1rem;
+    .school {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        border: 1px solid $gray;
+        margin-left: 1rem;
+        transition: .25s;
+        min-height: 10rem;
+        &:hover {
+            border-color: $accent;
+        }
+        margin-bottom: 1rem;
+        padding: .5rem 1rem;
+        flex-grow: 1;
+        flex-shrink: 0;
+        flex-basis: 16rem;
+        .info {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            max-height: 100%;
+            flex-grow: 1;
+            img {
+                display: block;
+                width: 7rem;
+                flex-grow: 0;
+                flex-shrink: 0;
+                margin-right: .5rem;
+            }
+            .description {
+                margin-left: .5rem;
+                text-align: center;
+                flex-grow: 0;
+                flex-shrink: 0;
+                width: 7rem;
+            }
+        }
+        .dates {
+            flex-grow: 0;
+            flex-shrink: 0;
+            color: $dark-gray;
+            text-align: center;
+            font-size: .75rem;
+        }
+    }
+}
+
+.work {
+    .work-item {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-content: center;
+        &:not(:first-child) {
+            margin-top: 2rem;
+        }
+        img {
+            flex-basis: 0;
+            flex-grow: 2;
+            flex-shrink: 1;
+            min-width: 7rem;
+            max-width: 9rem;
+        }
+        .description {
+            flex-basis: 75%;
+            flex-grow: 7.5;
+            h3 {
+                margin-top: 0;
+            }
+            a {
+
+            }
+            p { margin-top: .5rem; margin-bottom: 0;}
+        }
+    }
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+h3 {
+    margin: 0;
+}
+
+.publication {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 1.5rem;
+    color: $dark-gray;
+    width: 100%;
+    * {
+        max-width: 100%;
+    }
+    .info {
+        flex: 1 1 70%;
+        min-width: 40%;
+    }
+    .conference {
+        flex: 0 0 content;
+        color: $dark-gray;
+    }
+    .bibtex {
+        flex: 0 0 100%;
+        input {
+            display: none;
+        }
+        .expander {
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            i {
+                transition: transform .25s;
+            }
+        }
+        input:checked + .expander i {
+            transform: rotate(90deg);
+        }
+
+        .content {
+            transition: max-height .25s;
+            overflow: hidden;
+            transform-origin: top;
+            max-height: 0;
+            width: 100%;
+        }
+
+        input:checked + .expander + .content {
+            max-height: 12.5rem;
+        }
+    }
+}
+
+a.subtle {
+    text-decoration: none;
+}
+a.subtle:link:hover, a.subtle:visited:hover {
+    text-decoration: underline;
+}
+
+.container {
+    max-width: 680px; 
+    margin: 0 auto; 
+    padding: 1rem .5rem;
+}
+.container > .title {
+    text-transform: uppercase;
+    color: #009999;
+    margin-bottom: 1rem;
+}
+
+.container .content {
+    display: flex;
+    justify-content: center;
+    flex-wrap:wrap;
+}
+
+
+.photo {
+    display: block;
+    width: 9rem;
+    height: 9rem;
+    flex-basis: content;
+    border-radius: 50%;
+    background: gray;
+    margin-right: 1rem;
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255,255,255,.6);
+    box-shadow: inset 0 0 5px gray;
+}
+
+.info {
+    flex-basis: content;
+    align-self: center;
+    text-align: left;
+    .contact {
+        text-align: left;
+        width: 100%;
+        margin: 0;
+    }
+    .name {
+        margin: 0 auto;
+        font-size: 2rem;
+        text-align: center;
+    }
+}

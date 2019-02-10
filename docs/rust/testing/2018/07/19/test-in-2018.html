@@ -11,22 +11,24 @@
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
     <title>#[test] in 2018</title>
     
+    
+    
 </head>
 <body>
     <div class="padded header">
     <input type="text" class="disabled" id="search-input" placeholder="Search..."/>
-    <a class="logo" href="/">
+    <a class = "logo" href="/">
         djrenren
     </a>
+    <a class = "logo about" href="/about-me"><i class="far fa-question-circle"></i></a>
     <div id="results-container">
         <div id="results"></div>
     </div>
     <i class="fas fa-search search-icon"></i>
 </div>
 
-
     <div class="center-col padded main">
-    <h1><a class="title-link" href="/rust/testing/2018/07/19/test-in-2018.html">
+        <h1><a class="title-link" href="/rust/testing/2018/07/19/test-in-2018.html">
     #[test] in 2018
 </h1></a>
 <p>Lately, I’ve been working implementing the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a> for Rust.
@@ -194,11 +196,12 @@ On nightly rust, there’s an unstable flag called <code class="highlighter-roug
     </a>
 </div>
     </div>
+
     <div class="footer extras">
     <div class="footer-contents center-col">
         <div class="social">
             <a href="https://twitter.com/thedjrenren"><i class="fab fa-twitter"></i></a>
-            <a href="https://https://discordapp.com/invite/aVESxV8"><i class="fab fa-discord"></i></a>
+            <a href="https://discordapp.com/invite/aVESxV8"><i class="fab fa-discord"></i></a>
             <a href="https://github.com/djrenren/"><i class="fab fa-github"></i></a>
         </div>
         <a class="licensing" href="https://creativecommons.org/licenses/by/4.0/">
@@ -249,7 +252,21 @@ On nightly rust, there’s an unstable flag called <code class="highlighter-roug
             Creative Commons Attribution 4.0
         </a>
     </div>
+    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js" defer>
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sjs = SimpleJekyllSearch({
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('results'),
+                json: '/search.json',
+                noResultsText: '<li><a>No Results Found</a></li>'
+            });
+            document.getElementById('search-input').classList.remove('disabled');
+        });
+    </script>
 </div>
+
 
     <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
     </script>

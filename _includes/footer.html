@@ -11,4 +11,17 @@
             Creative Commons Attribution 4.0
         </a>
     </div>
+    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js" defer>
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var sjs = SimpleJekyllSearch({
+                searchInput: document.getElementById('search-input'),
+                resultsContainer: document.getElementById('results'),
+                json: '/search.json',
+                noResultsText: '<li><a>No Results Found</a></li>'
+            });
+            document.getElementById('search-input').classList.remove('disabled');
+        });
+    </script>
 </div>
