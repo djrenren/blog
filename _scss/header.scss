@@ -4,6 +4,8 @@ $search-width: 2rem;
 
 .header {
     width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
     //margin-bottom: 2rem;
     height: $header-height;
     white-space: nowrap;

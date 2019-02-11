@@ -22,12 +22,14 @@ custom_css:
 {% endcapture %}
 {% include chunk.html class="about-header" content=header %}
 
+<section>
 <h2>About Me</h2>
 <p>
     I'm a graduate currently pursuing my PhD in Computer Science at UCSD.
     Much of my work has been focused on programming languages.
     If for any reason you'd like to connect with me, please reach out to me via email.
 </p>
+</section>
 
 <section>
     <h2>Education</h2>
