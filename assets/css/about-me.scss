@@ -65,6 +65,7 @@
             margin-top: 2rem;
         }
         img {
+            object-fit: scale-down;
             flex-basis: 0;
             flex-grow: 2;
             flex-shrink: 1;
