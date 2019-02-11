@@ -1,6 +1,14 @@
 [
   
     {
+      "title"    : "CT-Wasm Conference Presentation",
+      "category" : "",
+      "tags"     : "",
+      "url"      : "/2019/02/10/ct-wasm-talk.html",
+      "date"     : "2019-02-10 00:00:00 -0800"
+    } ,
+  
+    {
       "title"    : "Proposal: Rust Custom Test Frameworks",
       "category" : "",
       "tags"     : "",
