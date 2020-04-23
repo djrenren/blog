@@ -1,0 +1,41 @@
+- title: "Towards a Verified Range Analysis for Javascript JITs"
+  src: "#"
+  conference: "PLDI '20"
+  authors: Fraser Brown, John Renner, Andres Noetzli, Sorin Lerner, Hovav Schacham, Deian Stefan
+  bibtex: |-
+    @inproceedings{brown:2020:vera,
+      author    = {Fraser Brown and John Renner and Andres Noetzli and Sorin Lerner and Hovav Schacham and Deian Stefan},
+      title     = {Towards a Verified Range Analysis for Javascript JITs},
+      booktitle = {Programming Language Design and Implementation (PLDI)},
+      month     = {June},
+      year      = {2020},
+      publisher = {ACM SIGPLAN}
+    }
+
+- title: "CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem"
+  src: https://github.com/djrenren/blog/releases/download/papers/ct-wasm-popl-2019.pdf
+  conference: "POPL '19"
+  authors: Conrad Watt, John Renner, Natalie Popescu, Sunjay Cauligi, Deian Stefan
+  bibtex: |-
+    @inproceedings{watt:2019:ct-wasm,
+      author    = {Conrad Watt and John Renner and Natalie Popescu and Sunjay Cauligi and Deian Stefan},
+      title     = {{CT-Wasm}: Type-Driven Secure Cryptography for the Web Ecosystem},
+      booktitle = {ACM SIGPLAN Symposium on Principles of Programming Languages (POPL)},
+      month     = {January},
+      year      = {2019},
+      publisher = {ACM}
+    }
+
+- title: "Constant-time WebAssembly"
+  src: https://github.com/djrenren/blog/releases/download/papers/ct-wasm-prisc-2018.pdf
+  conference: "PriSC '18"
+  authors: "John Renner, Sunjay Cauligi, Deian Stefan"
+  bibtex: |-
+    @inproceedings{renner:2018:ct-wasm,
+        author    = {John Renner and Sunjay Cauligi and Deian Stefan},
+        title     = {Constant-Time {WebAssembly}},
+        booktitle = {Principles of Secure Compilation (PriSC)},
+        month     = {January},
+        year      = {2018},
+    }
+

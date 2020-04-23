@@ -103,7 +103,7 @@ h3 {
     line-height: 1.5rem;
     color: $dark-gray;
     width: 100%;
-    * {
+    & > * {
         max-width: 100%;
     }
     .info {
@@ -133,6 +133,7 @@ h3 {
         }
 
         .content {
+            color: $black;
             transition: max-height .25s;
             overflow: hidden;
             transform-origin: top;
@@ -141,7 +142,7 @@ h3 {
         }
 
         input:checked + .expander + .content {
-            max-height: 12.5rem;
+            max-height: 14.5rem;
         }
     }
 }
@@ -153,50 +154,5 @@ a.subtle:link:hover, a.subtle:visited:hover {
     text-decoration: underline;
 }
 
-.container {
-    max-width: 680px; 
-    margin: 0 auto; 
-    padding: 1rem .5rem;
-}
-.container > .title {
-    text-transform: uppercase;
-    color: #009999;
-    margin-bottom: 1rem;
-}
-
-.container .content {
-    display: flex;
-    justify-content: center;
-    flex-wrap:wrap;
-}
 
 
-.photo {
-    display: block;
-    width: 9rem;
-    height: 9rem;
-    flex-basis: content;
-    border-radius: 50%;
-    background: gray;
-    margin-right: 1rem;
-    background-size: cover;
-    background-position: center;
-    border: 1px solid rgba(255,255,255,.6);
-    box-shadow: inset 0 0 5px gray;
-}
-
-.info {
-    flex-basis: content;
-    align-self: center;
-    text-align: left;
-    .contact {
-        text-align: left;
-        width: 100%;
-        margin: 0;
-    }
-    .name {
-        margin: 0 auto;
-        font-size: 2rem;
-        text-align: center;
-    }
-}

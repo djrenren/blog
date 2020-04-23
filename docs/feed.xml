@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="https://blog.jrenner.net/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.jrenner.net/" rel="alternate" type="text/html" /><updated>2019-02-11T13:01:40-08:00</updated><id>https://blog.jrenner.net/</id><title type="html">djrenren</title><subtitle>a grad student's blog</subtitle><entry><title type="html">CT-Wasm Conference Presentation</title><link href="https://blog.jrenner.net/2019/02/10/ct-wasm-talk.html" rel="alternate" type="text/html" title="CT-Wasm Conference Presentation" /><published>2019-02-10T00:00:00-08:00</published><updated>2019-02-10T00:00:00-08:00</updated><id>https://blog.jrenner.net/2019/02/10/ct-wasm-talk</id><content type="html" xml:base="https://blog.jrenner.net/2019/02/10/ct-wasm-talk.html">&lt;div class=&quot;youtube-container&quot;&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://blog.jrenner.net/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.jrenner.net/" rel="alternate" type="text/html" /><updated>2020-04-23T13:12:52-04:00</updated><id>https://blog.jrenner.net/feed.xml</id><title type="html">djrenren</title><subtitle>a grad student's blog</subtitle><entry><title type="html">CT-Wasm Conference Presentation</title><link href="https://blog.jrenner.net/2019/02/10/ct-wasm-talk.html" rel="alternate" type="text/html" title="CT-Wasm Conference Presentation" /><published>2019-02-10T00:00:00-05:00</published><updated>2019-02-10T00:00:00-05:00</updated><id>https://blog.jrenner.net/2019/02/10/ct-wasm-talk</id><content type="html" xml:base="https://blog.jrenner.net/2019/02/10/ct-wasm-talk.html">&lt;div class=&quot;youtube-container&quot;&gt;
 &lt;iframe src=&quot;//www.youtube.com/embed/2mhQnJK81CY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; class=&quot;video&quot;&gt;&lt;/iframe&gt;
 &lt;/div&gt;
 
@@ -9,13 +9,12 @@ The feedback has overwhelmingly positive:&lt;/p&gt;
 &lt;blockquote class=&quot;twitter-tweet tw-align-center&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;favourite &lt;a href=&quot;https://twitter.com/hashtag/POPL19?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#POPL19&lt;/a&gt; papers based on talks&lt;br /&gt;&lt;br /&gt;Quantitative Robustness Analysis of Quantum Programs&lt;a href=&quot;https://t.co/sBWsQRG3rd&quot;&gt;https://t.co/sBWsQRG3rd&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem&lt;a href=&quot;https://t.co/fFjfOsydt3&quot;&gt;https://t.co/fFjfOsydt3&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Decidable Verification of Uninterpreted Programs&lt;a href=&quot;https://t.co/XGlS8DhNdR&quot;&gt;https://t.co/XGlS8DhNdR&lt;/a&gt;&lt;/p&gt;&amp;mdash; Aws Albarghouthi (@awsTO) &lt;a href=&quot;https://twitter.com/awsTO/status/1086338368865214464?ref_src=twsrc%5Etfw&quot;&gt;January 18, 2019&lt;/a&gt;&lt;/blockquote&gt;
 
 &lt;blockquote class=&quot;twitter-tweet tw-align-center&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Absolutely stunning talk on CT-Wasm just now at &lt;a href=&quot;https://twitter.com/hashtag/POPL2019?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#POPL2019&lt;/a&gt;.&lt;/p&gt;&amp;mdash; Simon Fowler (@Simon_JF) &lt;a href=&quot;https://twitter.com/Simon_JF/status/1085932255997030401?ref_src=twsrc%5Etfw&quot;&gt;January 17, 2019&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Proposal: Rust Custom Test Frameworks</title><link href="https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html" rel="alternate" type="text/html" title="Proposal: Rust Custom Test Frameworks" /><published>2018-08-06T01:00:00-07:00</published><updated>2018-08-06T01:00:00-07:00</updated><id>https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop</id><content type="html" xml:base="https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html">&lt;p&gt;The Rust community recently approved a &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt;
+&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Proposal: Rust Custom Test Frameworks</title><link href="https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html" rel="alternate" type="text/html" title="Proposal: Rust Custom Test Frameworks" /><published>2018-08-06T04:00:00-04:00</published><updated>2018-08-06T04:00:00-04:00</updated><id>https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop</id><content type="html" xml:base="https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html">&lt;p&gt;The Rust community recently approved a &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt;
 which lays out a series of goals and possible directions of exploration for
 implementing custom test frameworks. In this post, I present my own proposed
 fulfillment of the RFC with rationale.&lt;/p&gt;
 
 &lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
-&lt;hr /&gt;
 
 &lt;p&gt;Today in Rust, anyone can write a test using the &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; macro:&lt;/p&gt;
 
@@ -33,7 +32,7 @@ to offer the ergonomic power of &lt;code class=&quot;highlighter-rouge&quot;&gt;
 define and mix custom test formats and test runners.&lt;/p&gt;
 
 &lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;Two small additions are enough to enable the creation of powerful test frameworks:&lt;/p&gt;
 
 &lt;ul&gt;
@@ -61,7 +60,7 @@ define and mix custom test formats and test runners.&lt;/p&gt;
 &lt;p&gt;This code contains two tests, written in two different formats, being executed by a third library.&lt;/p&gt;
 
 &lt;h3 id=&quot;framework-agnostic-test_case&quot;&gt;Framework-Agnostic &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test_case]&lt;/code&gt;&lt;/h3&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test_case]&lt;/code&gt; is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Semantics:&lt;/strong&gt;&lt;/p&gt;
@@ -84,7 +83,7 @@ In order to avoid doing potentially expensive macro expansions in non-test build
 &lt;p&gt;We can provide this in an external support library.&lt;/p&gt;
 
 &lt;h3 id=&quot;test_runner-crate-attribute&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#![test_runner]&lt;/code&gt; Crate Attribute&lt;/h3&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;The goal of the &lt;code class=&quot;highlighter-rouge&quot;&gt;test_runner&lt;/code&gt; attribute is to allow test frameworks to be written as simple functions.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Semantics:&lt;/strong&gt;&lt;/p&gt;
@@ -110,10 +109,9 @@ to stabilize the &lt;a href=&quot;https://doc.rust-lang.org/test/struct.TestDesc
 be implemented for it, so custom test runners can run existing tests.&lt;/p&gt;
 
 &lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
-&lt;hr /&gt;
 
 &lt;h3 id=&quot;the-test-runner-author&quot;&gt;The Test Runner Author&lt;/h3&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;Suppose a test author wants to be able to query and execute tests from within an IDE.
 The editor has a standard API for test executables to adhere to, so they author
 a test runner that adheres to that specification, starting with a new crate:&lt;/p&gt;
@@ -144,7 +142,7 @@ a test runner that adheres to that specification, starting with a new crate:&lt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;the-test-format-author&quot;&gt;The Test Format Author&lt;/h3&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;Many crates such as &lt;a href=&quot;https://github.com/japaric/criterion.rs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;criterion&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/BurntSushi/quickcheck&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;quickcheck&lt;/code&gt;&lt;/a&gt; offer
 new ways to declare tests. I call these &lt;em&gt;test formats&lt;/em&gt;. Typically, these are proc_macro
 attributes that allow for a different declaration syntax than &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt;. Some, like
@@ -210,7 +208,7 @@ accepts &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt;’
 which are coupled to the declaration. This leads us to our third example:&lt;/p&gt;
 
 &lt;h3 id=&quot;the-framework-author&quot;&gt;The Framework Author&lt;/h3&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;Framework authors seek to extend the very idea of what it means to be a test. These
 will require cooperation between the runner and the declaration format but can
 still provide modularity and compatibility.&lt;/p&gt;
@@ -249,7 +247,7 @@ people to write their own &lt;code class=&quot;highlighter-rouge&quot;&gt;TestSu
 alternate runners for &lt;code class=&quot;highlighter-rouge&quot;&gt;TestSuite&lt;/code&gt;’s.&lt;/p&gt;
 
 &lt;h2 id=&quot;useful-properties&quot;&gt;Useful Properties&lt;/h2&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;This proposal has some implicit properties that are worth calling out:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cargo test&lt;/code&gt; works out of the box&lt;/li&gt;
@@ -258,7 +256,7 @@ alternate runners for &lt;code class=&quot;highlighter-rouge&quot;&gt;TestSuite&
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;open-questions&quot;&gt;Open Questions&lt;/h2&gt;
-&lt;hr /&gt;
+
 &lt;p&gt;While the proposal seems strong to me, there are still questions that need answering:&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;Does this meet the needs of &lt;a href=&quot;https://github.com/rustwasm/wasm-bindgen&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wasm-bindgen&lt;/code&gt;&lt;/a&gt; and similar?&lt;/li&gt;
@@ -268,7 +266,7 @@ alternate runners for &lt;code class=&quot;highlighter-rouge&quot;&gt;TestSuite&
 &lt;/ul&gt;
 
 &lt;p&gt;If you’re interested in playing around with the proposal, I’ve implemented it at
-&lt;a href=&quot;https://github.com/djrenren/rust/tree/custom-test-frameworks&quot;&gt;djrenren/rust&lt;/a&gt;, and built some examples at &lt;a href=&quot;https://github.com/djrenren/rust-test-frameworks&quot;&gt;djrenren/rust-test-frameworks&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale.</summary></entry><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="https://blog.jrenner.net/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T04:00:00-07:00</published><updated>2018-08-01T04:00:00-07:00</updated><id>https://blog.jrenner.net/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="https://blog.jrenner.net/rust/testing/2018/08/01/expansion.html">&lt;p&gt;I recently set out to fix &lt;a href=&quot;https://github.com/rust-lang/rust/issues/52557&quot;&gt;a bug&lt;/a&gt; in &lt;a href=&quot;/rust/testing/2018/07/19/test-in-2018.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; expansion in
+&lt;a href=&quot;https://github.com/djrenren/rust/tree/custom-test-frameworks&quot;&gt;djrenren/rust&lt;/a&gt;, and built some examples at &lt;a href=&quot;https://github.com/djrenren/rust-test-frameworks&quot;&gt;djrenren/rust-test-frameworks&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale.</summary></entry><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="https://blog.jrenner.net/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T07:00:00-04:00</published><updated>2018-08-01T07:00:00-04:00</updated><id>https://blog.jrenner.net/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="https://blog.jrenner.net/rust/testing/2018/08/01/expansion.html">&lt;p&gt;I recently set out to fix &lt;a href=&quot;https://github.com/rust-lang/rust/issues/52557&quot;&gt;a bug&lt;/a&gt; in &lt;a href=&quot;/rust/testing/2018/07/19/test-in-2018.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; expansion in
 Rust&lt;/a&gt;. What follows is a chronicle of that journey.&lt;/p&gt;
 
 &lt;h2 id=&quot;the-bug&quot;&gt;The Bug&lt;/h2&gt;
@@ -356,7 +354,7 @@ variable lints, but that was a quick fix.&lt;/p&gt;
 lost in a complex open-source project can be disheartening at the very
 least. By discussing these esoteric bits, I hope I can help someone who gets stuck
 in similar bits of code in the future, or maybe just assure them that it’s common
-to feel lost. As always, feel free to reach out if you have questions.&lt;/p&gt;</content><author><name></name></author><summary type="html">I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.</summary></entry><entry><title type="html">#[test] in 2018</title><link href="https://blog.jrenner.net/rust/testing/2018/07/19/test-in-2018.html" rel="alternate" type="text/html" title="#[test] in 2018" /><published>2018-07-19T16:11:01-07:00</published><updated>2018-07-19T16:11:01-07:00</updated><id>https://blog.jrenner.net/rust/testing/2018/07/19/test-in-2018</id><content type="html" xml:base="https://blog.jrenner.net/rust/testing/2018/07/19/test-in-2018.html">&lt;p&gt;Lately, I’ve been working implementing the &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt; for Rust.
+to feel lost. As always, feel free to reach out if you have questions.&lt;/p&gt;</content><author><name></name></author><summary type="html">I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.</summary></entry><entry><title type="html">#[test] in 2018</title><link href="https://blog.jrenner.net/rust/testing/2018/07/19/test-in-2018.html" rel="alternate" type="text/html" title="#[test] in 2018" /><published>2018-07-19T19:11:01-04:00</published><updated>2018-07-19T19:11:01-04:00</updated><id>https://blog.jrenner.net/rust/testing/2018/07/19/test-in-2018</id><content type="html" xml:base="https://blog.jrenner.net/rust/testing/2018/07/19/test-in-2018.html">&lt;p&gt;Lately, I’ve been working implementing the &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt; for Rust.
 While exploring the compiler codebase, I’ve learned about the internals of testing in Rust
 and figured it would be interesting to share.&lt;/p&gt;
 
@@ -408,7 +406,7 @@ This expansion translates the above example into:&lt;/p&gt;
     &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;my_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 
-  &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__test_reexports&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_reexports&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
@@ -448,7 +446,7 @@ hygiene.&lt;/p&gt;
 &lt;p&gt;Now that our tests are accessible from the root of our crate, we need to do something with them.
 &lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt; generates a module like so:&lt;/p&gt;
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;'static&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDescAndFn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
 
@@ -489,7 +487,7 @@ For a given test, the generated &lt;code class=&quot;highlighter-rouge&quot;&gt;
     &lt;span class=&quot;n&quot;&gt;allow_fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
   &lt;span class=&quot;n&quot;&gt;testfn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StaticTestFn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(||&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;assert_test_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;crate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;__test_reexports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())),&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;assert_test_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;crate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test_reexports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())),&lt;/span&gt;
 &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 

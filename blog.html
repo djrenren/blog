@@ -1,19 +1,20 @@
 ---
 layout: default
-title: "djrenren: a blog"
+title: "Blog - John Renner"
+active: about
 ---
 
 {% for post in site.posts %}
 <div class="entry" href="#">
     <h1 class="title head-text"><a class="title-link" href="{{post.url}}">{{ post.title }}</a></h1>
-    <div class="excerpt">
-     {{ post.excerpt }}
-    </div>
     <div class="extras">
         <i class="far fa-calendar-alt"></i>
         {{ post.date | date_to_long_string }}
-        <i class="far fa-clock"></i>
-        {{ post.content | reading_time_as_i }}
+        <!-- <i class="far fa-clock"></i>
+        {{ post.content | reading_time_as_i }} -->
+    </div>
+    <div class="excerpt">
+     {{ post.excerpt }}
     </div>
 </div>
 {% endfor %}

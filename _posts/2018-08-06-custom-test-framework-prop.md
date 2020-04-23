@@ -11,7 +11,7 @@ implementing custom test frameworks. In this post, I present my own proposed
 fulfillment of the RFC with rationale.
 
 ## Background
---------------------
+
 
 Today in Rust, anyone can write a test using the `#[test]` macro:
 
@@ -30,7 +30,7 @@ to offer the ergonomic power of `#[test]` while providing the flexibility requir
 define and mix custom test formats and test runners.
 
 ## Summary
-------------
+
 Two small additions are enough to enable the creation of powerful test frameworks:
 
  - Framework-agnostic `#[test_case]` macro for test aggregation
@@ -57,7 +57,7 @@ fn foo() {
 This code contains two tests, written in two different formats, being executed by a third library.
 
 ### Framework-Agnostic `#[test_case]`
---------------------------------------
+
 `#[test_case]` is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.
 
 **Semantics:**
@@ -78,7 +78,7 @@ In order to avoid doing potentially expensive macro expansions in non-test build
 We can provide this in an external support library.
 
 ### `#![test_runner]` Crate Attribute
---------------------------------------
+
 The goal of the `test_runner` attribute is to allow test frameworks to be written as simple functions.
 
 **Semantics:**
@@ -102,10 +102,10 @@ to stabilize the [`TestDescAndFn`][testdaf] struct from `libtest` so that the tr
 be implemented for it, so custom test runners can run existing tests.
 
 ## Examples
--------------
+
 
 ### The Test Runner Author
---------------------------
+
 Suppose a test author wants to be able to query and execute tests from within an IDE.
 The editor has a standard API for test executables to adhere to, so they author
 a test runner that adheres to that specification, starting with a new crate:
@@ -140,7 +140,7 @@ To use this test runner they add a Cargo
 ```
 
 ### The Test Format Author
----------------------------
+
 Many crates such as [`criterion`][criterion] and [`quickcheck`][quickcheck] offer
 new ways to declare tests. I call these *test formats*. Typically, these are proc_macro
 attributes that allow for a different declaration syntax than `#[test]`. Some, like
@@ -211,7 +211,7 @@ accepts `Testable`'s. Sometimes, however, we want specialized features in the ru
 which are coupled to the declaration. This leads us to our third example:
 
 ### The Framework Author
--------------------------
+
 Framework authors seek to extend the very idea of what it means to be a test. These
 will require cooperation between the runner and the declaration format but can
 still provide modularity and compatibility.
@@ -252,14 +252,14 @@ people to write their own `TestSuite` constructing macros and to produce
 alternate runners for `TestSuite`'s.
 
 ## Useful Properties
------------------------
+
 This proposal has some implicit properties that are worth calling out:
  - `cargo test` works out of the box
  - `#[test]` continues to work alongside new tests
  - Test frameworks are just regular libraries
 
 ## Open Questions
-------------------
+
 While the proposal seems strong to me, there are still questions that need answering:
  - Does this meet the needs of [`wasm-bindgen`][wasmb] and similar?
  - What needs to be in the `Testable` trait?

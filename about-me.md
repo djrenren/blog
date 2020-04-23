@@ -8,31 +8,18 @@ custom_css:
 <link rel="stylesheet" type="text/css" href="/assets/css/about-me.css" />
 {% endcapture %}
 
-{% capture header %}
-    <img class="photo" src="/assets/img/me.jpg"/>
-    <div class="info">
-        <h1 class="name">
-            John Renner
-        </h1>
-        <p class="contact">
-            <a href="mailto:john@jrenner.net" class="subtle"><i class="fa fa-envelope"></i> &nbsp;john@jrenner.net</a> &middot;
-            <a href="//github.com/djrenren" class="subtle"><i class="fab fa-github"></i> djrenren</a>
-        </p>
-    </div>
-{% endcapture %}
-{% include chunk.html class="about-header" content=header %}
-
 <section>
-<h2>About Me</h2>
 <p>
     I'm a graduate currently pursuing my PhD in Computer Science at UCSD.
-    Much of my work has been focused on programming languages.
-    If for any reason you'd like to connect with me, please reach out to me via email.
+    My work uses programming language techniques to solve security problems.
+</p>
+<p>
+    <b>Email:</b> john@jrenner.net
 </p>
 </section>
 
 <section>
-    <h2>Education</h2>
+    <h2 class="section">Education</h2>
     <br>
     <div class="education">
     <div class="school">
@@ -62,7 +49,22 @@ custom_css:
 
 
 <section>
-<h2>Projects & Work</h2>
+    <h2 class="section">Publications</h2>
+    <div class="publications">
+{% for pub in site.data.publications %}
+{% include publication.html 
+    src=pub.src
+    title=pub.title
+    conference=pub.conference
+    authors=pub.authors
+    id=forloop.index
+    bibtex=pub.bibtex
+%}
+{% endfor %}
+    </div>
+</section>
+<section>
+<h2 class="section">Projects & Work</h2>
 <br>
 <div class="work">
     <div class="work-item">
@@ -104,47 +106,3 @@ custom_css:
 </div>
 </section>
 
-<section>
-    <h2>Publications</h2>
-    <div class="publications">
-{%- capture bibtex -%}
-{% raw %}
-@inproceedings{watt:2019:ct-wasm,
-  author    = {Conrad Watt and John Renner and Natalie Popescu and Sunjay Cauligi and Deian Stefan},
-  title     = {{CT-Wasm}: Type-Driven Secure Cryptography for the Web Ecosystem},
-  booktitle = {ACM SIGPLAN Symposium on Principles of Programming Languages (POPL)},
-  month     = {January},
-  year      = {2019},
-  publisher = {ACM}
-}
-{% endraw %}
-{%- endcapture -%}
-        {%include publication.html
-            src="https://github.com/djrenren/blog/releases/download/papers/ct-wasm-popl-2019.pdf"
-            title="CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem"
-            conference="POPL '19"
-            authors="Conrad Watt, John Renner, Natalie Popescu, Sunjay Cauligi, Deian Stefan"
-            id=2
-            bibtex=bibtex
-           %}
-
-{%- capture bibtex -%}
-@inproceedings{renner:2018:ct-wasm,
-    author    = {John Renner and Sunjay Cauligi and Deian Stefan},
-    title     = {Constant-Time {WebAssembly}},
-    booktitle = {Principles of Secure Compilation (PriSC)},
-    month     = {January},
-    year      = {2018},
-}
-{%- endcapture -%}
-        {%include publication.html
-            src="https://github.com/djrenren/blog/releases/download/papers/ct-wasm-prisc-2018.pdf"
-            title="Constant-time WebAssembly"
-            conference="PriSC '18"
-            authors="John Renner, Sunjay Cauligi, Deian Stefan"
-            bibtex=bibtex
-            id=1
-           %}
-
-    </div>
-</section>

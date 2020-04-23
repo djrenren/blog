@@ -2,22 +2,15 @@
 layout: default
 include_header: true
 ---
+{%- assign date_format = site.minima.date_format | default: '%b %-d, %Y' -%}
 
-<h1><a class="title-link" href="{{page.url}}">
+<h1 class="title"><a class="title-link" href="{{page.url}}">
     {{page.title}}
-</h1></a>
-{{content}}
-<div class="relative-nav">
-    <a class="nav-link gray-link" href="{{page.previous.url}}">
-    {% if page.previous.url %}
-        <i class="fas fa-angle-left"></i>
-        <span class="nav-title">{{page.previous.title}}</span>
-    {% endif %}
-    </a>
-    <a class="nav-link gray-link" href="{{page.next.url}}">
-    {% if page.next.url %}
-        <span class="nav-title">{{page.next.title}}</span>
-        <i class="fas fa-angle-right"></i>
-    {% endif %}
-    </a>
+</a></h1>
+<div class="extras">
+    <i class="far fa-calendar-alt"></i>
+    {% if page.date != nil %}
+    {{ page.date | date_to_long_string }}
+    {%endif%}
 </div>
+{{content}}

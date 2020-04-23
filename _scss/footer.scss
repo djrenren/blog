@@ -1,7 +1,7 @@
 $footer-height: 6rem;
 $footer-padding: 1rem;
 body {
-    padding-bottom: $footer-height + ($footer-padding);
+    padding-bottom: $footer-height + ($footer-padding) !important;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -12,6 +12,8 @@ body {
     width: 100%;
     color: $gray;
     text-align: center;
+    left: 0;
+    right: 0;
 }
 
 .social {

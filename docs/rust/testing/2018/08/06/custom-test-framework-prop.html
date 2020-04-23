@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Open+Sans:800,400|Source+Code+Pro">
     <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
-    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
@@ -14,9 +14,9 @@
     
     
 
-    <!-- Begin Jekyll SEO tag v2.5.0 -->
+    <!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Proposal: Rust Custom Test Frameworks | djrenren</title>
-<meta name="generator" content="Jekyll v3.8.3" />
+<meta name="generator" content="Jekyll v4.0.0" />
 <meta property="og:title" content="Proposal: Rust Custom Test Frameworks" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale." />
@@ -25,35 +25,55 @@
 <meta property="og:url" content="https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html" />
 <meta property="og:site_name" content="djrenren" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-08-06T01:00:00-07:00" />
+<meta property="article:published_time" content="2018-08-06T04:00:00-04:00" />
 <script type="application/ld+json">
-{"url":"https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html","headline":"Proposal: Rust Custom Test Frameworks","dateModified":"2018-08-06T01:00:00-07:00","datePublished":"2018-08-06T01:00:00-07:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html"},"description":"The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale.","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"description":"The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale.","@type":"BlogPosting","url":"https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html","headline":"Proposal: Rust Custom Test Frameworks","dateModified":"2018-08-06T04:00:00-04:00","datePublished":"2018-08-06T04:00:00-04:00","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html"},"@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
 <body>
-    <div class="padded header">
-    <input type="text" class="disabled" id="search-input" placeholder="Search..."/>
-    <a class = "logo" href="/">
-        djrenren
-    </a>
-    <a class = "logo about" href="/about-me"><i class="far fa-question-circle"></i></a>
-    <div id="results-container">
-        <div id="results"></div>
-    </div>
-    <i class="fas fa-search search-icon"></i>
-</div>
-    <div class="center-col padded main">
-        <h1><a class="title-link" href="/rust/testing/2018/08/06/custom-test-framework-prop.html">
+    <div class='page-container'>
+        <header class="header">
+            <a class="photo" href="/">
+                <img src="/assets/img/me.jpg" />
+            </a>
+            <span class="name">
+                <a href="/">
+                    John Renner
+                </a>
+            </span>
+            <span class="blurb">
+                PhD Student @ UCSD
+            </span>
+            <nav class="nav">
+                <a href="/blog">Blog</a></li>
+                <a href="/about-me">About</a></li>
+            </nav>
+            <!-- <div class="info">
+                <p class="contact">
+                    <a href="mailto:john@jrenner.net" class="subtle"><i class="fa fa-envelope"></i>
+                        john@jrenner.net</a>
+                        <br>
+                    <a href="//github.com/djrenren" class="subtle"><i class="fab fa-github"></i> djrenren</a>
+                </p>
+            </div> -->
+        </header>
+        <div class="content">
+            <h1 class="title"><a class="title-link" href="/rust/testing/2018/08/06/custom-test-framework-prop.html">
     Proposal: Rust Custom Test Frameworks
-</h1></a>
+</a></h1>
+<div class="extras">
+    <i class="far fa-calendar-alt"></i>
+    
+    06 August 2018
+    
+</div>
 <p>The Rust community recently approved a <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a>
 which lays out a series of goals and possible directions of exploration for
 implementing custom test frameworks. In this post, I present my own proposed
 fulfillment of the RFC with rationale.</p>
 
 <h2 id="background">Background</h2>
-<hr />
 
 <p>Today in Rust, anyone can write a test using the <code class="highlighter-rouge">#[test]</code> macro:</p>
 
@@ -71,7 +91,7 @@ to offer the ergonomic power of <code class="highlighter-rouge">#[test]</code> w
 define and mix custom test formats and test runners.</p>
 
 <h2 id="summary">Summary</h2>
-<hr />
+
 <p>Two small additions are enough to enable the creation of powerful test frameworks:</p>
 
 <ul>
@@ -99,7 +119,7 @@ define and mix custom test formats and test runners.</p>
 <p>This code contains two tests, written in two different formats, being executed by a third library.</p>
 
 <h3 id="framework-agnostic-test_case">Framework-Agnostic <code class="highlighter-rouge">#[test_case]</code></h3>
-<hr />
+
 <p><code class="highlighter-rouge">#[test_case]</code> is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.</p>
 
 <p><strong>Semantics:</strong></p>
@@ -122,7 +142,7 @@ In order to avoid doing potentially expensive macro expansions in non-test build
 <p>We can provide this in an external support library.</p>
 
 <h3 id="test_runner-crate-attribute"><code class="highlighter-rouge">#![test_runner]</code> Crate Attribute</h3>
-<hr />
+
 <p>The goal of the <code class="highlighter-rouge">test_runner</code> attribute is to allow test frameworks to be written as simple functions.</p>
 
 <p><strong>Semantics:</strong></p>
@@ -148,10 +168,9 @@ to stabilize the <a href="https://doc.rust-lang.org/test/struct.TestDescAndFn.ht
 be implemented for it, so custom test runners can run existing tests.</p>
 
 <h2 id="examples">Examples</h2>
-<hr />
 
 <h3 id="the-test-runner-author">The Test Runner Author</h3>
-<hr />
+
 <p>Suppose a test author wants to be able to query and execute tests from within an IDE.
 The editor has a standard API for test executables to adhere to, so they author
 a test runner that adheres to that specification, starting with a new crate:</p>
@@ -182,7 +201,7 @@ a test runner that adheres to that specification, starting with a new crate:</p>
 </code></pre></div></div>
 
 <h3 id="the-test-format-author">The Test Format Author</h3>
-<hr />
+
 <p>Many crates such as <a href="https://github.com/japaric/criterion.rs"><code class="highlighter-rouge">criterion</code></a> and <a href="https://github.com/BurntSushi/quickcheck"><code class="highlighter-rouge">quickcheck</code></a> offer
 new ways to declare tests. I call these <em>test formats</em>. Typically, these are proc_macro
 attributes that allow for a different declaration syntax than <code class="highlighter-rouge">#[test]</code>. Some, like
@@ -248,7 +267,7 @@ accepts <code class="highlighter-rouge">Testable</code>’s. Sometimes, however,
 which are coupled to the declaration. This leads us to our third example:</p>
 
 <h3 id="the-framework-author">The Framework Author</h3>
-<hr />
+
 <p>Framework authors seek to extend the very idea of what it means to be a test. These
 will require cooperation between the runner and the declaration format but can
 still provide modularity and compatibility.</p>
@@ -287,7 +306,7 @@ people to write their own <code class="highlighter-rouge">TestSuite</code> const
 alternate runners for <code class="highlighter-rouge">TestSuite</code>’s.</p>
 
 <h2 id="useful-properties">Useful Properties</h2>
-<hr />
+
 <p>This proposal has some implicit properties that are worth calling out:</p>
 <ul>
   <li><code class="highlighter-rouge">cargo test</code> works out of the box</li>
@@ -296,7 +315,7 @@ alternate runners for <code class="highlighter-rouge">TestSuite</code>’s.</p>
 </ul>
 
 <h2 id="open-questions">Open Questions</h2>
-<hr />
+
 <p>While the proposal seems strong to me, there are still questions that need answering:</p>
 <ul>
   <li>Does this meet the needs of <a href="https://github.com/rustwasm/wasm-bindgen"><code class="highlighter-rouge">wasm-bindgen</code></a> and similar?</li>
@@ -309,22 +328,9 @@ alternate runners for <code class="highlighter-rouge">TestSuite</code>’s.</p>
 <a href="https://github.com/djrenren/rust/tree/custom-test-frameworks">djrenren/rust</a>, and built some examples at <a href="https://github.com/djrenren/rust-test-frameworks">djrenren/rust-test-frameworks</a>.</p>
 
 
-<div class="relative-nav">
-    <a class="nav-link gray-link" href="/rust/testing/2018/08/01/expansion.html">
-    
-        <i class="fas fa-angle-left"></i>
-        <span class="nav-title">Baby Steps: Fixing Test Scoping</span>
-    
-    </a>
-    <a class="nav-link gray-link" href="/2019/02/10/ct-wasm-talk.html">
-    
-        <span class="nav-title">CT-Wasm Conference Presentation</span>
-        <i class="fas fa-angle-right"></i>
-    
-    </a>
-</div>
-    </div>
 
+        </div>
+    </div>
     <div class="footer extras">
     <div class="footer-contents center-col">
         <div class="social">
@@ -380,34 +386,8 @@ alternate runners for <code class="highlighter-rouge">TestSuite</code>’s.</p>
             Creative Commons Attribution 4.0
         </a>
     </div>
-    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js" defer>
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var sjs = SimpleJekyllSearch({
-                searchInput: document.getElementById('search-input'),
-                resultsContainer: document.getElementById('results'),
-                json: '/search.json',
-                noResultsText: '<li><a>No Results Found</a></li>'
-            });
-            document.getElementById('search-input').classList.remove('disabled');
-        });
-    </script>
 </div>
 
-
-    <script src="https://cdn.rawgit.com/christian-fei/Simple-Jekyll-Search/master/dest/simple-jekyll-search.min.js">
-    </script>
-    <script>
-        var sjs = SimpleJekyllSearch({
-            searchInput: document.getElementById('search-input'),
-            resultsContainer: document.getElementById('results'),
-            json: '/search.json',
-            noResultsText: '<li><a>No Results Found</a></li>'
-        });
-        document.getElementById('search-input').classList.remove('disabled');
-
-    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-44215792-1"></script>
     <script>
