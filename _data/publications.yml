@@ -58,7 +58,29 @@
       series = {PLDI 2019}
     }
 
-  
+- title: "Position Paper: Progressive Memory Safety for WebAssembly"
+  src: https://github.com/djrenren/blog/releases/download/papers/disselkoen.2019.ms-wasm.pdf
+  conference: "HASP '19"
+  authors: Craig Disselkoen, John Renner, Conrad Watt, Tal Garfinkel, Amit Levy, and Deian Stefan
+  bibtex: |-
+    @inproceedings{10.1145/3337167.3337171,
+      author = {Disselkoen, Craig and Renner, John and Watt, Conrad and Garfinkel, Tal and Levy, Amit and Stefan, Deian},
+      title = {Position Paper: Progressive Memory Safety for WebAssembly},
+      year = {2019},
+      isbn = {9781450372268},
+      publisher = {Association for Computing Machinery},
+      address = {New York, NY, USA},
+      url = {https://doi.org/10.1145/3337167.3337171},
+      doi = {10.1145/3337167.3337171},
+      booktitle = {Proceedings of the 8th International Workshop on Hardware and Architectural Support for Security and Privacy},
+      articleno = {4},
+      numpages = {8},
+      keywords = {tagged memory, memory safety, WebAssembly, Wasm},
+      location = {Phoenix, AZ, USA},
+      series = {HASP '19}
+    }
+
+   
 - title: "Foundations for Parallel Information Flow Control Runtime Systems"
   src: https://link.springer.com/chapter/10.1007/978-3-030-17138-4_1
   conference: "POST '19"
