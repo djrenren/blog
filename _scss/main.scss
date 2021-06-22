@@ -471,10 +471,22 @@ h1.title {
             transform-origin: top;
             max-height: 0;
             width: 100%;
+            position: relative;
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
         }
 
         input:checked + .expander + .bib-content {
             max-height: 14.5rem;
         }
+
+        .bib-content > .highlighter-rouge {
+            display: flex;
+            align-items: stretch;
+            flex-direction: column;
+        }
+
+
     }
 }
