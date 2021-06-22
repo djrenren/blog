@@ -1,5 +1,28 @@
+- title: "Scooter & Sidecar: A Domain-Specific Approach to Writing Secure Database Migrations"
+  src: https://github.com/djrenren/blog/releases/download/papers/scooter-pldi21-preprint.pdf
+  conference: "PLDI '21"
+  authors: John Renner, Alex Sanchez-Stern, Fraser Brown, Sorin Lerner, Deian Stefan
+  bibtex: |-
+    @inproceedings{10.1145/3453483.3454072,
+      author = {Renner, John and Sanchez-Stern, Alex and Brown, Fraser and Lerner, Sorin and Stefan, Deian},
+      title = {Scooter & Sidecar: A Domain-Specific Approach to Writing Secure Database Migrations},
+      year = {2021},
+      isbn = {9781450383912},
+      publisher = {Association for Computing Machinery},
+      address = {New York, NY, USA},
+      url = {https://doi.org/10.1145/3453483.3454072},
+      doi = {10.1145/3453483.3454072},
+      booktitle = {Proceedings of the 42nd ACM SIGPLAN International Conference on Programming Language Design and Implementation},
+      pages = {710–724},
+      numpages = {15},
+      keywords = {verification, domain-specific language, secure ORM, database migration},
+      location = {Virtual, Canada},
+      series = {PLDI 2021}
+    }
+
+  
 - title: "Towards a Verified Range Analysis for Javascript JITs"
-  src: "#"
+  src: https://github.com/djrenren/blog/releases/download/papers/vera.pdf
   conference: "PLDI '20"
   authors: Fraser Brown, John Renner, Andres Noetzli, Sorin Lerner, Hovav Schacham, Deian Stefan
   bibtex: |-
@@ -11,6 +34,48 @@
       year      = {2020},
       publisher = {ACM SIGPLAN}
     }
+
+- title: "FaCT: a DSL for timing-sensitive computation"
+  src: https://github.com/djrenren/blog/releases/download/papers/fact_dsl.pdf
+  conference: "PLDI '19"
+  authors: Conrad Watt, John Renner, Natalie Popescu, Sunjay Cauligi, Deian Stefan
+  bibtex: |-
+    @inproceedings{10.1145/3314221.3314605,
+      author = {Cauligi, Sunjay and Soeller, Gary and Johannesmeyer, Brian and Brown, Fraser and Wahby, Riad S. and Renner, John and Gr\'{e}goire, Benjamin and Barthe, Gilles and Jhala, Ranjit and Stefan, Deian},
+      title = {FaCT: A DSL for Timing-Sensitive Computation},
+      year = {2019},
+      isbn = {9781450367127},
+      publisher = {Association for Computing Machinery},
+      address = {New York, NY, USA},
+      url = {https://doi.org/10.1145/3314221.3314605},
+      doi = {10.1145/3314221.3314605},
+      abstract = {Real-world cryptographic code is often written in a subset of C intended to execute in constant-time, thereby avoiding timing side channel vulnerabilities. This C subset eschews structured programming as we know it: if-statements, looping constructs, and procedural abstractions can leak timing information when handling sensitive data. The resulting obfuscation has led to subtle bugs, even in widely-used high-profile libraries like OpenSSL. To address the challenge of writing constant-time cryptographic code, we present FaCT, a crypto DSL that provides high-level but safe language constructs. The FaCT compiler uses a secrecy type system to automatically transform potentially timing-sensitive high-level code into low-level, constant-time LLVM bitcode. We develop the language and type system, formalize the constant-time transformation, and present an empirical evaluation that uses FaCT to implement core crypto routines from several open-source projects including OpenSSL, libsodium, and curve25519-donna. Our evaluation shows that FaCT’s design makes it possible to write readable, high-level cryptographic code, with efficient, constant-time behavior.},
+      booktitle = {Proceedings of the 40th ACM SIGPLAN Conference on Programming Language Design and Implementation},
+      pages = {174–189},
+      numpages = {16},
+      keywords = {program transformation, cryptography, domain-specific language},
+      location = {Phoenix, AZ, USA},
+      series = {PLDI 2019}
+    }
+
+  
+- title: "Foundations for Parallel Information Flow Control Runtime Systems"
+  src: https://link.springer.com/chapter/10.1007/978-3-030-17138-4_1
+  conference: "POST '19"
+  authors: Marco Vassena, Gary Soeller, Peter Amidon, Matthew Chan, John Renner, Deian Stefan
+  bibtex: |-
+    @inproceedings{10.1007/978-3-030-17138-4_1,
+      author="Vassena, Marco and Soeller, Gary and Amidon, Peter and Chan, Matthew and Renner, John and Stefan, Deian",
+      editor="Nielson, Flemming and Sands, David",
+      title="Foundations for Parallel Information Flow Control Runtime Systems",
+      booktitle="Principles of Security and Trust",
+      year="2019",
+      publisher="Springer International Publishing",
+      address="Cham",
+      pages="1--28",
+      isbn="978-3-030-17138-4"
+    }
+
 
 - title: "CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem"
   src: https://github.com/djrenren/blog/releases/download/papers/ct-wasm-popl-2019.pdf
