@@ -26,11 +26,11 @@ custom_css:
         <div class="info">
             <img src="/assets/img/ucsdlogo.png" />
             <div class="description">
-                PhD Student
+                PhD. Computer Science
             </div>
         </div>
         <div class="dates">
-            2017-Now
+            2017-2022
         </div>
     </div>
     <div class="school">
@@ -41,7 +41,7 @@ custom_css:
             </div>
         </div>
         <div class="dates">
-            2017-Now
+            2012-2017
         </div>
     </div>
     </div>
