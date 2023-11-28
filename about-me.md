@@ -14,7 +14,7 @@ custom_css:
     My work uses programming language techniques to solve security problems.
 </p>
 <p>
-    <b>Email:</b> john@jrenner.net
+    <b>Email:</b> {{site.email}}
 </p>
 </section>
 
