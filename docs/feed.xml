@@ -1,507 +1,507 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.0.0">Jekyll</generator><link href="https://www.jrenner.net/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.jrenner.net/" rel="alternate" type="text/html" /><updated>2021-06-22T00:38:03-07:00</updated><id>https://www.jrenner.net/feed.xml</id><title type="html">djrenren</title><subtitle>a grad student's blog</subtitle><entry><title type="html">CT-Wasm Conference Presentation</title><link href="https://www.jrenner.net/2019/02/10/ct-wasm-talk.html" rel="alternate" type="text/html" title="CT-Wasm Conference Presentation" /><published>2019-02-10T00:00:00-08:00</published><updated>2019-02-10T00:00:00-08:00</updated><id>https://www.jrenner.net/2019/02/10/ct-wasm-talk</id><content type="html" xml:base="https://www.jrenner.net/2019/02/10/ct-wasm-talk.html">&lt;div class=&quot;youtube-container&quot;&gt;
-&lt;iframe src=&quot;//www.youtube.com/embed/2mhQnJK81CY&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;&quot; class=&quot;video&quot;&gt;&lt;/iframe&gt;
-&lt;/div&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.3.2">Jekyll</generator><link href="https://www.jrenner.net/feed.xml" rel="self" type="application/atom+xml" /><link href="https://www.jrenner.net/" rel="alternate" type="text/html" /><updated>2023-11-28T14:15:39-05:00</updated><id>https://www.jrenner.net/feed.xml</id><title type="html">djrenren</title><subtitle>a grad student&apos;s blog</subtitle><entry><title type="html">CT-Wasm Conference Presentation</title><link href="https://www.jrenner.net/2019/02/10/ct-wasm-talk.html" rel="alternate" type="text/html" title="CT-Wasm Conference Presentation" /><published>2019-02-10T00:00:00-05:00</published><updated>2019-02-10T00:00:00-05:00</updated><id>https://www.jrenner.net/2019/02/10/ct-wasm-talk</id><content type="html" xml:base="https://www.jrenner.net/2019/02/10/ct-wasm-talk.html"><![CDATA[<div class="youtube-container">
+<iframe src="//www.youtube.com/embed/2mhQnJK81CY" frameborder="0" allowfullscreen="" class="video"></iframe>
+</div>
 
-&lt;p&gt;I recently gave a talk about my web security research this past year, at the Principles of
+<p>I recently gave a talk about my web security research this past year, at the Principles of
 Programming Languages conference in Cascais, Portugal. If you’re interested in WebAssembly, cyrptography, or security then this talk is for you.
-The feedback has overwhelmingly positive:&lt;/p&gt;
+The feedback has overwhelmingly positive:</p>
 
-&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;favourite &lt;a href=&quot;https://twitter.com/hashtag/POPL19?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#POPL19&lt;/a&gt; papers based on talks&lt;br /&gt;&lt;br /&gt;Quantitative Robustness Analysis of Quantum Programs&lt;a href=&quot;https://t.co/sBWsQRG3rd&quot;&gt;https://t.co/sBWsQRG3rd&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem&lt;a href=&quot;https://t.co/fFjfOsydt3&quot;&gt;https://t.co/fFjfOsydt3&lt;/a&gt;&lt;br /&gt;&lt;br /&gt;Decidable Verification of Uninterpreted Programs&lt;a href=&quot;https://t.co/XGlS8DhNdR&quot;&gt;https://t.co/XGlS8DhNdR&lt;/a&gt;&lt;/p&gt;&amp;mdash; Aws Albarghouthi (@awsTO) &lt;a href=&quot;https://twitter.com/awsTO/status/1086338368865214464?ref_src=twsrc%5Etfw&quot;&gt;January 18, 2019&lt;/a&gt;&lt;/blockquote&gt;
+<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">favourite <a href="https://twitter.com/hashtag/POPL19?src=hash&amp;ref_src=twsrc%5Etfw">#POPL19</a> papers based on talks<br /><br />Quantitative Robustness Analysis of Quantum Programs<a href="https://t.co/sBWsQRG3rd">https://t.co/sBWsQRG3rd</a><br /><br />CT-Wasm: Type-Driven Secure Cryptography for the Web Ecosystem<a href="https://t.co/fFjfOsydt3">https://t.co/fFjfOsydt3</a><br /><br />Decidable Verification of Uninterpreted Programs<a href="https://t.co/XGlS8DhNdR">https://t.co/XGlS8DhNdR</a></p>&mdash; Aws Albarghouthi (@awsTO) <a href="https://twitter.com/awsTO/status/1086338368865214464?ref_src=twsrc%5Etfw">January 18, 2019</a></blockquote>
 
-&lt;blockquote class=&quot;twitter-tweet tw-align-center&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;Absolutely stunning talk on CT-Wasm just now at &lt;a href=&quot;https://twitter.com/hashtag/POPL2019?src=hash&amp;amp;ref_src=twsrc%5Etfw&quot;&gt;#POPL2019&lt;/a&gt;.&lt;/p&gt;&amp;mdash; Simon Fowler (@Simon_JF) &lt;a href=&quot;https://twitter.com/Simon_JF/status/1085932255997030401?ref_src=twsrc%5Etfw&quot;&gt;January 17, 2019&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async=&quot;&quot; src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;</content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Proposal: Rust Custom Test Frameworks</title><link href="https://www.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html" rel="alternate" type="text/html" title="Proposal: Rust Custom Test Frameworks" /><published>2018-08-06T01:00:00-07:00</published><updated>2018-08-06T01:00:00-07:00</updated><id>https://www.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop</id><content type="html" xml:base="https://www.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html">&lt;p&gt;The Rust community recently approved a &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt;
+<blockquote class="twitter-tweet tw-align-center" data-lang="en"><p lang="en" dir="ltr">Absolutely stunning talk on CT-Wasm just now at <a href="https://twitter.com/hashtag/POPL2019?src=hash&amp;ref_src=twsrc%5Etfw">#POPL2019</a>.</p>&mdash; Simon Fowler (@Simon_JF) <a href="https://twitter.com/Simon_JF/status/1085932255997030401?ref_src=twsrc%5Etfw">January 17, 2019</a></blockquote>
+<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>]]></content><author><name></name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">Proposal: Rust Custom Test Frameworks</title><link href="https://www.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html" rel="alternate" type="text/html" title="Proposal: Rust Custom Test Frameworks" /><published>2018-08-06T04:00:00-04:00</published><updated>2018-08-06T04:00:00-04:00</updated><id>https://www.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop</id><content type="html" xml:base="https://www.jrenner.net/rust/testing/2018/08/06/custom-test-framework-prop.html"><![CDATA[<p>The Rust community recently approved a <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a>
 which lays out a series of goals and possible directions of exploration for
 implementing custom test frameworks. In this post, I present my own proposed
-fulfillment of the RFC with rationale.&lt;/p&gt;
+fulfillment of the RFC with rationale.</p>
 
-&lt;h2 id=&quot;background&quot;&gt;Background&lt;/h2&gt;
+<h2 id="background">Background</h2>
 
-&lt;p&gt;Today in Rust, anyone can write a test using the &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; macro:&lt;/p&gt;
+<p>Today in Rust, anyone can write a test using the <code class="language-plaintext highlighter-rouge">#[test]</code> macro:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;assert_eq!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">my_test</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This is incredibly ergonomic, but offers little control to people writing tests.
-Every &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; function must be a function of type &lt;code class=&quot;highlighter-rouge&quot;&gt;Fn() -&amp;gt; impl Termination&lt;/code&gt; and will be run using the
-default &lt;code class=&quot;highlighter-rouge&quot;&gt;libtest&lt;/code&gt; test runner. If a test author needs more than the &lt;code class=&quot;highlighter-rouge&quot;&gt;libtest&lt;/code&gt; runner
-can provide, then they can no longer use the &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; macro. This proposal seeks
-to offer the ergonomic power of &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; while providing the flexibility required to
-define and mix custom test formats and test runners.&lt;/p&gt;
+<p>This is incredibly ergonomic, but offers little control to people writing tests.
+Every <code class="language-plaintext highlighter-rouge">#[test]</code> function must be a function of type <code class="language-plaintext highlighter-rouge">Fn() -&gt; impl Termination</code> and will be run using the
+default <code class="language-plaintext highlighter-rouge">libtest</code> test runner. If a test author needs more than the <code class="language-plaintext highlighter-rouge">libtest</code> runner
+can provide, then they can no longer use the <code class="language-plaintext highlighter-rouge">#[test]</code> macro. This proposal seeks
+to offer the ergonomic power of <code class="language-plaintext highlighter-rouge">#[test]</code> while providing the flexibility required to
+define and mix custom test formats and test runners.</p>
 
-&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+<h2 id="summary">Summary</h2>
 
-&lt;p&gt;Two small additions are enough to enable the creation of powerful test frameworks:&lt;/p&gt;
+<p>Two small additions are enough to enable the creation of powerful test frameworks:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;Framework-agnostic &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test_case]&lt;/code&gt; macro for test aggregation&lt;/li&gt;
-  &lt;li&gt;Add a crate attribute to define a test runner function&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>Framework-agnostic <code class="language-plaintext highlighter-rouge">#[test_case]</code> macro for test aggregation</li>
+  <li>Add a crate attribute to define a test runner function</li>
+</ul>
 
-&lt;p&gt;This allows us to write code like so:&lt;/p&gt;
+<p>This allows us to write code like so:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#![test_runner(tap::runner)]&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#![test_runner(tap::runner)]</span>
 
-&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;quickcheck&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<span class="k">use</span> <span class="nn">quickcheck</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 
-&lt;span class=&quot;nd&quot;&gt;#[quickcheck]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;identity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i32&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<span class="nd">#[quickcheck]</span>
+<span class="k">fn</span> <span class="nf">identity</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">i32</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{</span>
+    <span class="n">a</span> <span class="o">*</span> <span class="mi">1</span> <span class="o">==</span> <span class="n">a</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">assert!</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This code contains two tests, written in two different formats, being executed by a third library.&lt;/p&gt;
+<p>This code contains two tests, written in two different formats, being executed by a third library.</p>
 
-&lt;h3 id=&quot;framework-agnostic-test_case&quot;&gt;Framework-Agnostic &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test_case]&lt;/code&gt;&lt;/h3&gt;
+<h3 id="framework-agnostic-test_case">Framework-Agnostic <code class="language-plaintext highlighter-rouge">#[test_case]</code></h3>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test_case]&lt;/code&gt; is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">#[test_case]</code> is a marker to the compiler to aggregate the item beneath it and pass it to the test runner.</p>
 
-&lt;p&gt;&lt;strong&gt;Semantics:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;The compiler will exclude annotated items in non-test configurations&lt;/li&gt;
-  &lt;li&gt;The compiler will pass all annotated items as a slice to the test runner&lt;/li&gt;
-  &lt;li&gt;Annotated items must be a nameable &lt;code class=&quot;highlighter-rouge&quot;&gt;const&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;static&lt;/code&gt;, or &lt;code class=&quot;highlighter-rouge&quot;&gt;fn&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<p><strong>Semantics:</strong></p>
+<ul>
+  <li>The compiler will exclude annotated items in non-test configurations</li>
+  <li>The compiler will pass all annotated items as a slice to the test runner</li>
+  <li>Annotated items must be a nameable <code class="language-plaintext highlighter-rouge">const</code>, <code class="language-plaintext highlighter-rouge">static</code>, or <code class="language-plaintext highlighter-rouge">fn</code>.</li>
+</ul>
 
-&lt;p&gt;&lt;strong&gt;Rationale:&lt;/strong&gt;
-&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; has special smarts for working with &lt;code class=&quot;highlighter-rouge&quot;&gt;libtest&lt;/code&gt; that we want to continue to work, but also
+<p><strong>Rationale:</strong>
+<code class="language-plaintext highlighter-rouge">#[test]</code> has special smarts for working with <code class="language-plaintext highlighter-rouge">libtest</code> that we want to continue to work, but also
 be avoidable. If people want to provide syntactic sugar for declaring tests they can do so with their
-own proc_macro attribute.&lt;/p&gt;
+own proc_macro attribute.</p>
 
-&lt;p&gt;&lt;strong&gt;Required Support Work:&lt;/strong&gt;
-In order to avoid doing potentially expensive macro expansions in non-test builds, each third-party test macro needs to be two layers deep. The first step, would expand like so:&lt;/p&gt;
+<p><strong>Required Support Work:</strong>
+In order to avoid doing potentially expensive macro expansions in non-test builds, each third-party test macro needs to be two layers deep. The first step, would expand like so:</p>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[quickcheck]&lt;/code&gt; → &lt;code class=&quot;highlighter-rouge&quot;&gt;#[cfg(test)] #[quickcheck_inner]&lt;/code&gt;&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">#[quickcheck]</code> → <code class="language-plaintext highlighter-rouge">#[cfg(test)] #[quickcheck_inner]</code></p>
 
-&lt;p&gt;We can provide this in an external support library.&lt;/p&gt;
+<p>We can provide this in an external support library.</p>
 
-&lt;h3 id=&quot;test_runner-crate-attribute&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#![test_runner]&lt;/code&gt; Crate Attribute&lt;/h3&gt;
+<h3 id="test_runner-crate-attribute"><code class="language-plaintext highlighter-rouge">#![test_runner]</code> Crate Attribute</h3>
 
-&lt;p&gt;The goal of the &lt;code class=&quot;highlighter-rouge&quot;&gt;test_runner&lt;/code&gt; attribute is to allow test frameworks to be written as simple functions.&lt;/p&gt;
+<p>The goal of the <code class="language-plaintext highlighter-rouge">test_runner</code> attribute is to allow test frameworks to be written as simple functions.</p>
 
-&lt;p&gt;&lt;strong&gt;Semantics:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;If the attribute is not provided &lt;a href=&quot;https://doc.rust-lang.org/test/fn.test_main_static.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libtest::test_main_static&lt;/code&gt;&lt;/a&gt; is assumed.&lt;/li&gt;
-  &lt;li&gt;The attribute requires exactly 1 parameter, which is the path to the runner function.&lt;/li&gt;
-  &lt;li&gt;The type of the function must be &lt;code class=&quot;highlighter-rouge&quot;&gt;Fn(&amp;amp;[&amp;amp;mut Foo]) -&amp;gt; impl Termination&lt;/code&gt; for some &lt;code class=&quot;highlighter-rouge&quot;&gt;Foo&lt;/code&gt; which is the test type&lt;/li&gt;
-&lt;/ul&gt;
+<p><strong>Semantics:</strong></p>
+<ul>
+  <li>If the attribute is not provided <a href="https://doc.rust-lang.org/test/fn.test_main_static.html"><code class="language-plaintext highlighter-rouge">libtest::test_main_static</code></a> is assumed.</li>
+  <li>The attribute requires exactly 1 parameter, which is the path to the runner function.</li>
+  <li>The type of the function must be <code class="language-plaintext highlighter-rouge">Fn(&amp;[&amp;mut Foo]) -&gt; impl Termination</code> for some <code class="language-plaintext highlighter-rouge">Foo</code> which is the test type</li>
+</ul>
 
-&lt;p&gt;&lt;strong&gt;Rationale:&lt;/strong&gt;
+<p><strong>Rationale:</strong>
 As a crate attribute, declaration in-file and through command line is already
 understood. The parameter is a function to make runner implementation simple.
-Passing tests as an &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;mut T&lt;/code&gt; to allow for the use of trait objects. We don’t
-pass &lt;code class=&quot;highlighter-rouge&quot;&gt;Box&lt;/code&gt; values so that testing is possible on systems without dynamic
+Passing tests as an <code class="language-plaintext highlighter-rouge">&amp;mut T</code> to allow for the use of trait objects. We don’t
+pass <code class="language-plaintext highlighter-rouge">Box</code> values so that testing is possible on systems without dynamic
 allocation. We only allow one test runner because it will have to mediate
-things like command line arguments.&lt;/p&gt;
+things like command line arguments.</p>
 
-&lt;p&gt;&lt;strong&gt;Required Support Work:&lt;/strong&gt;
+<p><strong>Required Support Work:</strong>
 Test runners will need to have a baseline trait that determines the minimal
 interface of a test. This will serve as the compatiblity layer between
 test-producing attributes and various test runners. Furthermore, we will need
-to stabilize the &lt;a href=&quot;https://doc.rust-lang.org/test/struct.TestDescAndFn.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TestDescAndFn&lt;/code&gt;&lt;/a&gt; struct from &lt;code class=&quot;highlighter-rouge&quot;&gt;libtest&lt;/code&gt; so that the trait can
-be implemented for it, so custom test runners can run existing tests.&lt;/p&gt;
+to stabilize the <a href="https://doc.rust-lang.org/test/struct.TestDescAndFn.html"><code class="language-plaintext highlighter-rouge">TestDescAndFn</code></a> struct from <code class="language-plaintext highlighter-rouge">libtest</code> so that the trait can
+be implemented for it, so custom test runners can run existing tests.</p>
 
-&lt;h2 id=&quot;examples&quot;&gt;Examples&lt;/h2&gt;
+<h2 id="examples">Examples</h2>
 
-&lt;h3 id=&quot;the-test-runner-author&quot;&gt;The Test Runner Author&lt;/h3&gt;
+<h3 id="the-test-runner-author">The Test Runner Author</h3>
 
-&lt;p&gt;Suppose a test author wants to be able to query and execute tests from within an IDE.
+<p>Suppose a test author wants to be able to query and execute tests from within an IDE.
 The editor has a standard API for test executables to adhere to, so they author
-a test runner that adheres to that specification, starting with a new crate:&lt;/p&gt;
+a test runner that adheres to that specification, starting with a new crate:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;cargo new &lt;span class=&quot;nt&quot;&gt;--lib&lt;/span&gt; editor_runner
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>cargo new <span class="nt">--lib</span> editor_runner
+</code></pre></div></div>
 
-&lt;p&gt;They then add the community-defined &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt; trait to their &lt;code class=&quot;highlighter-rouge&quot;&gt;Cargo.toml&lt;/code&gt; like so:&lt;/p&gt;
+<p>They then add the community-defined <code class="language-plaintext highlighter-rouge">Testable</code> trait to their <code class="language-plaintext highlighter-rouge">Cargo.toml</code> like so:</p>
 
-&lt;div class=&quot;language-toml highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nn&quot;&gt;[dev-dependencies]&lt;/span&gt;
-&lt;span class=&quot;py&quot;&gt;testable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;0.4&quot;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-toml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nn">[dev-dependencies]</span>
+<span class="py">testable</span> <span class="p">=</span> <span class="s">"0.4"</span>
+</code></pre></div></div>
 
-&lt;p&gt;Now it’s time to write the runner:&lt;/p&gt;
+<p>Now it’s time to write the runner:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;runner&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;tests&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;dyn&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;testable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Testable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;impl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Termination&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;// parse args...&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;// run tests&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;// communicate through stdio&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;// exit code&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">fn</span> <span class="nf">runner</span><span class="p">(</span><span class="n">tests</span><span class="p">:</span> <span class="o">&amp;</span><span class="p">[</span><span class="o">&amp;</span><span class="k">dyn</span> <span class="nn">testable</span><span class="p">::</span><span class="n">Testable</span><span class="p">])</span> <span class="k">-&gt;</span> <span class="k">impl</span> <span class="n">Termination</span> <span class="p">{</span>
+    <span class="c1">// parse args...</span>
+    <span class="c1">// run tests</span>
+    <span class="c1">// communicate through stdio</span>
+    <span class="c1">// exit code</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;To use this test runner they add a Cargo
-&lt;code class=&quot;highlighter-rouge&quot;&gt;dev-dependency&lt;/code&gt; for the runner and add the following to their lib.rs:&lt;/p&gt;
+<p>To use this test runner they add a Cargo
+<code class="language-plaintext highlighter-rouge">dev-dependency</code> for the runner and add the following to their lib.rs:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#![test_runner(editor_runner::runner)]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#![test_runner(editor_runner::runner)]</span>
+</code></pre></div></div>
 
-&lt;h3 id=&quot;the-test-format-author&quot;&gt;The Test Format Author&lt;/h3&gt;
+<h3 id="the-test-format-author">The Test Format Author</h3>
 
-&lt;p&gt;Many crates such as &lt;a href=&quot;https://github.com/japaric/criterion.rs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;criterion&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/BurntSushi/quickcheck&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;quickcheck&lt;/code&gt;&lt;/a&gt; offer
-new ways to declare tests. I call these &lt;em&gt;test formats&lt;/em&gt;. Typically, these are proc_macro
-attributes that allow for a different declaration syntax than &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt;. Some, like
-&lt;code class=&quot;highlighter-rouge&quot;&gt;quickcheck&lt;/code&gt; can just wrap &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt;, but this can get messy the more removed your
+<p>Many crates such as <a href="https://github.com/japaric/criterion.rs"><code class="language-plaintext highlighter-rouge">criterion</code></a> and <a href="https://github.com/BurntSushi/quickcheck"><code class="language-plaintext highlighter-rouge">quickcheck</code></a> offer
+new ways to declare tests. I call these <em>test formats</em>. Typically, these are proc_macro
+attributes that allow for a different declaration syntax than <code class="language-plaintext highlighter-rouge">#[test]</code>. Some, like
+<code class="language-plaintext highlighter-rouge">quickcheck</code> can just wrap <code class="language-plaintext highlighter-rouge">#[test]</code>, but this can get messy the more removed your
 test format is from a simple function. Consider writing a test format for testing an
-HTTP server:&lt;/p&gt;
+HTTP server:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[http_test]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEST_INDEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpRequest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;/&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;method&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;GET&quot;&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;n&quot;&gt;body&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Some&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[http_test]</span>
+<span class="k">const</span> <span class="n">TEST_INDEX</span><span class="p">:</span> <span class="n">HttpTest</span> <span class="o">=</span> <span class="n">HttpTest</span> <span class="p">{</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">HttpRequest</span> <span class="p">{</span>
+        <span class="n">url</span><span class="p">:</span> <span class="s">"/"</span><span class="p">,</span>
+        <span class="n">method</span><span class="p">:</span> <span class="s">"GET"</span>
+    <span class="p">},</span>
+    <span class="n">response</span><span class="p">:</span> <span class="n">HttpResponse</span> <span class="p">{</span>
+        <span class="n">body</span><span class="p">:</span> <span class="nf">Some</span><span class="p">(</span><span class="s">"Hello World"</span><span class="p">)</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This test would perform the request and compare the response objects.
-To enable this the format author first declares their struct type:&lt;/p&gt;
+<p>This test would perform the request and compare the response objects.
+To enable this the format author first declares their struct type:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;struct&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpRequest&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;'static&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;str&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">struct</span> <span class="n">HttpTest</span> <span class="p">{</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">HttpRequest</span><span class="p">,</span>
+    <span class="n">response</span><span class="p">:</span> <span class="n">HttpResponse</span><span class="p">,</span>
+    <span class="n">name</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">'static</span> <span class="nb">str</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;then implements the &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt; trait:&lt;/p&gt;
+<p>then implements the <code class="language-plaintext highlighter-rouge">Testable</code> trait:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;impl&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;testable&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Testable&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;run&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;// Make request&lt;/span&gt;
-        &lt;span class=&quot;c&quot;&gt;// Assert equality on response fields&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;String&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;py&quot;&gt;.name&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">impl</span> <span class="nn">testable</span><span class="p">::</span><span class="n">Testable</span> <span class="k">for</span> <span class="n">HttpTest</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">run</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="p">()</span> <span class="p">{</span>
+        <span class="c1">// Make request</span>
+        <span class="c1">// Assert equality on response fields</span>
+    <span class="p">}</span>
+    <span class="k">fn</span> <span class="nf">name</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="nb">String</span> <span class="p">{</span>
+        <span class="k">self</span><span class="py">.name</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Lastly, to make things nice for their users, they create a macro that automatically
-records the test name by turning:&lt;/p&gt;
+<p>Lastly, to make things nice for their users, they create a macro that automatically
+records the test name by turning:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[http_test]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEST_INDEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;//...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[http_test]</span>
+<span class="k">const</span> <span class="n">TEST_INDEX</span><span class="p">:</span> <span class="n">HttpTest</span> <span class="o">=</span> <span class="n">HttpTest</span> <span class="p">{</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;into:&lt;/p&gt;
+<p>into:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[test_case]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TEST_INDEX&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;HttpTest&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nd&quot;&gt;concat!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nd&quot;&gt;module_path!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;TEST_INDEX&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;c&quot;&gt;//...&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test_case]</span>
+<span class="k">const</span> <span class="n">TEST_INDEX</span><span class="p">:</span> <span class="n">HttpTest</span> <span class="o">=</span> <span class="n">HttpTest</span> <span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="nd">concat!</span><span class="p">(</span><span class="nd">module_path!</span><span class="p">(),</span> <span class="s">"TEST_INDEX"</span><span class="p">)</span>
+    <span class="c1">//...</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Because &lt;code class=&quot;highlighter-rouge&quot;&gt;HttpTest&lt;/code&gt; implements &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt; it can be used with any test runner that
-accepts &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt;’s. Sometimes, however, we want specialized features in the runner
-which are coupled to the declaration. This leads us to our third example:&lt;/p&gt;
+<p>Because <code class="language-plaintext highlighter-rouge">HttpTest</code> implements <code class="language-plaintext highlighter-rouge">Testable</code> it can be used with any test runner that
+accepts <code class="language-plaintext highlighter-rouge">Testable</code>’s. Sometimes, however, we want specialized features in the runner
+which are coupled to the declaration. This leads us to our third example:</p>
 
-&lt;h3 id=&quot;the-framework-author&quot;&gt;The Framework Author&lt;/h3&gt;
+<h3 id="the-framework-author">The Framework Author</h3>
 
-&lt;p&gt;Framework authors seek to extend the very idea of what it means to be a test. These
+<p>Framework authors seek to extend the very idea of what it means to be a test. These
 will require cooperation between the runner and the declaration format but can
-still provide modularity and compatibility.&lt;/p&gt;
+still provide modularity and compatibility.</p>
 
-&lt;p&gt;Imagine I want to write a test framework that supports nested test suites.
+<p>Imagine I want to write a test framework that supports nested test suites.
 This model is actually compatible with existing simple tests that may already
-exist in the project so we declare an extension of &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt; for our
-framework:&lt;/p&gt;
+exist in the project so we declare an extension of <code class="language-plaintext highlighter-rouge">Testable</code> for our
+framework:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;trait&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestSuite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Testable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;children&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;impl&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Iterator&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestSuite&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-        &lt;span class=&quot;nn&quot;&gt;iter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;empty&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;// A regular test has no children&lt;/span&gt;
-    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">trait</span> <span class="n">TestSuite</span><span class="p">:</span> <span class="n">Testable</span> <span class="p">{</span>
+    <span class="k">fn</span> <span class="nf">children</span><span class="p">(</span><span class="o">&amp;</span><span class="k">self</span><span class="p">)</span> <span class="k">-&gt;</span> <span class="k">impl</span> <span class="nb">Iterator</span><span class="o">&lt;</span><span class="n">Item</span><span class="o">=</span><span class="n">TestSuite</span><span class="o">&gt;</span> <span class="p">{</span>
+        <span class="nn">iter</span><span class="p">::</span><span class="nf">empty</span><span class="p">()</span> <span class="c1">// A regular test has no children</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;impl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TestSuite&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;where&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;T&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Testable&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="k">impl</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">TestSuite</span> <span class="k">for</span> <span class="n">T</span> <span class="k">where</span> <span class="n">T</span><span class="p">:</span> <span class="n">Testable</span> <span class="p">{}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Now, the test runner I write will accept &lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;[&amp;amp;dyn TestSuite]&lt;/code&gt; instead of
-&lt;code class=&quot;highlighter-rouge&quot;&gt;&amp;amp;[&amp;amp;dyn Testable]&lt;/code&gt;, but all &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt;’s will continue to work. All that’s
+<p>Now, the test runner I write will accept <code class="language-plaintext highlighter-rouge">&amp;[&amp;dyn TestSuite]</code> instead of
+<code class="language-plaintext highlighter-rouge">&amp;[&amp;dyn Testable]</code>, but all <code class="language-plaintext highlighter-rouge">Testable</code>’s will continue to work. All that’s
 left is to decide the form of the struct and macro I wish to expose to my
-users. It could be something like this:&lt;/p&gt;
+users. It could be something like this:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[test_suite]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_suite&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;#[suite_member]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test_suite]</span>
+<span class="k">mod</span> <span class="n">my_suite</span> <span class="p">{</span>
+    <span class="nd">#[suite_member]</span>
+    <span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{}</span>
 
-    &lt;span class=&quot;nd&quot;&gt;#[suite_member]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;bar&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+    <span class="nd">#[suite_member]</span>
+    <span class="k">fn</span> <span class="nf">bar</span><span class="p">()</span> <span class="p">{}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Because everything is still behind a trait, this approach would allow
-people to write their own &lt;code class=&quot;highlighter-rouge&quot;&gt;TestSuite&lt;/code&gt; constructing macros and to produce
-alternate runners for &lt;code class=&quot;highlighter-rouge&quot;&gt;TestSuite&lt;/code&gt;’s.&lt;/p&gt;
+<p>Because everything is still behind a trait, this approach would allow
+people to write their own <code class="language-plaintext highlighter-rouge">TestSuite</code> constructing macros and to produce
+alternate runners for <code class="language-plaintext highlighter-rouge">TestSuite</code>’s.</p>
 
-&lt;h2 id=&quot;useful-properties&quot;&gt;Useful Properties&lt;/h2&gt;
+<h2 id="useful-properties">Useful Properties</h2>
 
-&lt;p&gt;This proposal has some implicit properties that are worth calling out:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;cargo test&lt;/code&gt; works out of the box&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; continues to work alongside new tests&lt;/li&gt;
-  &lt;li&gt;Test frameworks are just regular libraries&lt;/li&gt;
-&lt;/ul&gt;
+<p>This proposal has some implicit properties that are worth calling out:</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">cargo test</code> works out of the box</li>
+  <li><code class="language-plaintext highlighter-rouge">#[test]</code> continues to work alongside new tests</li>
+  <li>Test frameworks are just regular libraries</li>
+</ul>
 
-&lt;h2 id=&quot;open-questions&quot;&gt;Open Questions&lt;/h2&gt;
+<h2 id="open-questions">Open Questions</h2>
 
-&lt;p&gt;While the proposal seems strong to me, there are still questions that need answering:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Does this meet the needs of &lt;a href=&quot;https://github.com/rustwasm/wasm-bindgen&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;wasm-bindgen&lt;/code&gt;&lt;/a&gt; and similar?&lt;/li&gt;
-  &lt;li&gt;What needs to be in the &lt;code class=&quot;highlighter-rouge&quot;&gt;Testable&lt;/code&gt; trait?&lt;/li&gt;
-  &lt;li&gt;How will &lt;code class=&quot;highlighter-rouge&quot;&gt;cargo bench&lt;/code&gt; work when test runners can change?&lt;/li&gt;
-  &lt;li&gt;What have I missed?&lt;/li&gt;
-&lt;/ul&gt;
+<p>While the proposal seems strong to me, there are still questions that need answering:</p>
+<ul>
+  <li>Does this meet the needs of <a href="https://github.com/rustwasm/wasm-bindgen"><code class="language-plaintext highlighter-rouge">wasm-bindgen</code></a> and similar?</li>
+  <li>What needs to be in the <code class="language-plaintext highlighter-rouge">Testable</code> trait?</li>
+  <li>How will <code class="language-plaintext highlighter-rouge">cargo bench</code> work when test runners can change?</li>
+  <li>What have I missed?</li>
+</ul>
 
-&lt;p&gt;If you’re interested in playing around with the proposal, I’ve implemented it at
-&lt;a href=&quot;https://github.com/djrenren/rust/tree/custom-test-frameworks&quot;&gt;djrenren/rust&lt;/a&gt;, and built some examples at &lt;a href=&quot;https://github.com/djrenren/rust-test-frameworks&quot;&gt;djrenren/rust-test-frameworks&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale.</summary></entry><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="https://www.jrenner.net/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T04:00:00-07:00</published><updated>2018-08-01T04:00:00-07:00</updated><id>https://www.jrenner.net/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="https://www.jrenner.net/rust/testing/2018/08/01/expansion.html">&lt;p&gt;I recently set out to fix &lt;a href=&quot;https://github.com/rust-lang/rust/issues/52557&quot;&gt;a bug&lt;/a&gt; in &lt;a href=&quot;/rust/testing/2018/07/19/test-in-2018.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; expansion in
-Rust&lt;/a&gt;. What follows is a chronicle of that journey.&lt;/p&gt;
+<p>If you’re interested in playing around with the proposal, I’ve implemented it at
+<a href="https://github.com/djrenren/rust/tree/custom-test-frameworks">djrenren/rust</a>, and built some examples at <a href="https://github.com/djrenren/rust-test-frameworks">djrenren/rust-test-frameworks</a>.</p>]]></content><author><name></name></author><category term="rust" /><category term="testing" /><summary type="html"><![CDATA[The Rust community recently approved a Custom Test Frameworks eRFC which lays out a series of goals and possible directions of exploration for implementing custom test frameworks. In this post, I present my own proposed fulfillment of the RFC with rationale.]]></summary></entry><entry><title type="html">Baby Steps: Fixing Test Scoping</title><link href="https://www.jrenner.net/rust/testing/2018/08/01/expansion.html" rel="alternate" type="text/html" title="Baby Steps: Fixing Test Scoping" /><published>2018-08-01T07:00:00-04:00</published><updated>2018-08-01T07:00:00-04:00</updated><id>https://www.jrenner.net/rust/testing/2018/08/01/expansion</id><content type="html" xml:base="https://www.jrenner.net/rust/testing/2018/08/01/expansion.html"><![CDATA[<p>I recently set out to fix <a href="https://github.com/rust-lang/rust/issues/52557">a bug</a> in <a href="/rust/testing/2018/07/19/test-in-2018.html"><code class="language-plaintext highlighter-rouge">#[test]</code> expansion in
+Rust</a>. What follows is a chronicle of that journey.</p>
 
-&lt;h2 id=&quot;the-bug&quot;&gt;The Bug&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;When &lt;code class=&quot;highlighter-rouge&quot;&gt;rustc&lt;/code&gt; encounters a &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; attribute it will do one of two things:&lt;/p&gt;
+<h2 id="the-bug">The Bug</h2>
+<hr />
+<p>When <code class="language-plaintext highlighter-rouge">rustc</code> encounters a <code class="language-plaintext highlighter-rouge">#[test]</code> attribute it will do one of two things:</p>
 
-&lt;ul&gt;
-  &lt;li&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;debug&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;release&lt;/code&gt; mode, the annotated item is removed&lt;/li&gt;
-  &lt;li&gt;In &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; mode, the item is made public so it can be called by the test runner&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+  <li>In <code class="language-plaintext highlighter-rouge">debug</code> or <code class="language-plaintext highlighter-rouge">release</code> mode, the annotated item is removed</li>
+  <li>In <code class="language-plaintext highlighter-rouge">test</code> mode, the item is made public so it can be called by the test runner</li>
+</ul>
 
-&lt;p&gt;This is typically safe because direct references to &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt;
-will cause errors in any mode where the function is removed.&lt;/p&gt;
+<p>This is typically safe because direct references to <code class="language-plaintext highlighter-rouge">#[test]</code>
+will cause errors in any mode where the function is removed.</p>
 
-&lt;p&gt;Enter glob imports. Statements like &lt;code class=&quot;highlighter-rouge&quot;&gt;use my_mod::*&lt;/code&gt; allow us to import an
+<p>Enter glob imports. Statements like <code class="language-plaintext highlighter-rouge">use my_mod::*</code> allow us to import an
 entire namespace into another without naming the specific items. We now have
-the requisite pieces to construct the bug:&lt;/p&gt;
+the requisite pieces to construct the bug:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;A&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i32&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">A</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">}</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;B&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;i32&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;6&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+<span class="k">mod</span> <span class="n">B</span> <span class="p">{</span>
+    <span class="nd">#[test]</span>
+    <span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">i32</span> <span class="p">{</span> <span class="mi">6</span> <span class="p">}</span>
+<span class="p">}</span>
 
-&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;A&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;B&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+<span class="k">use</span> <span class="nn">A</span><span class="p">::</span><span class="n">foo</span><span class="p">;</span>
+<span class="k">use</span> <span class="nn">B</span><span class="p">::</span><span class="o">*</span><span class="p">;</span>
 
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;caller&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;nd&quot;&gt;assert_eq!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(),&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<span class="k">fn</span> <span class="nf">caller</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">assert_eq!</span><span class="p">(</span><span class="nf">foo</span><span class="p">(),</span> <span class="mi">0</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;When compiled normally, &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; does nothing and the assert inside &lt;code class=&quot;highlighter-rouge&quot;&gt;caller&lt;/code&gt; will
-always pass. When compiled for test, however, &lt;code class=&quot;highlighter-rouge&quot;&gt;B::foo&lt;/code&gt; will be marked as public,
-which will cause &lt;code class=&quot;highlighter-rouge&quot;&gt;use B::*&lt;/code&gt; to &lt;a href=&quot;https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html&quot;&gt;shadow&lt;/a&gt; the &lt;code class=&quot;highlighter-rouge&quot;&gt;foo&lt;/code&gt; we got from &lt;code class=&quot;highlighter-rouge&quot;&gt;A::foo&lt;/code&gt;.
-Our assert now fails saying that 6 does not equal 0. This means &lt;code class=&quot;highlighter-rouge&quot;&gt;caller&lt;/code&gt; behaves
+<p>When compiled normally, <code class="language-plaintext highlighter-rouge">use B::*</code> does nothing and the assert inside <code class="language-plaintext highlighter-rouge">caller</code> will
+always pass. When compiled for test, however, <code class="language-plaintext highlighter-rouge">B::foo</code> will be marked as public,
+which will cause <code class="language-plaintext highlighter-rouge">use B::*</code> to <a href="https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html">shadow</a> the <code class="language-plaintext highlighter-rouge">foo</code> we got from <code class="language-plaintext highlighter-rouge">A::foo</code>.
+Our assert now fails saying that 6 does not equal 0. This means <code class="language-plaintext highlighter-rouge">caller</code> behaves
 differently in test builds which is undesirable. Worse still, it happens due to
-an implementation detail in the compiler that authors should never worry about.&lt;/p&gt;
+an implementation detail in the compiler that authors should never worry about.</p>
 
-&lt;h2 id=&quot;the-fix&quot;&gt;The Fix&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;The Constraint:&lt;/strong&gt;
-Test functions must be made public but they must also not pollute other namespaces.&lt;/p&gt;
+<h2 id="the-fix">The Fix</h2>
+<hr />
+<p><strong>The Constraint:</strong>
+Test functions must be made public but they must also not pollute other namespaces.</p>
 
-&lt;p&gt;&lt;strong&gt;The Solution:&lt;/strong&gt;
-Give test functions a name that can never exist in user code.&lt;/p&gt;
+<p><strong>The Solution:</strong>
+Give test functions a name that can never exist in user code.</p>
 
-&lt;p&gt;Rust has an internal mechanism called &lt;code class=&quot;highlighter-rouge&quot;&gt;gensym&lt;/code&gt; that allows the creation of
+<p>Rust has an internal mechanism called <code class="language-plaintext highlighter-rouge">gensym</code> that allows the creation of
 guaranteed unique names. If we rename test functions with a gensym’d name,
 then it’s okay for them to pollute namespaces because it’s impossible to
-reference them.&lt;/p&gt;
+reference them.</p>
 
-&lt;p&gt;Just renaming isn’t enough though, because rust currently allows one test
+<p>Just renaming isn’t enough though, because rust currently allows one test
 to call another. While I think this is a terrible thing to allow, we do and
 so must continue to allow it. We then need to add the old name back into the
-namespace. Just add a &lt;code class=&quot;highlighter-rouge&quot;&gt;use [gensymed] as foo&lt;/code&gt; to add foo back to our namespace.&lt;/p&gt;
+namespace. Just add a <code class="language-plaintext highlighter-rouge">use [gensymed] as foo</code> to add foo back to our namespace.</p>
 
-&lt;p&gt;&lt;strong&gt;The Nitty Gritty:&lt;/strong&gt;
+<p><strong>The Nitty Gritty:</strong>
 While the theory behind this fix is sound, simply implementing it didn’t work
 the way I’d expected. I first attempted to implement the change inside
-&lt;a href=&quot;https://github.com/rust-lang/rust/tree/master/src/libsyntax&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt;&lt;/a&gt;’s &lt;code class=&quot;highlighter-rouge&quot;&gt;TestHarnessGenerator&lt;/code&gt;, but this resulted in
+<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="language-plaintext highlighter-rouge">libsyntax</code></a>’s <code class="language-plaintext highlighter-rouge">TestHarnessGenerator</code>, but this resulted in
 strange errors about not being able to find imports despite the AST and HIR
 being correct. While it seems obvious now, it took me a week to figure out
-this was because harness generation runs midway through name resolution.&lt;/p&gt;
+this was because harness generation runs midway through name resolution.</p>
 
-&lt;p&gt;As a reminder, name resolution is the process by which the compiler realizes
-that the variable &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; at one location, is talking about the same variable as
-an &lt;code class=&quot;highlighter-rouge&quot;&gt;x&lt;/code&gt; somewhere else in the code.&lt;/p&gt;
+<p>As a reminder, name resolution is the process by which the compiler realizes
+that the variable <code class="language-plaintext highlighter-rouge">x</code> at one location, is talking about the same variable as
+an <code class="language-plaintext highlighter-rouge">x</code> somewhere else in the code.</p>
 
-&lt;p&gt;A good chunk of name resolution occurs during macro expansion in
-&lt;a href=&quot;https://github.com/rust-lang/rust/blob/8eb4941e30d2a40bc03840dd0d99beb5aaf8159d/src/libsyntax/ext/expand.rs&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax/ext/expand.rs&lt;/code&gt;&lt;/a&gt;. In fact, this was already where tests
-were being made &lt;code class=&quot;highlighter-rouge&quot;&gt;pub&lt;/code&gt;. What I had originally discounted as a design mistake,
+<p>A good chunk of name resolution occurs during macro expansion in
+<a href="https://github.com/rust-lang/rust/blob/8eb4941e30d2a40bc03840dd0d99beb5aaf8159d/src/libsyntax/ext/expand.rs"><code class="language-plaintext highlighter-rouge">libsyntax/ext/expand.rs</code></a>. In fact, this was already where tests
+were being made <code class="language-plaintext highlighter-rouge">pub</code>. What I had originally discounted as a design mistake,
 was actually crucial to correct operation. With a quick reimplementation
 everything worked great. I realized I’d forgotten to account for the unused
-variable lints, but that was a quick fix.&lt;/p&gt;
+variable lints, but that was a quick fix.</p>
 
-&lt;p&gt;You can see the result in &lt;a href=&quot;https://github.com/rust-lang/rust/pull/52890&quot;&gt;this pull request&lt;/a&gt;.&lt;/p&gt;
+<p>You can see the result in <a href="https://github.com/rust-lang/rust/pull/52890">this pull request</a>.</p>
 
-&lt;h2 id=&quot;afterword-why-write-about-this&quot;&gt;Afterword: Why Write About This&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;Honestly, very few people will get much out of this post, but being
+<h2 id="afterword-why-write-about-this">Afterword: Why Write About This</h2>
+<hr />
+<p>Honestly, very few people will get much out of this post, but being
 lost in a complex open-source project can be disheartening at the very
 least. By discussing these esoteric bits, I hope I can help someone who gets stuck
 in similar bits of code in the future, or maybe just assure them that it’s common
-to feel lost. As always, feel free to reach out if you have questions.&lt;/p&gt;</content><author><name></name></author><summary type="html">I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.</summary></entry><entry><title type="html">#[test] in 2018</title><link href="https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html" rel="alternate" type="text/html" title="#[test] in 2018" /><published>2018-07-19T16:11:01-07:00</published><updated>2018-07-19T16:11:01-07:00</updated><id>https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018</id><content type="html" xml:base="https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html">&lt;p&gt;Lately, I’ve been working implementing the &lt;a href=&quot;https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md&quot;&gt;Custom Test Frameworks eRFC&lt;/a&gt; for Rust.
+to feel lost. As always, feel free to reach out if you have questions.</p>]]></content><author><name></name></author><category term="rust" /><category term="testing" /><summary type="html"><![CDATA[I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.]]></summary></entry><entry><title type="html">#[test] in 2018</title><link href="https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html" rel="alternate" type="text/html" title="#[test] in 2018" /><published>2018-07-19T19:11:01-04:00</published><updated>2018-07-19T19:11:01-04:00</updated><id>https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018</id><content type="html" xml:base="https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html"><![CDATA[<p>Lately, I’ve been working implementing the <a href="https://github.com/rust-lang/rfcs/blob/master/text/2318-custom-test-frameworks.md">Custom Test Frameworks eRFC</a> for Rust.
 While exploring the compiler codebase, I’ve learned about the internals of testing in Rust
-and figured it would be interesting to share.&lt;/p&gt;
+and figured it would be interesting to share.</p>
 
-&lt;h3 id=&quot;the-test-attribute&quot;&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; attribute&lt;/h3&gt;
-&lt;p&gt;Today, rust programmers rely on a built in attribute called &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt;.
-All you have to do is mark a function as a test and include some asserts like so:&lt;/p&gt;
+<h3 id="the-test-attribute">The <code class="language-plaintext highlighter-rouge">#[test]</code> attribute</h3>
+<p>Today, rust programmers rely on a built in attribute called <code class="language-plaintext highlighter-rouge">#[test]</code>.
+All you have to do is mark a function as a test and include some asserts like so:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
+<span class="k">fn</span> <span class="nf">my_test</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nd">assert!</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;When this program is compiled using &lt;code class=&quot;highlighter-rouge&quot;&gt;rustc --test&lt;/code&gt; or &lt;code class=&quot;highlighter-rouge&quot;&gt;cargo test&lt;/code&gt;, it will
+<p>When this program is compiled using <code class="language-plaintext highlighter-rouge">rustc --test</code> or <code class="language-plaintext highlighter-rouge">cargo test</code>, it will
 produce an executable that can run this, and any other test function. This
 method of testing allows tests to live alongside code in an organic way. You
-can even put tests inside private modules:&lt;/p&gt;
+can even put tests inside private modules:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_priv_mod&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">my_priv_mod</span> <span class="p">{</span>
+  <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
 
-  &lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;my_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Private items can thus be easily tested without worrying about how to expose
+  <span class="nd">#[test]</span>
+  <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">assert!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>Private items can thus be easily tested without worrying about how to expose
 the them to any sort of external testing apparatus. This is key to the
 ergonomics of testing in Rust. Semantically, however, it’s rather odd.
-How does any sort of &lt;code class=&quot;highlighter-rouge&quot;&gt;main&lt;/code&gt; function invoke these tests if they’re not visible?
-What exactly is &lt;code class=&quot;highlighter-rouge&quot;&gt;rustc --test&lt;/code&gt; doing?&lt;/p&gt;
+How does any sort of <code class="language-plaintext highlighter-rouge">main</code> function invoke these tests if they’re not visible?
+What exactly is <code class="language-plaintext highlighter-rouge">rustc --test</code> doing?</p>
 
-&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; is implemented as a syntactic transformation inside the compiler’s
-&lt;a href=&quot;https://github.com/rust-lang/rust/tree/master/src/libsyntax&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt; crate&lt;/a&gt;. Essentially, it’s a fancy macro, that
-rewrites the crate in 3 steps:&lt;/p&gt;
+<p><code class="language-plaintext highlighter-rouge">#[test]</code> is implemented as a syntactic transformation inside the compiler’s
+<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="language-plaintext highlighter-rouge">libsyntax</code> crate</a>. Essentially, it’s a fancy macro, that
+rewrites the crate in 3 steps:</p>
 
-&lt;h4 id=&quot;step-1-re-exporting&quot;&gt;Step 1: Re-Exporting&lt;/h4&gt;
+<h4 id="step-1-re-exporting">Step 1: Re-Exporting</h4>
 
-&lt;p&gt;As mentioned earlier, tests can exist inside private modules, so we need a way of
+<p>As mentioned earlier, tests can exist inside private modules, so we need a way of
 exposing them to the main function, without breaking any existing code. To that end,
-&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt; will create local modules called &lt;code class=&quot;highlighter-rouge&quot;&gt;__test_reexports&lt;/code&gt; that recursively reexport tests.
-This expansion translates the above example into:&lt;/p&gt;
+<code class="language-plaintext highlighter-rouge">libsyntax</code> will create local modules called <code class="language-plaintext highlighter-rouge">__test_reexports</code> that recursively reexport tests.
+This expansion translates the above example into:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;my_priv_mod&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;my_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;-&amp;gt;&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;bool&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">my_priv_mod</span> <span class="p">{</span>
+  <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
 
-  &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;test_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;assert&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;my_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;());&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nd">assert!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
+  <span class="p">}</span>
 
-  &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_reexports&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;use&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test_priv_func&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  <span class="k">pub</span> <span class="k">mod</span> <span class="n">__test_reexports</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">use</span> <span class="k">super</span><span class="p">::</span><span class="n">test_priv_func</span><span class="p">;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Now, our test can be accessed as:&lt;/p&gt;
+<p>Now, our test can be accessed as:</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;my_priv_mod::__test_reexports::test_priv_func&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">my_priv_mod::__test_reexports::test_priv_func</code></p>
+</blockquote>
 
-&lt;p&gt;For deeper module
-structures, &lt;code class=&quot;highlighter-rouge&quot;&gt;__test_reexports&lt;/code&gt; will reexport modules that contain tests, so a
-test at &lt;code class=&quot;highlighter-rouge&quot;&gt;a::b::my_test&lt;/code&gt; becomes:&lt;/p&gt;
+<p>For deeper module
+structures, <code class="language-plaintext highlighter-rouge">__test_reexports</code> will reexport modules that contain tests, so a
+test at <code class="language-plaintext highlighter-rouge">a::b::my_test</code> becomes:</p>
 
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;a::__test_reexports::b::__test_reexports::my_test&lt;/code&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">a::__test_reexports::b::__test_reexports::my_test</code></p>
+</blockquote>
 
-&lt;p&gt;While this process seems
-pretty safe, what happens if there is an existing &lt;code class=&quot;highlighter-rouge&quot;&gt;__test_reexports&lt;/code&gt; module?
-The answer: nothing.&lt;/p&gt;
+<p>While this process seems
+pretty safe, what happens if there is an existing <code class="language-plaintext highlighter-rouge">__test_reexports</code> module?
+The answer: nothing.</p>
 
-&lt;p&gt;To explain, we need to understand &lt;a href=&quot;https://doc.rust-lang.org/nightly/nightly-rustc/syntax/ast/struct.Ident.html&quot;&gt;how the AST represents
-identifiers&lt;/a&gt;. The name of every function, variable, module, etc. is
-not stored as a string, but rather as an opaque &lt;a href=&quot;https://doc.rust-lang.org/nightly/nightly-rustc/syntax/ast/struct.Ident.html&quot;&gt;Symbol&lt;/a&gt; which is
+<p>To explain, we need to understand <a href="https://doc.rust-lang.org/nightly/nightly-rustc/syntax/ast/struct.Ident.html">how the AST represents
+identifiers</a>. The name of every function, variable, module, etc. is
+not stored as a string, but rather as an opaque <a href="https://doc.rust-lang.org/nightly/nightly-rustc/syntax/ast/struct.Ident.html">Symbol</a> which is
 essentially an ID number for each identifier. The compiler keeps a separate
 hashtable that allows us to recover the human-readable name of a Symbol when
 necessary (such as when printing a syntax error). When the compiler generates
-the &lt;code class=&quot;highlighter-rouge&quot;&gt;__test_reexports&lt;/code&gt; module, it generates a new Symbol for the identifier,
-so while the compiler-generated &lt;code class=&quot;highlighter-rouge&quot;&gt;__test_reexports&lt;/code&gt; may share a name with your
+the <code class="language-plaintext highlighter-rouge">__test_reexports</code> module, it generates a new Symbol for the identifier,
+so while the compiler-generated <code class="language-plaintext highlighter-rouge">__test_reexports</code> may share a name with your
 hand-written one, it will not share a Symbol. This technique prevents name
 collision during code generation and is the foundation of Rust’s macro
-hygiene.&lt;/p&gt;
+hygiene.</p>
 
-&lt;h4 id=&quot;step-2-harness-generation&quot;&gt;Step 2: Harness Generation&lt;/h4&gt;
-&lt;p&gt;Now that our tests are accessible from the root of our crate, we need to do something with them.
-&lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt; generates a module like so:&lt;/p&gt;
+<h4 id="step-2-harness-generation">Step 2: Harness Generation</h4>
+<p>Now that our tests are accessible from the root of our crate, we need to do something with them.
+<code class="language-plaintext highlighter-rouge">libsyntax</code> generates a module like so:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;mod&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;test&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;extern&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;crate&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;'static&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDescAndFn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;cm&quot;&gt;/*...*/&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;];&lt;/span&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">mod</span> <span class="n">__test</span> <span class="p">{</span>
+  <span class="k">extern</span> <span class="k">crate</span> <span class="n">test</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">TESTS</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">'static</span> <span class="p">[</span><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">[</span><span class="cm">/*...*/</span><span class="p">];</span>
 
-  &lt;span class=&quot;nd&quot;&gt;#[main]&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;pub&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;test_static_main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TESTS&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+  <span class="nd">#[main]</span>
+  <span class="k">pub</span> <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">test_static_main</span><span class="p">(</span><span class="n">TESTS</span><span class="p">);</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;While this transformation is simple, it gives us a lot of insight into how tests are actually run.
-The tests are aggregated into an array and passed to a test runner called &lt;code class=&quot;highlighter-rouge&quot;&gt;test_static_main&lt;/code&gt;.
-We’ll come back to exactly what &lt;code class=&quot;highlighter-rouge&quot;&gt;TestDescAndFn&lt;/code&gt; is, but for now, the key takeaway is that there is a crate
-called &lt;a href=&quot;https://doc.rust-lang.org/test/index.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;&lt;/a&gt; that is part of Rust core, that implements all of the runtime for testing. &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt;’s interface is unstable,
-so the only stable way to interact with it is through the &lt;code class=&quot;highlighter-rouge&quot;&gt;#[test]&lt;/code&gt; macro.&lt;/p&gt;
+<p>While this transformation is simple, it gives us a lot of insight into how tests are actually run.
+The tests are aggregated into an array and passed to a test runner called <code class="language-plaintext highlighter-rouge">test_static_main</code>.
+We’ll come back to exactly what <code class="language-plaintext highlighter-rouge">TestDescAndFn</code> is, but for now, the key takeaway is that there is a crate
+called <a href="https://doc.rust-lang.org/test/index.html"><code class="language-plaintext highlighter-rouge">test</code></a> that is part of Rust core, that implements all of the runtime for testing. <code class="language-plaintext highlighter-rouge">test</code>’s interface is unstable,
+so the only stable way to interact with it is through the <code class="language-plaintext highlighter-rouge">#[test]</code> macro.</p>
 
-&lt;h4 id=&quot;step-3-test-object-generation&quot;&gt;Step 3: Test Object Generation&lt;/h4&gt;
-&lt;p&gt;If you’ve written tests in Rust before, you may be familiar with some of the optional attributes available on test functions.
-For example, a test can be annotated with &lt;code class=&quot;highlighter-rouge&quot;&gt;#[should_panic]&lt;/code&gt; if we expect the test to cause a panic. It looks something like this:&lt;/p&gt;
+<h4 id="step-3-test-object-generation">Step 3: Test Object Generation</h4>
+<p>If you’ve written tests in Rust before, you may be familiar with some of the optional attributes available on test functions.
+For example, a test can be annotated with <code class="language-plaintext highlighter-rouge">#[should_panic]</code> if we expect the test to cause a panic. It looks something like this:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;#[test]&lt;/span&gt;
-&lt;span class=&quot;nd&quot;&gt;#[should_panic]&lt;/span&gt;
-&lt;span class=&quot;k&quot;&gt;fn&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;nd&quot;&gt;panic!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;intentional&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
+<span class="nd">#[should_panic]</span>
+<span class="k">fn</span> <span class="nf">foo</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nd">panic!</span><span class="p">(</span><span class="s">"intentional"</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;This means our tests are more than just simple functions, they have configuration information as well. &lt;code class=&quot;highlighter-rouge&quot;&gt;test&lt;/code&gt; encodes this configuration
-data into a struct called &lt;a href=&quot;https://doc.rust-lang.org/test/struct.TestDesc.html&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;TestDesc&lt;/code&gt;&lt;/a&gt;. For each test function in a crate, &lt;code class=&quot;highlighter-rouge&quot;&gt;libsyntax&lt;/code&gt; will parse its attributes and generate a &lt;code class=&quot;highlighter-rouge&quot;&gt;TestDesc&lt;/code&gt; instance.
-It then combines the &lt;code class=&quot;highlighter-rouge&quot;&gt;TestDesc&lt;/code&gt; and test function into the predictably named &lt;code class=&quot;highlighter-rouge&quot;&gt;TestDescAndFn&lt;/code&gt; struct, that &lt;code class=&quot;highlighter-rouge&quot;&gt;test_static_main&lt;/code&gt; operates on.
-For a given test, the generated &lt;code class=&quot;highlighter-rouge&quot;&gt;TestDescAndFn&lt;/code&gt; instance looks like so:&lt;/p&gt;
+<p>This means our tests are more than just simple functions, they have configuration information as well. <code class="language-plaintext highlighter-rouge">test</code> encodes this configuration
+data into a struct called <a href="https://doc.rust-lang.org/test/struct.TestDesc.html"><code class="language-plaintext highlighter-rouge">TestDesc</code></a>. For each test function in a crate, <code class="language-plaintext highlighter-rouge">libsyntax</code> will parse its attributes and generate a <code class="language-plaintext highlighter-rouge">TestDesc</code> instance.
+It then combines the <code class="language-plaintext highlighter-rouge">TestDesc</code> and test function into the predictably named <code class="language-plaintext highlighter-rouge">TestDescAndFn</code> struct, that <code class="language-plaintext highlighter-rouge">test_static_main</code> operates on.
+For a given test, the generated <code class="language-plaintext highlighter-rouge">TestDescAndFn</code> instance looks like so:</p>
 
-&lt;div class=&quot;language-rust highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDescAndFn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;desc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;TestDesc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StaticTestName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;foo&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;ignore&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;should_panic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;ShouldPanic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Yes&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;allow_fail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
-  &lt;span class=&quot;n&quot;&gt;testfn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;StaticTestFn&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(||&lt;/span&gt;
-    &lt;span class=&quot;k&quot;&gt;self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;assert_test_result&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(::&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;crate&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;__&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;test_reexports&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;nf&quot;&gt;foo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())),&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">{</span>
+  <span class="n">desc</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDesc</span><span class="p">{</span>
+    <span class="n">name</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestName</span><span class="p">(</span><span class="s">"foo"</span><span class="p">),</span>
+    <span class="n">ignore</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+    <span class="n">should_panic</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nn">ShouldPanic</span><span class="p">::</span><span class="n">Yes</span><span class="p">,</span>
+    <span class="n">allow_fail</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
+  <span class="p">},</span>
+  <span class="n">testfn</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestFn</span><span class="p">(||</span>
+    <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">assert_test_result</span><span class="p">(::</span><span class="k">crate</span><span class="p">::</span><span class="nn">__test_reexports</span><span class="p">::</span><span class="nf">foo</span><span class="p">())),</span>
+<span class="p">}</span>
+</code></pre></div></div>
 
-&lt;p&gt;Once we’ve constructed an array of these test objects, they’re passed to the
+<p>Once we’ve constructed an array of these test objects, they’re passed to the
 test runner via the harness generated in step 2. While this step could be
 considered part of Step 2, I want to draw attention to it as a separate
 concept, because it will be key to the implementation of custom test
-frameworks, but that’ll be another blog post.&lt;/p&gt;
+frameworks, but that’ll be another blog post.</p>
 
-&lt;h3 id=&quot;afterword-investigative-techniques&quot;&gt;Afterword: Investigative Techniques&lt;/h3&gt;
-&lt;p&gt;While I learned a lot of this information from the compiler source directly, I’ve since learned there’s a very simple way to see what the compiler is doing.
-On nightly rust, there’s an unstable flag called &lt;code class=&quot;highlighter-rouge&quot;&gt;unpretty&lt;/code&gt; that you can use to print out the module source after macro expansion:&lt;/p&gt;
+<h3 id="afterword-investigative-techniques">Afterword: Investigative Techniques</h3>
+<p>While I learned a lot of this information from the compiler source directly, I’ve since learned there’s a very simple way to see what the compiler is doing.
+On nightly rust, there’s an unstable flag called <code class="language-plaintext highlighter-rouge">unpretty</code> that you can use to print out the module source after macro expansion:</p>
 
-&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;rustc my_mod.rs &lt;span class=&quot;nt&quot;&gt;-Z&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;unpretty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;hir
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rustc my_mod.rs <span class="nt">-Z</span> <span class="nv">unpretty</span><span class="o">=</span>hir
+</code></pre></div></div>
 
-&lt;p&gt;That’s all for now folks, if you have any thoughts or questions feel free to find me on &lt;a href=&quot;https://wiki.mozilla.org/IRC&quot;&gt;IRC&lt;/a&gt;, &lt;a href=&quot;https://discordapp.com/invite/aVESxV8&quot;&gt;Discord&lt;/a&gt;, under the username &lt;code class=&quot;highlighter-rouge&quot;&gt;djrenren&lt;/code&gt;, or on twitter as &lt;a href=&quot;https://twitter.com/thedjrenren&quot;&gt;@thedjrenren&lt;/a&gt;.&lt;/p&gt;</content><author><name></name></author><summary type="html">Lately, I’ve been working implementing the Custom Test Frameworks eRFC for Rust. While exploring the compiler codebase, I’ve learned about the internals of testing in Rust and figured it would be interesting to share.</summary></entry></feed>
+<p>That’s all for now folks, if you have any thoughts or questions feel free to find me on <a href="https://wiki.mozilla.org/IRC">IRC</a>, <a href="https://discordapp.com/invite/aVESxV8">Discord</a>, under the username <code class="language-plaintext highlighter-rouge">djrenren</code>, or on twitter as <a href="https://twitter.com/thedjrenren">@thedjrenren</a>.</p>]]></content><author><name></name></author><category term="rust" /><category term="testing" /><summary type="html"><![CDATA[Lately, I’ve been working implementing the Custom Test Frameworks eRFC for Rust. While exploring the compiler codebase, I’ve learned about the internals of testing in Rust and figured it would be interesting to share.]]></summary></entry></feed>

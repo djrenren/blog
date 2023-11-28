@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Open+Sans:800,400|Source+Code+Pro">
-    <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
+    <link rel="alternate" type="application/atom+xml" title="John Renner's Blog" href="/atom.xml" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
@@ -14,9 +14,9 @@
     
     
 
-    <!-- Begin Jekyll SEO tag v2.6.1 -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>#[test] in 2018 | djrenren</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="#[test] in 2018" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Lately, I’ve been working implementing the Custom Test Frameworks eRFC for Rust. While exploring the compiler codebase, I’ve learned about the internals of testing in Rust and figured it would be interesting to share." />
@@ -25,9 +25,11 @@
 <meta property="og:url" content="https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html" />
 <meta property="og:site_name" content="djrenren" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-07-19T16:11:01-07:00" />
+<meta property="article:published_time" content="2018-07-19T19:11:01-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="#[test] in 2018" />
 <script type="application/ld+json">
-{"description":"Lately, I’ve been working implementing the Custom Test Frameworks eRFC for Rust. While exploring the compiler codebase, I’ve learned about the internals of testing in Rust and figured it would be interesting to share.","@type":"BlogPosting","headline":"#[test] in 2018","dateModified":"2018-07-19T16:11:01-07:00","datePublished":"2018-07-19T16:11:01-07:00","url":"https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html"},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-07-19T19:11:01-04:00","datePublished":"2018-07-19T19:11:01-04:00","description":"Lately, I’ve been working implementing the Custom Test Frameworks eRFC for Rust. While exploring the compiler codebase, I’ve learned about the internals of testing in Rust and figured it would be interesting to share.","headline":"#[test] in 2018","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html"},"url":"https://www.jrenner.net/rust/testing/2018/07/19/test-in-2018.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -72,17 +74,17 @@
 While exploring the compiler codebase, I’ve learned about the internals of testing in Rust
 and figured it would be interesting to share.</p>
 
-<h3 id="the-test-attribute">The <code class="highlighter-rouge">#[test]</code> attribute</h3>
-<p>Today, rust programmers rely on a built in attribute called <code class="highlighter-rouge">#[test]</code>.
+<h3 id="the-test-attribute">The <code class="language-plaintext highlighter-rouge">#[test]</code> attribute</h3>
+<p>Today, rust programmers rely on a built in attribute called <code class="language-plaintext highlighter-rouge">#[test]</code>.
 All you have to do is mark a function as a test and include some asserts like so:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
 <span class="k">fn</span> <span class="nf">my_test</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
+  <span class="nd">assert!</span><span class="p">(</span><span class="mi">2</span><span class="o">+</span><span class="mi">2</span> <span class="o">==</span> <span class="mi">4</span><span class="p">);</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>When this program is compiled using <code class="highlighter-rouge">rustc --test</code> or <code class="highlighter-rouge">cargo test</code>, it will
+<p>When this program is compiled using <code class="language-plaintext highlighter-rouge">rustc --test</code> or <code class="language-plaintext highlighter-rouge">cargo test</code>, it will
 produce an executable that can run this, and any other test function. This
 method of testing allows tests to live alongside code in an organic way. You
 can even put tests inside private modules:</p>
@@ -92,36 +94,36 @@ can even put tests inside private modules:</p>
 
   <span class="nd">#[test]</span>
   <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
+    <span class="nd">assert!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
 <p>Private items can thus be easily tested without worrying about how to expose
 the them to any sort of external testing apparatus. This is key to the
 ergonomics of testing in Rust. Semantically, however, it’s rather odd.
-How does any sort of <code class="highlighter-rouge">main</code> function invoke these tests if they’re not visible?
-What exactly is <code class="highlighter-rouge">rustc --test</code> doing?</p>
+How does any sort of <code class="language-plaintext highlighter-rouge">main</code> function invoke these tests if they’re not visible?
+What exactly is <code class="language-plaintext highlighter-rouge">rustc --test</code> doing?</p>
 
-<p><code class="highlighter-rouge">#[test]</code> is implemented as a syntactic transformation inside the compiler’s
-<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="highlighter-rouge">libsyntax</code> crate</a>. Essentially, it’s a fancy macro, that
+<p><code class="language-plaintext highlighter-rouge">#[test]</code> is implemented as a syntactic transformation inside the compiler’s
+<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="language-plaintext highlighter-rouge">libsyntax</code> crate</a>. Essentially, it’s a fancy macro, that
 rewrites the crate in 3 steps:</p>
 
 <h4 id="step-1-re-exporting">Step 1: Re-Exporting</h4>
 
 <p>As mentioned earlier, tests can exist inside private modules, so we need a way of
 exposing them to the main function, without breaking any existing code. To that end,
-<code class="highlighter-rouge">libsyntax</code> will create local modules called <code class="highlighter-rouge">__test_reexports</code> that recursively reexport tests.
+<code class="language-plaintext highlighter-rouge">libsyntax</code> will create local modules called <code class="language-plaintext highlighter-rouge">__test_reexports</code> that recursively reexport tests.
 This expansion translates the above example into:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">mod</span> <span class="n">my_priv_mod</span> <span class="p">{</span>
   <span class="k">fn</span> <span class="nf">my_priv_func</span><span class="p">()</span> <span class="k">-&gt;</span> <span class="nb">bool</span> <span class="p">{}</span>
 
   <span class="k">fn</span> <span class="nf">test_priv_func</span><span class="p">()</span> <span class="p">{</span>
-    <span class="k">assert</span><span class="o">!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
+    <span class="nd">assert!</span><span class="p">(</span><span class="nf">my_priv_func</span><span class="p">());</span>
   <span class="p">}</span>
 
-  <span class="k">pub</span> <span class="k">mod</span> <span class="mi">__</span><span class="n">test_reexports</span> <span class="p">{</span>
-    <span class="k">pub</span> <span class="k">use</span> <span class="nn">super</span><span class="p">::</span><span class="n">test_priv_func</span><span class="p">;</span>
+  <span class="k">pub</span> <span class="k">mod</span> <span class="n">__test_reexports</span> <span class="p">{</span>
+    <span class="k">pub</span> <span class="k">use</span> <span class="k">super</span><span class="p">::</span><span class="n">test_priv_func</span><span class="p">;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div></div>
@@ -129,19 +131,19 @@ This expansion translates the above example into:</p>
 <p>Now, our test can be accessed as:</p>
 
 <blockquote>
-  <p><code class="highlighter-rouge">my_priv_mod::__test_reexports::test_priv_func</code></p>
+  <p><code class="language-plaintext highlighter-rouge">my_priv_mod::__test_reexports::test_priv_func</code></p>
 </blockquote>
 
 <p>For deeper module
-structures, <code class="highlighter-rouge">__test_reexports</code> will reexport modules that contain tests, so a
-test at <code class="highlighter-rouge">a::b::my_test</code> becomes:</p>
+structures, <code class="language-plaintext highlighter-rouge">__test_reexports</code> will reexport modules that contain tests, so a
+test at <code class="language-plaintext highlighter-rouge">a::b::my_test</code> becomes:</p>
 
 <blockquote>
-  <p><code class="highlighter-rouge">a::__test_reexports::b::__test_reexports::my_test</code></p>
+  <p><code class="language-plaintext highlighter-rouge">a::__test_reexports::b::__test_reexports::my_test</code></p>
 </blockquote>
 
 <p>While this process seems
-pretty safe, what happens if there is an existing <code class="highlighter-rouge">__test_reexports</code> module?
+pretty safe, what happens if there is an existing <code class="language-plaintext highlighter-rouge">__test_reexports</code> module?
 The answer: nothing.</p>
 
 <p>To explain, we need to understand <a href="https://doc.rust-lang.org/nightly/nightly-rustc/syntax/ast/struct.Ident.html">how the AST represents
@@ -150,19 +152,19 @@ not stored as a string, but rather as an opaque <a href="https://doc.rust-lang.o
 essentially an ID number for each identifier. The compiler keeps a separate
 hashtable that allows us to recover the human-readable name of a Symbol when
 necessary (such as when printing a syntax error). When the compiler generates
-the <code class="highlighter-rouge">__test_reexports</code> module, it generates a new Symbol for the identifier,
-so while the compiler-generated <code class="highlighter-rouge">__test_reexports</code> may share a name with your
+the <code class="language-plaintext highlighter-rouge">__test_reexports</code> module, it generates a new Symbol for the identifier,
+so while the compiler-generated <code class="language-plaintext highlighter-rouge">__test_reexports</code> may share a name with your
 hand-written one, it will not share a Symbol. This technique prevents name
 collision during code generation and is the foundation of Rust’s macro
 hygiene.</p>
 
 <h4 id="step-2-harness-generation">Step 2: Harness Generation</h4>
 <p>Now that our tests are accessible from the root of our crate, we need to do something with them.
-<code class="highlighter-rouge">libsyntax</code> generates a module like so:</p>
+<code class="language-plaintext highlighter-rouge">libsyntax</code> generates a module like so:</p>
 
-<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">mod</span> <span class="mi">__</span><span class="n">test</span> <span class="p">{</span>
-  <span class="k">extern</span> <span class="n">crate</span> <span class="n">test</span><span class="p">;</span>
-  <span class="k">const</span> <span class="n">TESTS</span><span class="p">:</span> <span class="o">&amp;</span><span class="nv">'static</span> <span class="p">[</span><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">[</span><span class="cm">/*...*/</span><span class="p">];</span>
+<div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">pub</span> <span class="k">mod</span> <span class="n">__test</span> <span class="p">{</span>
+  <span class="k">extern</span> <span class="k">crate</span> <span class="n">test</span><span class="p">;</span>
+  <span class="k">const</span> <span class="n">TESTS</span><span class="p">:</span> <span class="o">&amp;</span><span class="k">'static</span> <span class="p">[</span><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">]</span> <span class="o">=</span> <span class="o">&amp;</span><span class="p">[</span><span class="cm">/*...*/</span><span class="p">];</span>
 
   <span class="nd">#[main]</span>
   <span class="k">pub</span> <span class="k">fn</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
@@ -172,14 +174,14 @@ hygiene.</p>
 </code></pre></div></div>
 
 <p>While this transformation is simple, it gives us a lot of insight into how tests are actually run.
-The tests are aggregated into an array and passed to a test runner called <code class="highlighter-rouge">test_static_main</code>.
-We’ll come back to exactly what <code class="highlighter-rouge">TestDescAndFn</code> is, but for now, the key takeaway is that there is a crate
-called <a href="https://doc.rust-lang.org/test/index.html"><code class="highlighter-rouge">test</code></a> that is part of Rust core, that implements all of the runtime for testing. <code class="highlighter-rouge">test</code>’s interface is unstable,
-so the only stable way to interact with it is through the <code class="highlighter-rouge">#[test]</code> macro.</p>
+The tests are aggregated into an array and passed to a test runner called <code class="language-plaintext highlighter-rouge">test_static_main</code>.
+We’ll come back to exactly what <code class="language-plaintext highlighter-rouge">TestDescAndFn</code> is, but for now, the key takeaway is that there is a crate
+called <a href="https://doc.rust-lang.org/test/index.html"><code class="language-plaintext highlighter-rouge">test</code></a> that is part of Rust core, that implements all of the runtime for testing. <code class="language-plaintext highlighter-rouge">test</code>’s interface is unstable,
+so the only stable way to interact with it is through the <code class="language-plaintext highlighter-rouge">#[test]</code> macro.</p>
 
 <h4 id="step-3-test-object-generation">Step 3: Test Object Generation</h4>
 <p>If you’ve written tests in Rust before, you may be familiar with some of the optional attributes available on test functions.
-For example, a test can be annotated with <code class="highlighter-rouge">#[should_panic]</code> if we expect the test to cause a panic. It looks something like this:</p>
+For example, a test can be annotated with <code class="language-plaintext highlighter-rouge">#[should_panic]</code> if we expect the test to cause a panic. It looks something like this:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">#[test]</span>
 <span class="nd">#[should_panic]</span>
@@ -188,10 +190,10 @@ For example, a test can be annotated with <code class="highlighter-rouge">#[shou
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>This means our tests are more than just simple functions, they have configuration information as well. <code class="highlighter-rouge">test</code> encodes this configuration
-data into a struct called <a href="https://doc.rust-lang.org/test/struct.TestDesc.html"><code class="highlighter-rouge">TestDesc</code></a>. For each test function in a crate, <code class="highlighter-rouge">libsyntax</code> will parse its attributes and generate a <code class="highlighter-rouge">TestDesc</code> instance.
-It then combines the <code class="highlighter-rouge">TestDesc</code> and test function into the predictably named <code class="highlighter-rouge">TestDescAndFn</code> struct, that <code class="highlighter-rouge">test_static_main</code> operates on.
-For a given test, the generated <code class="highlighter-rouge">TestDescAndFn</code> instance looks like so:</p>
+<p>This means our tests are more than just simple functions, they have configuration information as well. <code class="language-plaintext highlighter-rouge">test</code> encodes this configuration
+data into a struct called <a href="https://doc.rust-lang.org/test/struct.TestDesc.html"><code class="language-plaintext highlighter-rouge">TestDesc</code></a>. For each test function in a crate, <code class="language-plaintext highlighter-rouge">libsyntax</code> will parse its attributes and generate a <code class="language-plaintext highlighter-rouge">TestDesc</code> instance.
+It then combines the <code class="language-plaintext highlighter-rouge">TestDesc</code> and test function into the predictably named <code class="language-plaintext highlighter-rouge">TestDescAndFn</code> struct, that <code class="language-plaintext highlighter-rouge">test_static_main</code> operates on.
+For a given test, the generated <code class="language-plaintext highlighter-rouge">TestDescAndFn</code> instance looks like so:</p>
 
 <div class="language-rust highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDescAndFn</span><span class="p">{</span>
   <span class="n">desc</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="n">TestDesc</span><span class="p">{</span>
@@ -201,7 +203,7 @@ For a given test, the generated <code class="highlighter-rouge">TestDescAndFn</c
     <span class="n">allow_fail</span><span class="p">:</span> <span class="k">false</span><span class="p">,</span>
   <span class="p">},</span>
   <span class="n">testfn</span><span class="p">:</span> <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">StaticTestFn</span><span class="p">(||</span>
-    <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">assert_test_result</span><span class="p">(::</span><span class="nn">crate</span><span class="p">::</span><span class="mi">__</span><span class="nn">test_reexports</span><span class="p">::</span><span class="nf">foo</span><span class="p">())),</span>
+    <span class="k">self</span><span class="p">::</span><span class="nn">test</span><span class="p">::</span><span class="nf">assert_test_result</span><span class="p">(::</span><span class="k">crate</span><span class="p">::</span><span class="nn">__test_reexports</span><span class="p">::</span><span class="nf">foo</span><span class="p">())),</span>
 <span class="p">}</span>
 </code></pre></div></div>
 
@@ -213,12 +215,12 @@ frameworks, but that’ll be another blog post.</p>
 
 <h3 id="afterword-investigative-techniques">Afterword: Investigative Techniques</h3>
 <p>While I learned a lot of this information from the compiler source directly, I’ve since learned there’s a very simple way to see what the compiler is doing.
-On nightly rust, there’s an unstable flag called <code class="highlighter-rouge">unpretty</code> that you can use to print out the module source after macro expansion:</p>
+On nightly rust, there’s an unstable flag called <code class="language-plaintext highlighter-rouge">unpretty</code> that you can use to print out the module source after macro expansion:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>rustc my_mod.rs <span class="nt">-Z</span> <span class="nv">unpretty</span><span class="o">=</span>hir
 </code></pre></div></div>
 
-<p>That’s all for now folks, if you have any thoughts or questions feel free to find me on <a href="https://wiki.mozilla.org/IRC">IRC</a>, <a href="https://discordapp.com/invite/aVESxV8">Discord</a>, under the username <code class="highlighter-rouge">djrenren</code>, or on twitter as <a href="https://twitter.com/thedjrenren">@thedjrenren</a>.</p>
+<p>That’s all for now folks, if you have any thoughts or questions feel free to find me on <a href="https://wiki.mozilla.org/IRC">IRC</a>, <a href="https://discordapp.com/invite/aVESxV8">Discord</a>, under the username <code class="language-plaintext highlighter-rouge">djrenren</code>, or on twitter as <a href="https://twitter.com/thedjrenren">@thedjrenren</a>.</p>
 
 
 

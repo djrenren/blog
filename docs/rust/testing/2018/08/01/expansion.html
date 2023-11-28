@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Open+Sans:800,400|Source+Code+Pro">
-    <link rel="alternate" type="application/atom+xml" title="SFNP Blog" href="/atom.xml" />
+    <link rel="alternate" type="application/atom+xml" title="John Renner's Blog" href="/atom.xml" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css" />
     <link rel="stylesheet" type="text/css" href="/assets/css/main.css" />
@@ -14,9 +14,9 @@
     
     
 
-    <!-- Begin Jekyll SEO tag v2.6.1 -->
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Baby Steps: Fixing Test Scoping | djrenren</title>
-<meta name="generator" content="Jekyll v4.0.0" />
+<meta name="generator" content="Jekyll v4.3.2" />
 <meta property="og:title" content="Baby Steps: Fixing Test Scoping" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey." />
@@ -25,9 +25,11 @@
 <meta property="og:url" content="https://www.jrenner.net/rust/testing/2018/08/01/expansion.html" />
 <meta property="og:site_name" content="djrenren" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-08-01T04:00:00-07:00" />
+<meta property="article:published_time" content="2018-08-01T07:00:00-04:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Baby Steps: Fixing Test Scoping" />
 <script type="application/ld+json">
-{"description":"I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.","@type":"BlogPosting","headline":"Baby Steps: Fixing Test Scoping","dateModified":"2018-08-01T04:00:00-07:00","datePublished":"2018-08-01T04:00:00-07:00","url":"https://www.jrenner.net/rust/testing/2018/08/01/expansion.html","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jrenner.net/rust/testing/2018/08/01/expansion.html"},"@context":"https://schema.org"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2018-08-01T07:00:00-04:00","datePublished":"2018-08-01T07:00:00-04:00","description":"I recently set out to fix a bug in #[test] expansion in Rust. What follows is a chronicle of that journey.","headline":"Baby Steps: Fixing Test Scoping","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.jrenner.net/rust/testing/2018/08/01/expansion.html"},"url":"https://www.jrenner.net/rust/testing/2018/08/01/expansion.html"}</script>
 <!-- End Jekyll SEO tag -->
 
 </head>
@@ -68,22 +70,22 @@
     01 August 2018
     
 </div>
-<p>I recently set out to fix <a href="https://github.com/rust-lang/rust/issues/52557">a bug</a> in <a href="/rust/testing/2018/07/19/test-in-2018.html"><code class="highlighter-rouge">#[test]</code> expansion in
+<p>I recently set out to fix <a href="https://github.com/rust-lang/rust/issues/52557">a bug</a> in <a href="/rust/testing/2018/07/19/test-in-2018.html"><code class="language-plaintext highlighter-rouge">#[test]</code> expansion in
 Rust</a>. What follows is a chronicle of that journey.</p>
 
 <h2 id="the-bug">The Bug</h2>
 <hr />
-<p>When <code class="highlighter-rouge">rustc</code> encounters a <code class="highlighter-rouge">#[test]</code> attribute it will do one of two things:</p>
+<p>When <code class="language-plaintext highlighter-rouge">rustc</code> encounters a <code class="language-plaintext highlighter-rouge">#[test]</code> attribute it will do one of two things:</p>
 
 <ul>
-  <li>In <code class="highlighter-rouge">debug</code> or <code class="highlighter-rouge">release</code> mode, the annotated item is removed</li>
-  <li>In <code class="highlighter-rouge">test</code> mode, the item is made public so it can be called by the test runner</li>
+  <li>In <code class="language-plaintext highlighter-rouge">debug</code> or <code class="language-plaintext highlighter-rouge">release</code> mode, the annotated item is removed</li>
+  <li>In <code class="language-plaintext highlighter-rouge">test</code> mode, the item is made public so it can be called by the test runner</li>
 </ul>
 
-<p>This is typically safe because direct references to <code class="highlighter-rouge">#[test]</code>
+<p>This is typically safe because direct references to <code class="language-plaintext highlighter-rouge">#[test]</code>
 will cause errors in any mode where the function is removed.</p>
 
-<p>Enter glob imports. Statements like <code class="highlighter-rouge">use my_mod::*</code> allow us to import an
+<p>Enter glob imports. Statements like <code class="language-plaintext highlighter-rouge">use my_mod::*</code> allow us to import an
 entire namespace into another without naming the specific items. We now have
 the requisite pieces to construct the bug:</p>
 
@@ -104,10 +106,10 @@ the requisite pieces to construct the bug:</p>
 <span class="p">}</span>
 </code></pre></div></div>
 
-<p>When compiled normally, <code class="highlighter-rouge">use B::*</code> does nothing and the assert inside <code class="highlighter-rouge">caller</code> will
-always pass. When compiled for test, however, <code class="highlighter-rouge">B::foo</code> will be marked as public,
-which will cause <code class="highlighter-rouge">use B::*</code> to <a href="https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html">shadow</a> the <code class="highlighter-rouge">foo</code> we got from <code class="highlighter-rouge">A::foo</code>.
-Our assert now fails saying that 6 does not equal 0. This means <code class="highlighter-rouge">caller</code> behaves
+<p>When compiled normally, <code class="language-plaintext highlighter-rouge">use B::*</code> does nothing and the assert inside <code class="language-plaintext highlighter-rouge">caller</code> will
+always pass. When compiled for test, however, <code class="language-plaintext highlighter-rouge">B::foo</code> will be marked as public,
+which will cause <code class="language-plaintext highlighter-rouge">use B::*</code> to <a href="https://doc.rust-lang.org/rust-by-example/variable_bindings/scope.html">shadow</a> the <code class="language-plaintext highlighter-rouge">foo</code> we got from <code class="language-plaintext highlighter-rouge">A::foo</code>.
+Our assert now fails saying that 6 does not equal 0. This means <code class="language-plaintext highlighter-rouge">caller</code> behaves
 differently in test builds which is undesirable. Worse still, it happens due to
 an implementation detail in the compiler that authors should never worry about.</p>
 
@@ -119,7 +121,7 @@ Test functions must be made public but they must also not pollute other namespac
 <p><strong>The Solution:</strong>
 Give test functions a name that can never exist in user code.</p>
 
-<p>Rust has an internal mechanism called <code class="highlighter-rouge">gensym</code> that allows the creation of
+<p>Rust has an internal mechanism called <code class="language-plaintext highlighter-rouge">gensym</code> that allows the creation of
 guaranteed unique names. If we rename test functions with a gensym’d name,
 then it’s okay for them to pollute namespaces because it’s impossible to
 reference them.</p>
@@ -127,23 +129,23 @@ reference them.</p>
 <p>Just renaming isn’t enough though, because rust currently allows one test
 to call another. While I think this is a terrible thing to allow, we do and
 so must continue to allow it. We then need to add the old name back into the
-namespace. Just add a <code class="highlighter-rouge">use [gensymed] as foo</code> to add foo back to our namespace.</p>
+namespace. Just add a <code class="language-plaintext highlighter-rouge">use [gensymed] as foo</code> to add foo back to our namespace.</p>
 
 <p><strong>The Nitty Gritty:</strong>
 While the theory behind this fix is sound, simply implementing it didn’t work
 the way I’d expected. I first attempted to implement the change inside
-<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="highlighter-rouge">libsyntax</code></a>’s <code class="highlighter-rouge">TestHarnessGenerator</code>, but this resulted in
+<a href="https://github.com/rust-lang/rust/tree/master/src/libsyntax"><code class="language-plaintext highlighter-rouge">libsyntax</code></a>’s <code class="language-plaintext highlighter-rouge">TestHarnessGenerator</code>, but this resulted in
 strange errors about not being able to find imports despite the AST and HIR
 being correct. While it seems obvious now, it took me a week to figure out
 this was because harness generation runs midway through name resolution.</p>
 
 <p>As a reminder, name resolution is the process by which the compiler realizes
-that the variable <code class="highlighter-rouge">x</code> at one location, is talking about the same variable as
-an <code class="highlighter-rouge">x</code> somewhere else in the code.</p>
+that the variable <code class="language-plaintext highlighter-rouge">x</code> at one location, is talking about the same variable as
+an <code class="language-plaintext highlighter-rouge">x</code> somewhere else in the code.</p>
 
 <p>A good chunk of name resolution occurs during macro expansion in
-<a href="https://github.com/rust-lang/rust/blob/8eb4941e30d2a40bc03840dd0d99beb5aaf8159d/src/libsyntax/ext/expand.rs"><code class="highlighter-rouge">libsyntax/ext/expand.rs</code></a>. In fact, this was already where tests
-were being made <code class="highlighter-rouge">pub</code>. What I had originally discounted as a design mistake,
+<a href="https://github.com/rust-lang/rust/blob/8eb4941e30d2a40bc03840dd0d99beb5aaf8159d/src/libsyntax/ext/expand.rs"><code class="language-plaintext highlighter-rouge">libsyntax/ext/expand.rs</code></a>. In fact, this was already where tests
+were being made <code class="language-plaintext highlighter-rouge">pub</code>. What I had originally discounted as a design mistake,
 was actually crucial to correct operation. With a quick reimplementation
 everything worked great. I realized I’d forgotten to account for the unused
 variable lints, but that was a quick fix.</p>
