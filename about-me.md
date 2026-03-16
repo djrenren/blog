@@ -10,8 +10,9 @@ custom_css:
 
 <section>
 <p>
-    I'm a graduate currently pursuing my PhD in Computer Science at UCSD.
-    My work uses programming language techniques to solve security problems.
+    I'm a engineer turned researcher turned back to engineer, now team lead.
+    My research has focused on using programming language techniques to solve
+    security problems.
 </p>
 <p>
     <b>Email:</b> {{site.email}}
@@ -47,6 +48,23 @@ custom_css:
     </div>
 </section>
 
+<section class="employment">
+    <h2 class="section">Full-time Employment</h2>
+    <div class="job"> 
+        <img src="/assets/img/cubist.svg" alt="Cubist, Inc">
+        <div class="title">
+            <h3>
+                Founding Engineer
+                <span class="company">&nbsp;@ Cubist</span>
+            </h3>
+            <span class="time">2022 - Current</span>
+        </div>
+        <div class="description">
+            Developed white-label auth system including OIDC and Passkey stacks from spec in Rust. Organized the first team of junior engineers and led the development of a
+            visual editor for policy-enforcing programs.
+        </div>
+    </div>
+</section>
 
 <section>
     <h2 class="section">Publications</h2>
@@ -64,7 +82,7 @@ custom_css:
     </div>
 </section>
 <section>
-<h2 class="section">Projects & Work</h2>
+<h2 class="section">Internships & Projects</h2>
 <br>
 <div class="work">
     <div class="work-item">
